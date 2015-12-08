@@ -13,11 +13,17 @@ class MXPlaylistViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "toggleMixably:", name: MXNotifications.ToggleMixably.rawValue, object: nil)
     }
     
-    @IBAction func toogleMixably(sender: NSButton) {
+    func toggleMixably(notification: NSNotification?) {
         let vc = MXMixablyViewController.loadFromNib()
         presentViewControllerAsSheet(vc)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
 }

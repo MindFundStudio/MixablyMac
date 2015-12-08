@@ -1043,17 +1043,6 @@
                                     <animations/>
                                 </tableHeaderView>
                             </scrollView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJf-Dg-Mrz">
-                                <rect key="frame" x="349" y="28" width="87" height="32"/>
-                                <animations/>
-                                <buttonCell key="cell" type="push" title="Mixably" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9wn-FL-hqn">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="toogleMixably:" target="lpz-TU-FBj" id="Krv-zQ-mHt"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                     </view>

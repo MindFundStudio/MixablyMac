@@ -17,5 +17,7 @@ class MXPlayerViewController: NSViewController {
     
     @IBAction func toogleMixably(sender: NSButton) {
         print("mixably")
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.ToggleMixably.rawValue, object: nil, userInfo: nil)
     }
 }
