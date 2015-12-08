@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A220C831C16DA2A00985BC7 /* Mixably.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A220C821C16DA2A00985BC7 /* Mixably.storyboard */; };
 		3A25F4451C16C85F007ED23B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25F4441C16C85F007ED23B /* Constants.swift */; };
+		3A25F4481C16D868007ED23B /* Songs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A25F4461C16D868007ED23B /* Songs.storyboard */; };
 		3AAF4D871C16AF3D0091C2B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF4D861C16AF3D0091C2B3 /* AppDelegate.swift */; };
 		3AAF4D891C16AF3D0091C2B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF4D881C16AF3D0091C2B3 /* ViewController.swift */; };
 		3AAF4D8B1C16AF3D0091C2B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AAF4D8A1C16AF3D0091C2B3 /* Assets.xcassets */; };
@@ -38,7 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A220C821C16DA2A00985BC7 /* Mixably.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mixably.storyboard; sourceTree = "<group>"; };
 		3A25F4441C16C85F007ED23B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3A25F4471C16D868007ED23B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Songs.storyboard; sourceTree = "<group>"; };
 		3AAF4D831C16AF3D0091C2B3 /* MixablyMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixablyMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAF4D861C16AF3D0091C2B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AAF4D881C16AF3D0091C2B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 				3AAF4D881C16AF3D0091C2B3 /* ViewController.swift */,
 				3AAF4D8A1C16AF3D0091C2B3 /* Assets.xcassets */,
 				3AAF4D8C1C16AF3D0091C2B3 /* Main.storyboard */,
+				3A220C821C16DA2A00985BC7 /* Mixably.storyboard */,
+				3A25F4461C16D868007ED23B /* Songs.storyboard */,
 				3AAF4DB31C16B6B60091C2B3 /* ViewControllers */,
 				3AAF4D8F1C16AF3D0091C2B3 /* Info.plist */,
 			);
@@ -281,8 +287,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A25F4481C16D868007ED23B /* Songs.storyboard in Resources */,
 				3AAF4D8B1C16AF3D0091C2B3 /* Assets.xcassets in Resources */,
 				3AAF4D8E1C16AF3D0091C2B3 /* Main.storyboard in Resources */,
+				3A220C831C16DA2A00985BC7 /* Mixably.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +357,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3A25F4461C16D868007ED23B /* Songs.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A25F4471C16D868007ED23B /* Base */,
+			);
+			name = Songs.storyboard;
+			sourceTree = "<group>";
+		};
 		3AAF4D8C1C16AF3D0091C2B3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

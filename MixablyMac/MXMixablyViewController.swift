@@ -11,7 +11,7 @@ import Cocoa
 class MXMixablyViewController: NSViewController {
     
     class func loadFromNib() -> MXMixablyViewController {
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let storyboard = NSStoryboard(name: "Mixably", bundle: nil)
         return storyboard.instantiateControllerWithIdentifier("MXMixablyViewController") as! MXMixablyViewController
     }
 
