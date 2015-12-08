@@ -9,6 +9,8 @@
 import Cocoa
 
 class MXPlaylistViewController: NSViewController {
+    
+    var songs: [Song] = [Song(), Song()]
 
     override func viewDidLoad() {
         super.viewDidLoad()
