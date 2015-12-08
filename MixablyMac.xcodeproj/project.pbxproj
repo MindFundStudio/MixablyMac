@@ -13,6 +13,7 @@
 		3AAF4D8E1C16AF3D0091C2B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AAF4D8C1C16AF3D0091C2B3 /* Main.storyboard */; };
 		3AAF4D991C16AF3D0091C2B3 /* MixablyMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF4D981C16AF3D0091C2B3 /* MixablyMacTests.swift */; };
 		3AAF4DA41C16AF3D0091C2B3 /* MixablyMacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF4DA31C16AF3D0091C2B3 /* MixablyMacUITests.swift */; };
+		3AAF4DB21C16B6B20091C2B3 /* MXMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF4DB11C16B6B20091C2B3 /* MXMainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		3AAF4D9F1C16AF3D0091C2B3 /* MixablyMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MixablyMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAF4DA31C16AF3D0091C2B3 /* MixablyMacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixablyMacUITests.swift; sourceTree = "<group>"; };
 		3AAF4DA51C16AF3D0091C2B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AAF4DB11C16B6B20091C2B3 /* MXMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXMainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				3AAF4D881C16AF3D0091C2B3 /* ViewController.swift */,
 				3AAF4D8A1C16AF3D0091C2B3 /* Assets.xcassets */,
 				3AAF4D8C1C16AF3D0091C2B3 /* Main.storyboard */,
+				3AAF4DB31C16B6B60091C2B3 /* ViewControllers */,
 				3AAF4D8F1C16AF3D0091C2B3 /* Info.plist */,
 			);
 			path = MixablyMac;
@@ -120,6 +123,14 @@
 				3AAF4DA51C16AF3D0091C2B3 /* Info.plist */,
 			);
 			path = MixablyMacUITests;
+			sourceTree = "<group>";
+		};
+		3AAF4DB31C16B6B60091C2B3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3AAF4DB11C16B6B20091C2B3 /* MXMainViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AAF4D891C16AF3D0091C2B3 /* ViewController.swift in Sources */,
+				3AAF4DB21C16B6B20091C2B3 /* MXMainViewController.swift in Sources */,
 				3AAF4D871C16AF3D0091C2B3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
