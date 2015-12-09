@@ -13,7 +13,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     let popover = NSPopover()
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
-
+    var eventMonitor: EventMonitor?
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         
         statusItem.title = ""
@@ -25,23 +26,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         popover.contentViewController = MXMainViewController.loadFromNib()
         
+        eventMonitor = EventMonitor(mask: [.LeftMouseDownMask, .RightMouseDownMask], handler: { (event) -> () in
+            if self.popover.shown {
+                self.closePopover(event)
+            }
+        })
+        
+        eventMonitor?.start()
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
     
-    func showPopover(sender: NSStatusBarButton) {
+    func showPopover(sender: AnyObject?) {
         if let button = statusItem.button {
             popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: .MinY)
         }
     }
     
-    func closePopover(sender: NSStatusBarButton) {
+    func closePopover(sender: AnyObject?) {
         popover.performClose(sender)
     }
     
-    func togglePopover(sender: NSStatusBarButton) {
+    func togglePopover(sender: AnyObject?) {
         if popover.shown {
             closePopover(sender)
         } else {

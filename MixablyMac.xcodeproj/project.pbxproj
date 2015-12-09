@@ -23,6 +23,7 @@
 		4A34E94E63C98EE6C39AC602 /* Pods_MixablyMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACEA5876B72FE5282B68214 /* Pods_MixablyMac.framework */; };
 		7C25AF861C17BB34007A0DBA /* iTunesLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25AF851C17BB34007A0DBA /* iTunesLibrary.framework */; };
 		7C25AF881C17BB3E007A0DBA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25AF871C17BB3E007A0DBA /* AVFoundation.framework */; };
+		7CB1B9B21C180E960056A942 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1B9B11C180E960056A942 /* EventMonitor.swift */; };
 		D1DFEECD1C16F243000B9991 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFEECC1C16F243000B9991 /* Song.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		7C25AF851C17BB34007A0DBA /* iTunesLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iTunesLibrary.framework; path = ../../../../../Library/Frameworks/iTunesLibrary.framework; sourceTree = "<group>"; };
 		7C25AF871C17BB3E007A0DBA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7C25AF891C17DE52007A0DBA /* MixablyMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MixablyMac.entitlements; sourceTree = "<group>"; };
+		7CB1B9B11C180E960056A942 /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		AC632175D9C6A5455B2CA21D /* Pods-MixablyMac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixablyMac.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixablyMac/Pods-MixablyMac.release.xcconfig"; sourceTree = "<group>"; };
 		D1DFEECC1C16F243000B9991 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Song.swift; path = Models/Song.swift; sourceTree = "<group>"; };
 		DF7961601E0145F14D531120 /* Pods-MixablyMac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixablyMac.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixablyMac/Pods-MixablyMac.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				D1DFEECB1C16F219000B9991 /* Models */,
 				3AAF4D861C16AF3D0091C2B3 /* AppDelegate.swift */,
 				3AAF4D881C16AF3D0091C2B3 /* ViewController.swift */,
+				7CB1B9B11C180E960056A942 /* EventMonitor.swift */,
 				3AAF4D8A1C16AF3D0091C2B3 /* Assets.xcassets */,
 				3AAF4D8C1C16AF3D0091C2B3 /* Main.storyboard */,
 				3A220C821C16DA2A00985BC7 /* Mixably.storyboard */,
@@ -422,6 +425,7 @@
 				3AAF4D891C16AF3D0091C2B3 /* ViewController.swift in Sources */,
 				D1DFEECD1C16F243000B9991 /* Song.swift in Sources */,
 				3A25F4451C16C85F007ED23B /* Constants.swift in Sources */,
+				7CB1B9B21C180E960056A942 /* EventMonitor.swift in Sources */,
 				3AAF4DB21C16B6B20091C2B3 /* MXMainViewController.swift in Sources */,
 				3AAF4D871C16AF3D0091C2B3 /* AppDelegate.swift in Sources */,
 			);
