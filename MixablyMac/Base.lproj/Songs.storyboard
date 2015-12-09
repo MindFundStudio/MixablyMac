@@ -239,7 +239,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="9VW-PI-Ivk">
-                                                            <rect key="frame" x="54" y="1" width="127" height="17"/>
+                                                            <rect key="frame" x="54" y="1" width="128" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L3W-gZ-aGF">
