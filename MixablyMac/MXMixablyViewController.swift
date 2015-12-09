@@ -17,7 +17,10 @@ class MXMixablyViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        
+        view.wantsLayer = true
+        view.layerContentsRedrawPolicy = .OnSetNeedsDisplay
+        view.layer?.backgroundColor = NSColor.blackColor().CGColor
     }
     
 }

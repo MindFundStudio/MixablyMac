@@ -1,4 +1,5 @@
 PODS:
+  - pop (1.0.8)
   - Realm (0.96.3):
     - Realm/Headers (= 0.96.3)
   - Realm/Headers (0.96.3)
@@ -6,9 +7,11 @@ PODS:
     - Realm (= 0.96.3)
 
 DEPENDENCIES:
+  - pop (~> 1.0)
   - RealmSwift
 
 SPEC CHECKSUMS:
+  pop: bb773ae2c791ca2629de13b347e7a8b450fa6a57
   Realm: 145d3cdf78a03aee71bde5381ad7e542bd541720
   RealmSwift: aab84968aad662f61f36473d1aea019f63481505
 
