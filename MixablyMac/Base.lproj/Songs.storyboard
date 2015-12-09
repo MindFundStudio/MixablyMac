@@ -250,6 +250,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="9VW-PI-Ivk" name="value" keyPath="objectValue.name" id="ker-XM-hv5"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <animations/>
@@ -284,6 +287,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="83W-KF-hUA" name="value" keyPath="objectValue.intensity" id="3ai-TE-v1c"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <animations/>
@@ -318,6 +324,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="cuq-LH-xgI" name="value" keyPath="objectValue.rhythm" id="ckh-C2-dsl"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <animations/>
@@ -352,6 +361,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="tCP-Iu-Jul" name="value" keyPath="objectValue.bass" id="6f8-yB-XC7"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <animations/>
@@ -396,6 +408,10 @@
                         </constraints>
                         <animations/>
                     </view>
+                    <connections>
+                        <outlet property="arrayController" destination="FZn-0g-Ejz" id="NJk-Cq-3Zg"/>
+                        <outlet property="tableView" destination="g78-ma-eq2" id="wkN-5C-5Xl"/>
+                    </connections>
                 </viewController>
                 <customObject id="DbP-BV-rfF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <arrayController id="FZn-0g-Ejz">

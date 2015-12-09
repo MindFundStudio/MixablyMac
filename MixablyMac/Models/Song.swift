@@ -7,12 +7,13 @@
 //
 
 import Cocoa
+import RealmSwift
 
-class Song: NSObject {
+class Song: Object {
     
-    var name: String? = "New Song"
-    var intensity: Int = 100
-    var rhythm: Int = 100
-    var bass: Int = 100
+    dynamic var name = "New Song"
+    dynamic var intensity = 100.0
+    dynamic var rhythm = 100.0
+    dynamic var bass = 100.0
     
 }
