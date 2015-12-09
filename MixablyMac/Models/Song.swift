@@ -8,6 +8,7 @@
 
 import Cocoa
 import RealmSwift
+import iTunesLibrary
 
 class Song: Object {
     
@@ -15,5 +16,11 @@ class Song: Object {
     dynamic var intensity = 100.0
     dynamic var rhythm = 100.0
     dynamic var bass = 100.0
+    dynamic var location = ""
     
+    convenience init(item: ITLibMediaItem) {
+        self.init()
+        self.name = item.title
+        self.location = item.location.absoluteString
+    }
 }
