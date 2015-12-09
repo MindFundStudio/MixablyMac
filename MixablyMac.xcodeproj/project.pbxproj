@@ -20,6 +20,8 @@
 		3AAF4DB51C16C0A60091C2B3 /* MXPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF4DB41C16C0A60091C2B3 /* MXPlayerViewController.swift */; };
 		3AAF4DB71C16C1E00091C2B3 /* MXPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF4DB61C16C1E00091C2B3 /* MXPlaylistViewController.swift */; };
 		3AAF4DB91C16C21D0091C2B3 /* MXMixablyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF4DB81C16C21D0091C2B3 /* MXMixablyViewController.swift */; };
+		3AE4E7CE1C1821D300BC120D /* MXMixablyPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4E7CD1C1821D300BC120D /* MXMixablyPresentationAnimator.swift */; };
+		3AE4E7D11C183BAE00BC120D /* CALayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4E7D01C183BAE00BC120D /* CALayer+Extensions.swift */; };
 		4A34E94E63C98EE6C39AC602 /* Pods_MixablyMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACEA5876B72FE5282B68214 /* Pods_MixablyMac.framework */; };
 		7C25AF861C17BB34007A0DBA /* iTunesLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25AF851C17BB34007A0DBA /* iTunesLibrary.framework */; };
 		7C25AF881C17BB3E007A0DBA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25AF871C17BB3E007A0DBA /* AVFoundation.framework */; };
@@ -65,6 +67,8 @@
 		3AAF4DB61C16C1E00091C2B3 /* MXPlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXPlaylistViewController.swift; sourceTree = "<group>"; };
 		3AAF4DB81C16C21D0091C2B3 /* MXMixablyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXMixablyViewController.swift; sourceTree = "<group>"; };
 		3ACEA5876B72FE5282B68214 /* Pods_MixablyMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixablyMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AE4E7CD1C1821D300BC120D /* MXMixablyPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXMixablyPresentationAnimator.swift; sourceTree = "<group>"; };
+		3AE4E7D01C183BAE00BC120D /* CALayer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Extensions.swift"; sourceTree = "<group>"; };
 		7C25AF851C17BB34007A0DBA /* iTunesLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iTunesLibrary.framework; path = ../../../../../Library/Frameworks/iTunesLibrary.framework; sourceTree = "<group>"; };
 		7C25AF871C17BB3E007A0DBA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7C25AF891C17DE52007A0DBA /* MixablyMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MixablyMac.entitlements; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 		3A25F4431C16C853007ED23B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3AE4E7CC1C1821AF00BC120D /* PresentationAnimators */,
 				3A25F4441C16C85F007ED23B /* Constants.swift */,
 			);
 			name = Common;
@@ -146,6 +151,7 @@
 		3AAF4D851C16AF3D0091C2B3 /* MixablyMac */ = {
 			isa = PBXGroup;
 			children = (
+				3AE4E7CF1C183BA100BC120D /* Extensions */,
 				7C25AF891C17DE52007A0DBA /* MixablyMac.entitlements */,
 				3A25F4431C16C853007ED23B /* Common */,
 				D1DFEECB1C16F219000B9991 /* Models */,
@@ -213,6 +219,22 @@
 				3AAF4DB41C16C0A60091C2B3 /* MXPlayerViewController.swift */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		3AE4E7CC1C1821AF00BC120D /* PresentationAnimators */ = {
+			isa = PBXGroup;
+			children = (
+				3AE4E7CD1C1821D300BC120D /* MXMixablyPresentationAnimator.swift */,
+			);
+			name = PresentationAnimators;
+			sourceTree = "<group>";
+		};
+		3AE4E7CF1C183BA100BC120D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3AE4E7D01C183BAE00BC120D /* CALayer+Extensions.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		41123FC29F77D0DD0E679F4B /* Frameworks */ = {
@@ -421,11 +443,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AAF4DB51C16C0A60091C2B3 /* MXPlayerViewController.swift in Sources */,
+				3AE4E7CE1C1821D300BC120D /* MXMixablyPresentationAnimator.swift in Sources */,
 				3AAF4DB71C16C1E00091C2B3 /* MXPlaylistViewController.swift in Sources */,
 				3AAF4DB91C16C21D0091C2B3 /* MXMixablyViewController.swift in Sources */,
 				3AAF4D891C16AF3D0091C2B3 /* ViewController.swift in Sources */,
 				D1DFEECD1C16F243000B9991 /* Song.swift in Sources */,
 				3A25F4451C16C85F007ED23B /* Constants.swift in Sources */,
+				3AE4E7D11C183BAE00BC120D /* CALayer+Extensions.swift in Sources */,
 				7CB1B9B21C180E960056A942 /* EventMonitor.swift in Sources */,
 				3AAF4DB21C16B6B20091C2B3 /* MXMainViewController.swift in Sources */,
 				3AAF4D871C16AF3D0091C2B3 /* AppDelegate.swift in Sources */,

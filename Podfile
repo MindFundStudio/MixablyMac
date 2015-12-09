@@ -4,6 +4,7 @@ use_frameworks!
 
 target 'MixablyMac' do
   pod 'RealmSwift'
+  pod 'pop', '~> 1.0'
 end
 
 target 'MixablyMacTests' do

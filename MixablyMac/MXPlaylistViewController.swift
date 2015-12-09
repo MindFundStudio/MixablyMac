@@ -11,14 +11,36 @@ import RealmSwift
 import iTunesLibrary
 import AVFoundation
 
-class MXPlaylistViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
+final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, MXMixablyPresentationController {
+    
+    // ==================
+    // MARK: - Properties
+    // ==================
+    
+    let realm = try! Realm()
+    
+    var library: ITLibrary? = nil
+    var audioPlayer: AVAudioPlayer?
+    
+    var viewToShrink:NSView {
+        return tableView
+    }
+    
+    dynamic var mediaItems: [ITLibMediaItem] = []
+    dynamic var songs: [Song] = (try! Realm()).objects(Song).map { (song) in return song }
+    
+    private var mixablyViewController:MXMixablyViewController?
+    
+    // ================
+    // MARK: - Subviews
+    // ================
+    
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet var arrayController: NSArrayController!
-    var library: ITLibrary? = nil
-    dynamic var mediaItems: [ITLibMediaItem] = []
-    var audioPlayer: AVAudioPlayer?
-    let realm = try! Realm()
-    dynamic var songs: [Song] = (try! Realm()).objects(Song).map { (song) in return song }
+    
+    // =================
+    // MARK: - Lifecycle
+    // =================
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +66,15 @@ class MXPlaylistViewController: NSViewController, NSTableViewDataSource, NSTable
     }
     
     func toggleMixably(notification: NSNotification?) {
-        let vc = MXMixablyViewController.loadFromNib()
-        presentViewControllerAsSheet(vc)
+        if let vc = mixablyViewController {
+            print("Dismiss")
+            dismissViewController(vc)
+            mixablyViewController = nil
+        } else {
+            print("Present")
+            mixablyViewController = MXMixablyViewController.loadFromNib()
+            presentViewController(mixablyViewController!, animator: MXMixablyPresentationAnimator())
+        }
     }
     
     deinit {
