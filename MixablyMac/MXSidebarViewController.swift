@@ -33,6 +33,9 @@ class MXSidebarViewController: NSViewController, NSOutlineViewDelegate, NSOutlin
         NSAnimationContext.currentContext().duration = 0
         sourceListView.expandItem(nil, expandChildren: true)
         NSAnimationContext.endGrouping()
+        
+        // Enable Drag & Drop
+        sourceListView.registerForDraggedTypes(["public.text"])
     }
     
     // MARK: - Helpers
@@ -78,6 +81,63 @@ class MXSidebarViewController: NSViewController, NSOutlineViewDelegate, NSOutlin
         }
     }
     
+    // MARK: - Drag & Drop
+    
+    func outlineView(outlineView: NSOutlineView, pasteboardWriterForItem item: AnyObject) -> NSPasteboardWriting? {
+        guard let playlist = item as? Playlist else { return nil }
+        
+        let pbItem = NSPasteboardItem()
+        pbItem.setString(playlist.name, forType: "public.text")
+        
+        return pbItem
+    }
+    
+    func outlineView(outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: AnyObject?, proposedChildIndex index: Int) -> NSDragOperation {
+        let canDrag = index >= 0 && item != nil
+        
+        if canDrag {
+            return .Move
+        } else {
+            return .None
+        }
+    }
+    
+    func outlineView(outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: AnyObject?, childIndex index: Int) -> Bool {
+        let pb = info.draggingPasteboard()
+        let name = pb.stringForType("public.text")
+        var sourceItem: Playlist!
+        var sourceIndex: Int!
+        
+        if let item = item as? String where item == "Playlist" {
+            var sourceArray = childrenDictionary[item]!
+            
+            for (index, p) in sourceArray.enumerate() {
+                if p.name == name {
+                    sourceItem = p
+                    sourceIndex = index
+                    break
+                }
+            }
+            if sourceIndex == nil {
+                return false
+            }
+            
+            sourceArray.removeAtIndex(sourceIndex)
+            if sourceIndex < index {
+                sourceArray.insert(sourceItem, atIndex: index - 1)
+            } else {
+                sourceArray.insert(sourceItem, atIndex: index)
+            }
+            
+            childrenDictionary[item]! = sourceArray
+            sourceListView.reloadData()
+        } else {
+            return false
+        }
+        
+        return true
+    }
+    
     // MARK: - Delegate
     
     func outlineView(outlineView: NSOutlineView, viewForTableColumn tableColumn: NSTableColumn?, item: AnyObject) -> NSView? {
@@ -106,6 +166,7 @@ class MXSidebarViewController: NSViewController, NSOutlineViewDelegate, NSOutlin
     
     func outlineViewSelectionDidChange(notification: NSNotification) {
         print("notification: \(sourceListView.selectedRow)")
+        parentViewController
     }
     
 }
