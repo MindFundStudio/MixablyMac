@@ -12,23 +12,37 @@ class MXSidebarViewController: NSViewController, NSOutlineViewDelegate, NSOutlin
 
     @IBOutlet weak var sourceListView: NSOutlineView!
     var topLevelItems = ["Library", "Playlist"]
-    var childrenDictionary = [
-        "Library": ["All Songs"],
-        "Playlist": ["P1", "P2"]
-    ]
+    var childrenDictionary: [String: [Playlist]]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
-        sourceListView.sizeLastColumnToFit()
-        sourceListView.reloadData()
-        sourceListView.floatsGroupRows = false
+        let playlist1 = Playlist()
+        playlist1.name = "All Songs"
+        let playlist2 = Playlist()
+        playlist2.name = "P1"
+        let playlist3 = Playlist()
+        playlist3.name = "P2"
+        childrenDictionary = [
+            "Library": [playlist1],
+            "Playlist": [playlist2, playlist3]
+        ]
         
         NSAnimationContext.beginGrouping()
         NSAnimationContext.currentContext().duration = 0
         sourceListView.expandItem(nil, expandChildren: true)
         NSAnimationContext.endGrouping()
+    }
+    
+    // MARK: - Helpers
+    
+    func isHeader(item: AnyObject) -> Bool {
+        if let item = item as? String {
+            return item == "Library" || item == "Playlist"
+        } else {
+            return false
+        }
     }
     
     // MARK: - NSOutlineView DataSource
@@ -55,7 +69,6 @@ class MXSidebarViewController: NSViewController, NSOutlineViewDelegate, NSOutlin
             switch item {
             case let item as String where topLevelItems.contains(item):
                 let result = childrenDictionary[item]![index]
-                print("child: \(result)")
                 return result
             default:
                 return self
@@ -68,15 +81,14 @@ class MXSidebarViewController: NSViewController, NSOutlineViewDelegate, NSOutlin
     // MARK: - Delegate
     
     func outlineView(outlineView: NSOutlineView, viewForTableColumn tableColumn: NSTableColumn?, item: AnyObject) -> NSView? {
-        print("item: \(item)")
         switch item {
         case let item as String where topLevelItems.contains(item):
             let view = outlineView.makeViewWithIdentifier("HeaderCell", owner: self) as! NSTableCellView
             view.textField?.stringValue = item
             return view
-        case let item as String:
+        case let item as Playlist:
             let view = outlineView.makeViewWithIdentifier("DataCell", owner: self) as! NSTableCellView
-            view.textField?.stringValue = item
+            view.textField?.stringValue = item.name
             return view
         default:
             return nil
@@ -85,9 +97,11 @@ class MXSidebarViewController: NSViewController, NSOutlineViewDelegate, NSOutlin
     }
     
     func outlineView(outlineView: NSOutlineView, shouldShowOutlineCellForItem item: AnyObject) -> Bool {
-        guard let item = item as? String else { return false }
-        
-        return item != "Library" && item != "Playlist"
+        return !isHeader(item)
+    }
+    
+    func outlineView(outlineView: NSOutlineView, shouldSelectItem item: AnyObject) -> Bool {
+        return !isHeader(item)
     }
     
     func outlineViewSelectionDidChange(notification: NSNotification) {

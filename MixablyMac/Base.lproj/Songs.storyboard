@@ -70,7 +70,7 @@
                                     <rect key="frame" x="1" y="1" width="166" height="282"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="GzU-wz-Mr6" id="zZL-By-j1B">
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="4" outlineTableColumn="GzU-wz-Mr6" id="zZL-By-j1B">
                                             <rect key="frame" x="0.0" y="0.0" width="166" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
