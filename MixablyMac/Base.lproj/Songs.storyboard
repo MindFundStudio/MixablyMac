@@ -59,7 +59,7 @@
         <!--SideBar-->
         <scene sceneID="1Ji-ie-bFe">
             <objects>
-                <viewController id="bof-xB-KN8" userLabel="SideBar" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MXSidebarViewController" id="bof-xB-KN8" userLabel="SideBar" customClass="MXSidebarViewController" customModule="MixablyMac" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="AlA-wg-3M4">
                         <rect key="frame" x="0.0" y="0.0" width="168" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -138,6 +138,10 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="bof-xB-KN8" id="1tj-aO-k26"/>
+                                                <outlet property="delegate" destination="bof-xB-KN8" id="Xn0-Cc-axh"/>
+                                            </connections>
                                         </outlineView>
                                     </subviews>
                                     <animations/>
@@ -164,6 +168,9 @@
                         </constraints>
                         <animations/>
                     </view>
+                    <connections>
+                        <outlet property="sourceListView" destination="zZL-By-j1B" id="mDa-nh-UcU"/>
+                    </connections>
                 </viewController>
                 <customObject id="EWg-MJ-Fxo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
