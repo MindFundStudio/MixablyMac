@@ -84,6 +84,7 @@ class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, 
     
     func outlineView(outlineView: NSOutlineView, pasteboardWriterForItem item: AnyObject) -> NSPasteboardWriting? {
         guard let playlist = item as? Playlist else { return nil }
+        guard let item = item as? Playlist where item.name != "All Songs" else { return nil }
         
         let pbItem = NSPasteboardItem()
         pbItem.setString(playlist.name, forType: dragType)
@@ -103,11 +104,11 @@ class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, 
     
     func outlineView(outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: AnyObject?, childIndex index: Int) -> Bool {
         let pb = info.draggingPasteboard()
-        let name = pb.stringForType("public.text")
+        let name = pb.stringForType(dragType)
         var sourceItem: Playlist!
         var sourceIndex: Int!
         
-        if let item = item as? String where item == dragType {
+        if let item = item as? String where item == "Playlist" {
             var sourceArray = childrenDictionary[item]!
             
             for (index, p) in sourceArray.enumerate() {
