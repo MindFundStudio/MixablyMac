@@ -21,7 +21,7 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
         return tableView
     }
     
-    dynamic var songs: [Song]?
+    dynamic var songs: [Song]!
     
     private var mixablyViewController:MXMixablyViewController?
     
@@ -48,6 +48,7 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
         // Register Notifications
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "toggleMixably:", name: MXNotifications.ToggleMixably.rawValue, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "selectPlaylist:", name: MXNotifications.SelectPlaylist.rawValue, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeSong:", name: MXNotifications.ChangeSong.rawValue, object: nil)
     }
     
@@ -55,7 +56,12 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
     
     func loadAllSongs() {
         songs = (try! Realm()).objects(Song).map { (song) in return song }
-        MXPlayerManager.sharedManager.playList = songs!
+        MXPlayerManager.sharedManager.playList = songs
+    }
+    
+    func loadSongsOfPlaylist(playlist: Playlist) {
+        songs = playlist.songs.map { (song) in return song }
+        MXPlayerManager.sharedManager.playList = songs
     }
     
     // MARK: - Notification Observers
@@ -69,6 +75,18 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
             print("Present")
             mixablyViewController = MXMixablyViewController.loadFromNib()
             presentViewController(mixablyViewController!, animator: MXMixablyPresentationAnimator())
+        }
+    }
+    
+    func selectPlaylist(notification: NSNotification?) {
+        guard let playlist = notification?.userInfo?[MXNotificationUserInfo.Playlist.rawValue] as? Playlist else {
+            return
+        }
+        
+        if playlist.name == AllSongs {
+            loadAllSongs()
+        } else {
+            loadSongsOfPlaylist(playlist)
         }
     }
     

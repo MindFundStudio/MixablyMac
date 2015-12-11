@@ -22,7 +22,7 @@ class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, 
         // Do view setup here.
         
         let playlist1 = Playlist()
-        playlist1.name = "All Songs"
+        playlist1.name = AllSongs
         childrenDictionary = [
             "Library": [playlist1],
             "Playlist": realm.objects(Playlist).map { (x) in return x }
@@ -32,7 +32,9 @@ class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, 
         NSAnimationContext.currentContext().duration = 0
         sourceListView.expandItem(nil, expandChildren: true)
         NSAnimationContext.endGrouping()
-        
+
+        sourceListView.selectRowIndexes(NSIndexSet(index: 1), byExtendingSelection: false)
+
         // Enable Drag & Drop
         sourceListView.registerForDraggedTypes([dragType])
     }
@@ -166,7 +168,11 @@ class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, 
     
     func outlineViewSelectionDidChange(notification: NSNotification) {
         print("playlist: \(sourceListView.selectedRow)")
-//        parentViewController
+        let item = sourceListView.itemAtRow(sourceListView.selectedRow)
+        
+        if let item = item as? Playlist where item.name == AllSongs && item != "a" {
+            NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.SelectPlaylist.rawValue, object: self, userInfo: [MXNotificationUserInfo.Playlist.rawValue: item])
+        }
     }
     
 }

@@ -16,11 +16,17 @@ enum MXNotifications: String {
     case PausePlaying = "pausePlaying"
     case StopPlaying = "stopPlaying"
     case ChangeSong = "changeSong"
+    case SelectPlaylist = "selectPlaylist"
 }
 
 enum MXNotificationUserInfo: String {
     case Song = "song"
+    case Playlist = "playlist"
 }
+
+// MARK: - Display
+
+let AllSongs = "All Songs"
 
 // MARK: - AppKit
 
