@@ -31,8 +31,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self.closePopover(event)
             }
         })
-        
-        eventMonitor?.start()
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
@@ -43,10 +41,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusItem.button {
             popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: .MinY)
         }
+        eventMonitor?.start()
     }
     
     func closePopover(sender: AnyObject?) {
         popover.performClose(sender)
+        eventMonitor?.stop()
     }
     
     func togglePopover(sender: AnyObject?) {

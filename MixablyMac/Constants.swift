@@ -11,3 +11,5 @@ import Foundation
 enum MXNotifications: String {
     case ToggleMixably = "toggleMixably"
 }
+
+let dragType = "public.text"
