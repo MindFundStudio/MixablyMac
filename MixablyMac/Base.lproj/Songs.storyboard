@@ -101,10 +101,10 @@
             </objects>
             <point key="canvasLocation" x="299" y="1217"/>
         </scene>
-        <!--Sidebar View Controller-->
+        <!--Sidebar Playlist View Controller-->
         <scene sceneID="x3D-ny-b9A">
             <objects>
-                <viewController storyboardIdentifier="MXSidebarViewController" id="Dxh-gi-RQJ" customClass="MXSidebarViewController" customModule="MixablyMac" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MXSidebarPlaylistViewController" id="Dxh-gi-RQJ" customClass="MXSidebarPlaylistViewController" customModule="MixablyMac" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Evw-Ic-haA">
                         <rect key="frame" x="0.0" y="0.0" width="168" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -482,14 +482,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="168" height="200"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5u-f2-fBK">
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5u-f2-fBK">
                                 <rect key="frame" x="0.0" y="0.0" width="168" height="200"/>
                                 <clipView key="contentView" drawsBackground="NO" id="Mzm-ac-15U">
                                     <rect key="frame" x="1" y="1" width="166" height="198"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="4" outlineTableColumn="dH5-LO-8SJ" id="Fbt-oD-aDd">
-                                            <rect key="frame" x="0.0" y="0.0" width="166" height="198"/>
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="4" outlineTableColumn="dH5-LO-8SJ" id="Fbt-oD-aDd">
+                                            <rect key="frame" x="0.0" y="0.0" width="166" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                             <size key="intercellSpacing" width="3" height="2"/>

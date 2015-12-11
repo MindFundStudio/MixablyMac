@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class MXSidebarViewController: NSViewController, NSOutlineViewDelegate, NSOutlineViewDataSource {
+class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, NSOutlineViewDataSource {
 
     @IBOutlet weak var sourceListView: NSOutlineView!
     var topLevelItems = ["Library", "Playlist"]
