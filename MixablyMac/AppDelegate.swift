@@ -35,7 +35,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         })
         
         // Seed Data
-        MXDataManager.importSeedData()
+//        NSUserDefaults.standardUserDefaults().setBool(false, forKey: MX_INITIAL_LAUNCH)
+        do {
+            try MXSongManager.importSongs()
+            MXDataManager.importSeedData()
+        } catch let error as NSError {
+            print("Error: \(error)")
+            NSAlert(error: error).runModal()
+        }
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
