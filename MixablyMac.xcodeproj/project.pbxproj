@@ -26,6 +26,9 @@
 		7C25AF861C17BB34007A0DBA /* iTunesLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25AF851C17BB34007A0DBA /* iTunesLibrary.framework */; };
 		7C25AF881C17BB3E007A0DBA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25AF871C17BB3E007A0DBA /* AVFoundation.framework */; };
 		7CB1B9B21C180E960056A942 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1B9B11C180E960056A942 /* EventMonitor.swift */; };
+		7CB1B9B61C1817900056A942 /* MXPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1B9B51C1817900056A942 /* MXPlayerManager.swift */; };
+		7CB1B9B81C191FC30056A942 /* CollectionType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1B9B71C191FC30056A942 /* CollectionType+Extensions.swift */; };
+		7CB1B9BA1C191FD30056A942 /* MutableCollectionType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1B9B91C191FD30056A942 /* MutableCollectionType+Extensions.swift */; };
 		D10004011C1855EF00563D6B /* MXSidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10004001C1855EF00563D6B /* MXSidebarViewController.swift */; };
 		D1159F871C1A942400E43147 /* MXSidebarMoodlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1159F861C1A942400E43147 /* MXSidebarMoodlistViewController.swift */; };
 		D169D1051C192692002F62D6 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169D1041C192692002F62D6 /* Playlist.swift */; };
@@ -77,6 +80,9 @@
 		7C25AF871C17BB3E007A0DBA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7C25AF891C17DE52007A0DBA /* MixablyMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MixablyMac.entitlements; sourceTree = "<group>"; };
 		7CB1B9B11C180E960056A942 /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		7CB1B9B51C1817900056A942 /* MXPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXPlayerManager.swift; sourceTree = "<group>"; };
+		7CB1B9B71C191FC30056A942 /* CollectionType+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+Extensions.swift"; sourceTree = "<group>"; };
+		7CB1B9B91C191FD30056A942 /* MutableCollectionType+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MutableCollectionType+Extensions.swift"; sourceTree = "<group>"; };
 		AC632175D9C6A5455B2CA21D /* Pods-MixablyMac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixablyMac.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixablyMac/Pods-MixablyMac.release.xcconfig"; sourceTree = "<group>"; };
 		D10004001C1855EF00563D6B /* MXSidebarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSidebarViewController.swift; sourceTree = "<group>"; };
 		D1159F861C1A942400E43147 /* MXSidebarMoodlistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSidebarMoodlistViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +169,12 @@
 				D1DFEECB1C16F219000B9991 /* Models */,
 				3AAF4D861C16AF3D0091C2B3 /* AppDelegate.swift */,
 				3AAF4D881C16AF3D0091C2B3 /* ViewController.swift */,
+				7CB1B9B11C180E960056A942 /* EventMonitor.swift */,
+				7CB1B9B51C1817900056A942 /* MXPlayerManager.swift */,
+				3AAF4D8A1C16AF3D0091C2B3 /* Assets.xcassets */,
+				3AAF4D8C1C16AF3D0091C2B3 /* Main.storyboard */,
+				3A220C821C16DA2A00985BC7 /* Mixably.storyboard */,
+				3A25F4461C16D868007ED23B /* Songs.storyboard */,
 				3AAF4DB31C16B6B60091C2B3 /* ViewControllers */,
 				D10003FF1C18441800563D6B /* Supporting Files */,
 				3AAF4D8F1C16AF3D0091C2B3 /* Info.plist */,
@@ -201,7 +213,6 @@
 		3AAF4DBA1C16C2210091C2B3 /* Mixably */ = {
 			isa = PBXGroup;
 			children = (
-				3A220C821C16DA2A00985BC7 /* Mixably.storyboard */,
 				3AAF4DB81C16C21D0091C2B3 /* MXMixablyViewController.swift */,
 			);
 			name = Mixably;
@@ -210,7 +221,6 @@
 		3AAF4DBB1C16C2260091C2B3 /* Playlist */ = {
 			isa = PBXGroup;
 			children = (
-				3A25F4461C16D868007ED23B /* Songs.storyboard */,
 				3AAF4DB61C16C1E00091C2B3 /* MXPlaylistViewController.swift */,
 				D10004001C1855EF00563D6B /* MXSidebarViewController.swift */,
 				D1159F861C1A942400E43147 /* MXSidebarMoodlistViewController.swift */,
@@ -221,7 +231,6 @@
 		3AAF4DBC1C16C22F0091C2B3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				3AAF4D8C1C16AF3D0091C2B3 /* Main.storyboard */,
 				3AAF4DB11C16B6B20091C2B3 /* MXMainViewController.swift */,
 				3AAF4DB41C16C0A60091C2B3 /* MXPlayerViewController.swift */,
 			);
@@ -240,6 +249,8 @@
 			isa = PBXGroup;
 			children = (
 				3AE4E7D01C183BAE00BC120D /* CALayer+Extensions.swift */,
+				7CB1B9B71C191FC30056A942 /* CollectionType+Extensions.swift */,
+				7CB1B9B91C191FD30056A942 /* MutableCollectionType+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -257,7 +268,6 @@
 		D10003FE1C1843C300563D6B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				7CB1B9B11C180E960056A942 /* EventMonitor.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -265,7 +275,6 @@
 		D10003FF1C18441800563D6B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3AAF4D8A1C16AF3D0091C2B3 /* Assets.xcassets */,
 				7C25AF891C17DE52007A0DBA /* MixablyMac.entitlements */,
 			);
 			name = "Supporting Files";
@@ -478,9 +487,12 @@
 				3AAF4DB91C16C21D0091C2B3 /* MXMixablyViewController.swift in Sources */,
 				3AAF4D891C16AF3D0091C2B3 /* ViewController.swift in Sources */,
 				D1DFEECD1C16F243000B9991 /* Song.swift in Sources */,
+				7CB1B9B61C1817900056A942 /* MXPlayerManager.swift in Sources */,
+				7CB1B9B81C191FC30056A942 /* CollectionType+Extensions.swift in Sources */,
 				3A25F4451C16C85F007ED23B /* Constants.swift in Sources */,
 				3AE4E7D11C183BAE00BC120D /* CALayer+Extensions.swift in Sources */,
 				D169D1071C1926A4002F62D6 /* Mood.swift in Sources */,
+				7CB1B9BA1C191FD30056A942 /* MutableCollectionType+Extensions.swift in Sources */,
 				7CB1B9B21C180E960056A942 /* EventMonitor.swift in Sources */,
 				D1159F871C1A942400E43147 /* MXSidebarMoodlistViewController.swift in Sources */,
 				3AAF4DB21C16B6B20091C2B3 /* MXMainViewController.swift in Sources */,

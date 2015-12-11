@@ -47,6 +47,7 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
         // Do view setup here.
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "toggleMixably:", name: MXNotifications.ToggleMixably.rawValue, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeSong:", name: MXNotifications.ChangeSong.rawValue, object: nil)
         
         do {
             library = try ITLibrary(APIVersion: "1.0")
@@ -56,6 +57,7 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
             }).map({ (item) -> Song in
                 return Song(item: item)
             })
+            MXPlayerManager.sharedManager.playList = songs
         } catch let error as NSError {
             print("error loading iTunesLibrary")
             NSAlert(error: error).runModal()
@@ -77,6 +79,25 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
         }
     }
     
+    func changeSong(notification: NSNotification?) {
+        guard let song = notification?.userInfo?[MXNotificationUserInfo.Song.rawValue] as? Song else {
+            // no current song. Deselect row
+            tableView.deselectAll(nil)
+            return
+        }
+        
+        // select song
+        let index = songs.indexOf { (s) -> Bool in
+            return s.location == song.location
+        }
+        
+        if let index = index {
+            tableView.selectRowIndexes(NSIndexSet(index: index), byExtendingSelection: false)
+            tableView.scrollRowToVisible(index)
+        }
+        
+    }
+    
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
@@ -84,32 +105,8 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
     // MARK: - Double Action
     
     func doubleClick(sender: NSTableView) {
-        let selectedItem = songs[tableView.selectedRow]
-        audioPlayer = try? AVAudioPlayer(contentsOfURL: NSURL(string: selectedItem.location)!)
-        audioPlayer?.play()
-    }
-    
-    override func keyDown(theEvent: NSEvent) {
-        interpretKeyEvents([theEvent])
-    }
-    
-    override func insertText(insertString: AnyObject) {
-        let text = insertString as! String
-        if text == " " {
-            toggleAudioPlayer()
-        }
-    }
-    
-    func toggleAudioPlayer() {
-        if let audioPlayer = audioPlayer {
-            if audioPlayer.playing {
-                audioPlayer.stop()
-            } else {
-                audioPlayer.play()
-            }
-        } else if !mediaItems.isEmpty {
-            audioPlayer = try? AVAudioPlayer(contentsOfURL: mediaItems[0].location)
-            audioPlayer?.play()
-        }
+        let manager = MXPlayerManager.sharedManager
+        manager.currentSong = songs[tableView.selectedRow]
+        manager.play()
     }
 }

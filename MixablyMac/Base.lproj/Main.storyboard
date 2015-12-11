@@ -94,7 +94,8 @@
                                                 <action selector="saveDocument:" target="Ady-hI-5gd" id="teZ-XB-qJY"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Save As…" keyEquivalent="S" id="Bw7-FT-i3A">
+                                        <menuItem title="Save As…" keyEquivalent="s" id="Bw7-FT-i3A">
+                                            <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                             <connections>
                                                 <action selector="saveDocumentAs:" target="Ady-hI-5gd" id="mDf-zr-I0C"/>
                                             </connections>
@@ -713,35 +714,44 @@
                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6iU-nI-9oP">
                                         <rect key="frame" x="-2" y="30" width="249" height="21"/>
                                         <animations/>
-                                        <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="hb8-Fd-aox"/>
+                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="0.5" tickMarkPosition="above" sliderType="linear" id="hb8-Fd-aox"/>
+                                        <connections>
+                                            <action selector="slideVolume:" target="28T-H6-w9b" id="tLu-iF-j49"/>
+                                        </connections>
                                     </slider>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nty-cb-S6k">
-                                        <rect key="frame" x="0.0" y="0.0" width="82" height="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="81" height="32"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iJh-wx-i3p" userLabel="SongLengthLabel">
-                                                <rect key="frame" x="-2" y="8" width="35" height="17"/>
+                                                <rect key="frame" x="-2" y="8" width="34" height="17"/>
                                                 <animations/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="3:23" id="0pF-MU-jNs">
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="--:--" id="0pF-MU-jNs">
                                                     <font key="font" metaFont="systemBold"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XtO-Jd-wdp">
-                                                <rect key="frame" x="39" y="8" width="17" height="16"/>
+                                                <rect key="frame" x="38" y="8" width="17" height="16"/>
                                                 <animations/>
                                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Shuffle" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="NPz-l9-Rn5">
                                                     <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="setShuffle:" target="28T-H6-w9b" id="bVf-pW-7fc"/>
+                                                </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="htz-Ic-AGO">
-                                                <rect key="frame" x="64" y="0.0" width="18" height="32"/>
+                                                <rect key="frame" x="63" y="0.0" width="18" height="32"/>
                                                 <animations/>
                                                 <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="Repeat" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Irg-1o-mdU">
                                                     <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="setRepeat:" target="28T-H6-w9b" id="ciY-0p-WUa"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <animations/>
@@ -777,6 +787,9 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="back:" target="28T-H6-w9b" id="4FA-aW-hwk"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BcQ-oI-b89">
                                         <rect key="frame" x="54" y="0.0" width="30" height="31"/>
@@ -785,6 +798,9 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="togglePlay:" target="28T-H6-w9b" id="0Mj-L3-98L"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fQO-WR-CiA">
                                         <rect key="frame" x="110" y="6" width="29" height="20"/>
@@ -793,6 +809,9 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="next:" target="28T-H6-w9b" id="1CC-QL-EdS"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -830,6 +849,13 @@
                         </constraints>
                         <animations/>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="HLi-eE-ZP5" id="ZKT-Sc-Kww"/>
+                        <outlet property="nextButton" destination="fQO-WR-CiA" id="ES6-yU-LiQ"/>
+                        <outlet property="playPauseButton" destination="BcQ-oI-b89" id="erl-iT-mW6"/>
+                        <outlet property="songLengthTextField" destination="iJh-wx-i3p" id="XJK-mE-a4h"/>
+                        <outlet property="volumeSlider" destination="6iU-nI-9oP" id="3iD-dV-K9X"/>
+                    </connections>
                 </viewController>
                 <customObject id="uEa-1a-NYA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

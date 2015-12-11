@@ -17,10 +17,12 @@ class Song: Object {
     dynamic var rhythm = 100.0
     dynamic var bass = 100.0
     dynamic var location = ""
+    dynamic var duration = 0.0
     
     convenience init(item: ITLibMediaItem) {
         self.init()
         self.name = item.title
         self.location = item.location.absoluteString
+        self.duration = NSTimeInterval(item.totalTime) / 1000.0
     }
 }
