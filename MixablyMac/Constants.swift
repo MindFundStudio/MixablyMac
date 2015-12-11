@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - Notifications
+
 enum MXNotifications: String {
     case ToggleMixably = "toggleMixably"
     case StartPlaying = "startPlaying"
@@ -16,8 +18,14 @@ enum MXNotifications: String {
     case ChangeSong = "changeSong"
 }
 
-let dragType = "public.text"
-
 enum MXNotificationUserInfo: String {
     case Song = "song"
 }
+
+// MARK: - AppKit
+
+let dragType = "public.text"
+
+// MARK: - NSUserDefaults
+
+let MX_INITIAL_LAUNCH = "appInitLaunch"

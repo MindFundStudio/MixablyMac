@@ -24,6 +24,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.action = Selector("togglePopover:")
         }
         
+        // Popover
+        
         popover.contentViewController = MXMainViewController.loadFromNib()
         
         eventMonitor = EventMonitor(mask: [.LeftMouseDownMask, .RightMouseDownMask], handler: { (event) -> () in
@@ -31,11 +33,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self.closePopover(event)
             }
         })
+        
+        // Seed Data
+        MXDataManager.importSeedData()
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
+    
+    // Helpers
     
     func showPopover(sender: AnyObject?) {
         if let button = statusItem.button {

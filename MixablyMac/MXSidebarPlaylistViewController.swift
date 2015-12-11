@@ -7,10 +7,13 @@
 //
 
 import Cocoa
+import RealmSwift
 
 class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, NSOutlineViewDataSource {
 
     @IBOutlet weak var sourceListView: NSOutlineView!
+    
+    let realm = try! Realm()
     var topLevelItems = ["Library", "Playlist"]
     var childrenDictionary: [String: [Playlist]]!
     
@@ -20,13 +23,9 @@ class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, 
         
         let playlist1 = Playlist()
         playlist1.name = "All Songs"
-        let playlist2 = Playlist()
-        playlist2.name = "P1"
-        let playlist3 = Playlist()
-        playlist3.name = "P2"
         childrenDictionary = [
             "Library": [playlist1],
-            "Playlist": [playlist2, playlist3]
+            "Playlist": realm.objects(Playlist).map { (x) in return x }
         ]
         
         NSAnimationContext.beginGrouping()
