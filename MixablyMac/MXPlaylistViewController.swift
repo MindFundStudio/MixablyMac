@@ -8,8 +8,6 @@
 
 import Cocoa
 import RealmSwift
-import iTunesLibrary
-import AVFoundation
 
 final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, MXMixablyPresentationController {
     
@@ -19,15 +17,11 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
     
     let realm = try! Realm()
     
-    var library: ITLibrary? = nil
-    var audioPlayer: AVAudioPlayer?
-    
     var viewToShrink:NSView {
         return tableView
     }
     
-    dynamic var mediaItems: [ITLibMediaItem] = []
-    dynamic var songs: [Song] = (try! Realm()).objects(Song).map { (song) in return song }
+    dynamic var songs: [Song]!
     
     private var mixablyViewController:MXMixablyViewController?
     
@@ -45,27 +39,32 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        loadAllSongs()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "toggleMixably:", name: MXNotifications.ToggleMixably.rawValue, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeSong:", name: MXNotifications.ChangeSong.rawValue, object: nil)
-        
-        do {
-            library = try ITLibrary(APIVersion: "1.0")
-            let allItems = library!.allMediaItems as! [ITLibMediaItem]
-            songs = allItems.filter({ (item) -> Bool in
-                return item.mediaKind == UInt(ITLibMediaItemMediaKindSong) && item.locationType == UInt(ITLibMediaItemLocationTypeFile)
-            }).map({ (item) -> Song in
-                return Song(item: item)
-            })
-            MXPlayerManager.sharedManager.playList = songs
-        } catch let error as NSError {
-            print("error loading iTunesLibrary")
-            NSAlert(error: error).runModal()
-        }
+        // Register tableView Actions
         
         tableView.doubleAction = Selector("doubleClick:")
         
+        // Register Notifications
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "toggleMixably:", name: MXNotifications.ToggleMixably.rawValue, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "selectPlaylist:", name: MXNotifications.SelectPlaylist.rawValue, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeSong:", name: MXNotifications.ChangeSong.rawValue, object: nil)
     }
+    
+    // MARK: - Song List Helpers
+    
+    func loadAllSongs() {
+        songs = (try! Realm()).objects(Song).map { (song) in return song }
+        MXPlayerManager.sharedManager.playList = songs
+    }
+    
+    func loadSongsOfPlaylist(playlist: Playlist) {
+        songs = playlist.songs.map { (song) in return song }
+        MXPlayerManager.sharedManager.playList = songs
+    }
+    
+    // MARK: - Notification Observers
     
     func toggleMixably(notification: NSNotification?) {
         if let vc = mixablyViewController {
@@ -76,6 +75,18 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
             print("Present")
             mixablyViewController = MXMixablyViewController.loadFromNib()
             presentViewController(mixablyViewController!, animator: MXMixablyPresentationAnimator())
+        }
+    }
+    
+    func selectPlaylist(notification: NSNotification?) {
+        guard let playlist = notification?.userInfo?[MXNotificationUserInfo.Playlist.rawValue] as? Playlist else {
+            return
+        }
+        
+        if playlist.name == AllSongs {
+            loadAllSongs()
+        } else {
+            loadSongsOfPlaylist(playlist)
         }
     }
     
@@ -98,10 +109,6 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
         
     }
     
-    deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-    }
-    
     // MARK: - Double Action
     
     func doubleClick(sender: NSTableView) {
@@ -109,4 +116,9 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
         manager.currentSong = songs[tableView.selectedRow]
         manager.play()
     }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
 }

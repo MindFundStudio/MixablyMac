@@ -7,28 +7,27 @@
 //
 
 import Cocoa
+import RealmSwift
 
 class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
 
     @IBOutlet var moodlistController: NSTreeController!
     @IBOutlet weak var outlineView: NSOutlineView!
     
+    let realm = try! Realm()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
-        let m1 = Mood()
-        m1.name = "M1"
-        let m2 = Mood()
-        m2.name = "M2"
-        
-        let original = [
+        let root = [
             "name": "MOODS",
-            "isLeaf": false,
-            "children": [m1, m2]
+            "isLeaf": false
         ]
-        let root: NSMutableDictionary = NSMutableDictionary(dictionary: original)
-        moodlistController.addObject(root)
+        
+        let dict: NSMutableDictionary = NSMutableDictionary(dictionary: root)
+        dict.setObject((realm.objects(Mood).map { (x) in return x }), forKey: "children")
+        moodlistController.addObject(dict)
         
         outlineView.expandItem(nil, expandChildren: true)
         outlineView.deselectRow(0)

@@ -7,10 +7,13 @@
 //
 
 import Cocoa
+import RealmSwift
 
 class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, NSOutlineViewDataSource {
 
     @IBOutlet weak var sourceListView: NSOutlineView!
+    
+    let realm = try! Realm()
     var topLevelItems = ["Library", "Playlist"]
     var childrenDictionary: [String: [Playlist]]!
     
@@ -19,21 +22,19 @@ class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, 
         // Do view setup here.
         
         let playlist1 = Playlist()
-        playlist1.name = "All Songs"
-        let playlist2 = Playlist()
-        playlist2.name = "P1"
-        let playlist3 = Playlist()
-        playlist3.name = "P2"
+        playlist1.name = AllSongs
         childrenDictionary = [
             "Library": [playlist1],
-            "Playlist": [playlist2, playlist3]
+            "Playlist": realm.objects(Playlist).map { (x) in return x }
         ]
         
         NSAnimationContext.beginGrouping()
         NSAnimationContext.currentContext().duration = 0
         sourceListView.expandItem(nil, expandChildren: true)
         NSAnimationContext.endGrouping()
-        
+
+        sourceListView.selectRowIndexes(NSIndexSet(index: 1), byExtendingSelection: false)
+
         // Enable Drag & Drop
         sourceListView.registerForDraggedTypes([dragType])
     }
@@ -85,6 +86,7 @@ class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, 
     
     func outlineView(outlineView: NSOutlineView, pasteboardWriterForItem item: AnyObject) -> NSPasteboardWriting? {
         guard let playlist = item as? Playlist else { return nil }
+        guard let item = item as? Playlist where item.name != "All Songs" else { return nil }
         
         let pbItem = NSPasteboardItem()
         pbItem.setString(playlist.name, forType: dragType)
@@ -104,11 +106,11 @@ class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, 
     
     func outlineView(outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: AnyObject?, childIndex index: Int) -> Bool {
         let pb = info.draggingPasteboard()
-        let name = pb.stringForType("public.text")
+        let name = pb.stringForType(dragType)
         var sourceItem: Playlist!
         var sourceIndex: Int!
         
-        if let item = item as? String where item == dragType {
+        if let item = item as? String where item == "Playlist" {
             var sourceArray = childrenDictionary[item]!
             
             for (index, p) in sourceArray.enumerate() {
@@ -166,7 +168,11 @@ class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, 
     
     func outlineViewSelectionDidChange(notification: NSNotification) {
         print("playlist: \(sourceListView.selectedRow)")
-//        parentViewController
+        let item = sourceListView.itemAtRow(sourceListView.selectedRow)
+        
+        if let item = item as? Playlist where item.name == AllSongs && item != "a" {
+            NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.SelectPlaylist.rawValue, object: self, userInfo: [MXNotificationUserInfo.Playlist.rawValue: item])
+        }
     }
     
 }
