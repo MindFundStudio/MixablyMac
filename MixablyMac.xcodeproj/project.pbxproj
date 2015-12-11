@@ -27,6 +27,7 @@
 		7C25AF881C17BB3E007A0DBA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25AF871C17BB3E007A0DBA /* AVFoundation.framework */; };
 		7CB1B9B21C180E960056A942 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1B9B11C180E960056A942 /* EventMonitor.swift */; };
 		D10004011C1855EF00563D6B /* MXSidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10004001C1855EF00563D6B /* MXSidebarViewController.swift */; };
+		D1159F871C1A942400E43147 /* MXSidebarMoodlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1159F861C1A942400E43147 /* MXSidebarMoodlistViewController.swift */; };
 		D169D1051C192692002F62D6 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169D1041C192692002F62D6 /* Playlist.swift */; };
 		D169D1071C1926A4002F62D6 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169D1061C1926A4002F62D6 /* Mood.swift */; };
 		D1DFEECD1C16F243000B9991 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFEECC1C16F243000B9991 /* Song.swift */; };
@@ -78,6 +79,7 @@
 		7CB1B9B11C180E960056A942 /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		AC632175D9C6A5455B2CA21D /* Pods-MixablyMac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixablyMac.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixablyMac/Pods-MixablyMac.release.xcconfig"; sourceTree = "<group>"; };
 		D10004001C1855EF00563D6B /* MXSidebarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSidebarViewController.swift; sourceTree = "<group>"; };
+		D1159F861C1A942400E43147 /* MXSidebarMoodlistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSidebarMoodlistViewController.swift; sourceTree = "<group>"; };
 		D169D1041C192692002F62D6 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Playlist.swift; path = Models/Playlist.swift; sourceTree = "<group>"; };
 		D169D1061C1926A4002F62D6 /* Mood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mood.swift; path = Models/Mood.swift; sourceTree = "<group>"; };
 		D1DFEECC1C16F243000B9991 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Song.swift; path = Models/Song.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				3A25F4461C16D868007ED23B /* Songs.storyboard */,
 				3AAF4DB61C16C1E00091C2B3 /* MXPlaylistViewController.swift */,
 				D10004001C1855EF00563D6B /* MXSidebarViewController.swift */,
+				D1159F861C1A942400E43147 /* MXSidebarMoodlistViewController.swift */,
 			);
 			name = Playlist;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				3AE4E7D11C183BAE00BC120D /* CALayer+Extensions.swift in Sources */,
 				D169D1071C1926A4002F62D6 /* Mood.swift in Sources */,
 				7CB1B9B21C180E960056A942 /* EventMonitor.swift in Sources */,
+				D1159F871C1A942400E43147 /* MXSidebarMoodlistViewController.swift in Sources */,
 				3AAF4DB21C16B6B20091C2B3 /* MXMainViewController.swift in Sources */,
 				3AAF4D871C16AF3D0091C2B3 /* AppDelegate.swift in Sources */,
 			);

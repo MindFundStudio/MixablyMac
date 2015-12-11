@@ -16,4 +16,8 @@ class Mood: Object {
     
     var songs = List<Song>()
     
+    func isLeaf() -> Bool {
+        return true
+    }
+    
 }

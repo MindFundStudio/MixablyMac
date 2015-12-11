@@ -35,7 +35,7 @@ class MXSidebarViewController: NSViewController, NSOutlineViewDelegate, NSOutlin
         NSAnimationContext.endGrouping()
         
         // Enable Drag & Drop
-        sourceListView.registerForDraggedTypes(["public.text"])
+        sourceListView.registerForDraggedTypes([dragType])
     }
     
     // MARK: - Helpers
@@ -87,7 +87,7 @@ class MXSidebarViewController: NSViewController, NSOutlineViewDelegate, NSOutlin
         guard let playlist = item as? Playlist else { return nil }
         
         let pbItem = NSPasteboardItem()
-        pbItem.setString(playlist.name, forType: "public.text")
+        pbItem.setString(playlist.name, forType: dragType)
         
         return pbItem
     }
@@ -108,7 +108,7 @@ class MXSidebarViewController: NSViewController, NSOutlineViewDelegate, NSOutlin
         var sourceItem: Playlist!
         var sourceIndex: Int!
         
-        if let item = item as? String where item == "Playlist" {
+        if let item = item as? String where item == dragType {
             var sourceArray = childrenDictionary[item]!
             
             for (index, p) in sourceArray.enumerate() {
@@ -165,8 +165,8 @@ class MXSidebarViewController: NSViewController, NSOutlineViewDelegate, NSOutlin
     }
     
     func outlineViewSelectionDidChange(notification: NSNotification) {
-        print("notification: \(sourceListView.selectedRow)")
-        parentViewController
+        print("playlist: \(sourceListView.selectedRow)")
+//        parentViewController
     }
     
 }
