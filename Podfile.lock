@@ -1,18 +1,36 @@
 PODS:
   - pop (1.0.8)
+  - PSOperations (2.0.2)
   - Realm (0.96.3):
     - Realm/Headers (= 0.96.3)
   - Realm/Headers (0.96.3)
   - RealmSwift (0.96.3):
     - Realm (= 0.96.3)
+  - STRegex (0.2.6)
+  - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - pop (~> 1.0)
+  - PSOperations (~> 2.0.2)
   - RealmSwift
+  - STRegex
+  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+
+EXTERNAL SOURCES:
+  SwiftyJSON:
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
+CHECKOUT OPTIONS:
+  SwiftyJSON:
+    :commit: 8e618c8baf6323a5079c6549bb38d48357b31630
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
   pop: bb773ae2c791ca2629de13b347e7a8b450fa6a57
+  PSOperations: a0c641b1f0b0bbbdc8f3cdcca0794e4fd5b13646
   Realm: 145d3cdf78a03aee71bde5381ad7e542bd541720
   RealmSwift: aab84968aad662f61f36473d1aea019f63481505
+  STRegex: 42baaef0406dd90bfa32e19c202a0c89075809b4
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0
