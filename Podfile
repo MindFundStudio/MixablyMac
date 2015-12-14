@@ -5,6 +5,9 @@ use_frameworks!
 target 'MixablyMac' do
   pod 'RealmSwift'
   pod 'pop', '~> 1.0'
+  pod 'PSOperations', '~> 2.0.2'
+  pod 'STRegex'
+  pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 end
 
 target 'MixablyMacTests' do
