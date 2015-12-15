@@ -31,6 +31,7 @@
 		7CB1B9B61C1817900056A942 /* MXPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1B9B51C1817900056A942 /* MXPlayerManager.swift */; };
 		7CB1B9B81C191FC30056A942 /* CollectionType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1B9B71C191FC30056A942 /* CollectionType+Extensions.swift */; };
 		7CB1B9BA1C191FD30056A942 /* MutableCollectionType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1B9B91C191FD30056A942 /* MutableCollectionType+Extensions.swift */; };
+		7CD525AC1C1E656600E7146E /* MXFileSystemWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD525AB1C1E656600E7146E /* MXFileSystemWatcher.swift */; };
 		D10004011C1855EF00563D6B /* MXSidebarPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10004001C1855EF00563D6B /* MXSidebarPlaylistViewController.swift */; };
 		D1159F871C1A942400E43147 /* MXSidebarMoodlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1159F861C1A942400E43147 /* MXSidebarMoodlistViewController.swift */; };
 		D1159F891C1ACEC500E43147 /* MXDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1159F881C1ACEC500E43147 /* MXDataManager.swift */; };
@@ -90,6 +91,7 @@
 		7CB1B9B51C1817900056A942 /* MXPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXPlayerManager.swift; sourceTree = "<group>"; };
 		7CB1B9B71C191FC30056A942 /* CollectionType+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+Extensions.swift"; sourceTree = "<group>"; };
 		7CB1B9B91C191FD30056A942 /* MutableCollectionType+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MutableCollectionType+Extensions.swift"; sourceTree = "<group>"; };
+		7CD525AB1C1E656600E7146E /* MXFileSystemWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXFileSystemWatcher.swift; sourceTree = "<group>"; };
 		AC632175D9C6A5455B2CA21D /* Pods-MixablyMac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixablyMac.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixablyMac/Pods-MixablyMac.release.xcconfig"; sourceTree = "<group>"; };
 		D10004001C1855EF00563D6B /* MXSidebarPlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSidebarPlaylistViewController.swift; sourceTree = "<group>"; };
 		D1159F861C1A942400E43147 /* MXSidebarMoodlistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSidebarMoodlistViewController.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				7CB1B9B11C180E960056A942 /* EventMonitor.swift */,
+				7CD525AB1C1E656600E7146E /* MXFileSystemWatcher.swift */,
 				7CB1B9B51C1817900056A942 /* MXPlayerManager.swift */,
 				D1159F881C1ACEC500E43147 /* MXDataManager.swift */,
 				D1159F8A1C1AD6DB00E43147 /* MXSongManager.swift */,
@@ -508,6 +511,7 @@
 				D10004011C1855EF00563D6B /* MXSidebarPlaylistViewController.swift in Sources */,
 				3AAF4DB71C16C1E00091C2B3 /* MXPlaylistViewController.swift in Sources */,
 				3AAF4DB91C16C21D0091C2B3 /* MXMixablyViewController.swift in Sources */,
+				7CD525AC1C1E656600E7146E /* MXFileSystemWatcher.swift in Sources */,
 				3AAF4D891C16AF3D0091C2B3 /* ViewController.swift in Sources */,
 				D1DFEECD1C16F243000B9991 /* Song.swift in Sources */,
 				7CB1B9B61C1817900056A942 /* MXPlayerManager.swift in Sources */,
