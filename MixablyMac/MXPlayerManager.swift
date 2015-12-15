@@ -9,7 +9,7 @@
 import Foundation
 import AVFoundation
 
-class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
+final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
     static let sharedManager = MXPlayerManager()
     
     var isRepeat = false

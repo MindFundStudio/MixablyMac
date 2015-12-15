@@ -9,7 +9,7 @@
 import Cocoa
 import RealmSwift
 
-class Mood: Object {
+final class Mood: Object {
 
     dynamic var name = "New Playlist"
     dynamic var order = 0

@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class MXPlayerViewController: NSViewController {
+final class MXPlayerViewController: NSViewController {
     let manager = MXPlayerManager.sharedManager
     
     @IBOutlet weak var songLengthTextField: NSTextField!

@@ -10,7 +10,7 @@ import Foundation
 import iTunesLibrary
 import RealmSwift
 
-class MXSongManager {
+final class MXSongManager {
     
     class func importSongs() throws -> [Song]? {
         let userDefaults = NSUserDefaults.standardUserDefaults()

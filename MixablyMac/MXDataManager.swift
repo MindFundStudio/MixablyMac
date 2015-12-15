@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class MXDataManager {
+final class MXDataManager {
     
     class func importSeedData() {
         let userDefaults = NSUserDefaults.standardUserDefaults()

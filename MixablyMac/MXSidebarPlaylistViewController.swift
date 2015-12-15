@@ -9,7 +9,7 @@
 import Cocoa
 import RealmSwift
 
-class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, NSOutlineViewDataSource {
+final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, NSOutlineViewDataSource {
 
     @IBOutlet weak var sourceListView: NSOutlineView!
     

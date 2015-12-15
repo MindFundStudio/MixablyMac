@@ -9,7 +9,7 @@
 import Cocoa
 import RealmSwift
 
-class MXMixablySongsViewController: NSViewController {
+final class MXMixablySongsViewController: NSViewController {
     
     let realm = try! Realm()
     dynamic var songs: [Song]!

@@ -10,7 +10,7 @@ import Cocoa
 import RealmSwift
 import iTunesLibrary
 
-class Song: Object {
+final class Song: Object {
     
     dynamic var name = "New Song"
     dynamic var intensity = 100.0

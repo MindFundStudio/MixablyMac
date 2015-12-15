@@ -9,7 +9,7 @@
 import Cocoa
 import RealmSwift
 
-class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
+final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
 
     @IBOutlet var moodlistController: NSTreeController!
     @IBOutlet weak var outlineView: NSOutlineView!
