@@ -101,14 +101,15 @@ final class MXAnalyseOperation: Operation {
                 jsonString = MXAnalyseOperation.regex.match(output)?.matchedString
             {
                 let json = JSON.parse(jsonString)
-                let musicPath = json[JSONKey.MusicPath.key].string
-                let tonality = json[JSONKey.Tonality.key].string
-                let intensity = json[JSONKey.Intensity.key].double
-                let rhythmStrength = json[JSONKey.RhythmStrength.key].double
-                let tempo = json[JSONKey.Tempo.key].double
+                let musicPath = json[JSONKey.MusicPath.key].stringValue
+                let tonality = json[JSONKey.Tonality.key].stringValue
+                let intensity = json[JSONKey.Intensity.key].doubleValue
+                let rhythmStrength = json[JSONKey.RhythmStrength.key].doubleValue
+                let rmsEnergy = json[JSONKey.RMSEnergy.key].doubleValue
+                let tempo = json[JSONKey.Tempo.key].doubleValue
                 
-                let binsJson = json[JSONKey.Bins.key].array
-                let bins = binsJson?.map {bin in bin.doubleValue }
+                let binsJson = json[JSONKey.Bins.key].arrayValue
+                let bins = binsJson.map {bin in bin.doubleValue }
                 
                 let features = MXFeatures(path: musicPath,
                     tonality: tonality,

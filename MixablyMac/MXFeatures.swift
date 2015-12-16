@@ -8,12 +8,13 @@
 
 struct MXFeatures {
     
-    let path:String?
-    let tonality:String?
-    let intensity:Double?
-    let rhythmStrength:Double?
-    let tempo:Double?
-    let bins:[Double]?
+    let path:String
+    let tonality:String
+    let rmsEnergy:Double
+    let intensity:Double
+    let rhythmStrength:Double
+    let tempo:Double
+    let bins:[Double]
     
     var score:Double? {
         if let bins = bins where bins.count > 2 {
@@ -22,7 +23,7 @@ struct MXFeatures {
         return nil
     }
     
-    init(path:String?, tonality:String?, intensity:Double?, rhythmStrength:Double?, tempo:Double?, bins:[Double]?) {
+    init(path:String, tonality:String, intensity:Double, rhythmStrength:Double, rmsEnergy:Double, tempo:Double, bins:[Double]) {
         self.path = path
         self.tonality = tonality
         self.intensity = intensity
@@ -30,5 +31,4 @@ struct MXFeatures {
         self.tempo = tempo
         self.bins = bins
     }
-    
 }
