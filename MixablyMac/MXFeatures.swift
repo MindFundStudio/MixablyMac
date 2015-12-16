@@ -25,6 +25,7 @@ struct MXFeatures {
         self.tonality = tonality
         self.intensity = intensity
         self.rhythmStrength = rhythmStrength
+        self.rmsEnergy = rmsEnergy
         self.tempo = tempo
         self.bins = bins
     }

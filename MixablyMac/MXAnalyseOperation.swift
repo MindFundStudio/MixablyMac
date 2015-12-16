@@ -115,6 +115,7 @@ final class MXAnalyseOperation: Operation {
                     tonality: tonality,
                     intensity: intensity,
                     rhythmStrength: rhythmStrength,
+                    rmsEnergy: rmsEnergy,
                     tempo: tempo,
                     bins: bins)
                 
