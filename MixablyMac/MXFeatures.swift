@@ -16,11 +16,8 @@ struct MXFeatures {
     let tempo:Double
     let bins:[Double]
     
-    var score:Double? {
-        if let bins = bins where bins.count > 2 {
-            return 0.35 * bins[0] + 0.45 * bins[1] + 0.2 * bins[2]
-        }
-        return nil
+    var bass:Double {
+        return 0.35 * bins[0] + 0.45 * bins[1] + 0.2 * bins[2]
     }
     
     init(path:String, tonality:String, intensity:Double, rhythmStrength:Double, rmsEnergy:Double, tempo:Double, bins:[Double]) {
