@@ -43,7 +43,7 @@ final class MXAnalyseOperation: Operation {
         case Tonality = "tonality"
         case Intensity = "intensity"
         case Bins = "bins"
-        case RhythmStrength = "RhythemStrength"
+        case RhythmStrength = "rhythemStrength"
         case RMSEnergy = "rmsEnergy"
         case Tempo = "tempo"
         
