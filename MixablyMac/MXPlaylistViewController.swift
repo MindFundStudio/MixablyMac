@@ -49,33 +49,48 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "toggleMixably:", name: MXNotifications.ToggleMixably.rawValue, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "selectPlaylist:", name: MXNotifications.SelectPlaylist.rawValue, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showMixably:", name: MXNotifications.SelectMood.rawValue, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeSong:", name: MXNotifications.ChangeSong.rawValue, object: nil)
     }
     
     // MARK: - Song List Helpers
     
     func loadAllSongs() {
-        songs = (try! Realm()).objects(Song).map { (song) in return song }
-        MXPlayerManager.sharedManager.playList = songs
+        // Assume All Songs playlist is selected by default
+        songs = MXPlayerManager.sharedManager.songs
     }
     
     func loadSongsOfPlaylist(playlist: Playlist) {
-        songs = playlist.songs.map { (song) in return song }
-        MXPlayerManager.sharedManager.playList = songs
+        songs = MXPlayerManager.sharedManager.songs
     }
     
     // MARK: - Notification Observers
     
     func toggleMixably(notification: NSNotification?) {
         if let vc = mixablyViewController {
-            print("Dismiss")
-            dismissViewController(vc)
-            mixablyViewController = nil
+            hideMixably(vc, notification)
         } else {
-            print("Present")
-            mixablyViewController = MXMixablyViewController.loadFromNib()
-            presentViewController(mixablyViewController!, animator: MXMixablyPresentationAnimator())
+            showMixably(notification)
         }
+    }
+    
+    func showMixably(notification: NSNotification?) {
+        print("Present")
+        guard mixablyViewController == nil else { return }
+        
+        mixablyViewController = MXMixablyViewController.loadFromNib()
+        if let mood = notification?.userInfo?[MXNotificationUserInfo.Mood.rawValue] as? Mood {
+            mixablyViewController?.selectedMood = mood
+        }
+        presentViewController(mixablyViewController!, animator: MXMixablyPresentationAnimator())
+    }
+    
+    func hideMixably(vc: NSViewController, _ notification: NSNotification?) {
+        print("Dismiss")
+        guard mixablyViewController != nil else { return }
+        
+        dismissViewController(vc)
+        mixablyViewController = nil
     }
     
     func selectPlaylist(notification: NSNotification?) {

@@ -116,6 +116,12 @@ class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewDataSource
 
     func outlineViewSelectionDidChange(notification: NSNotification) {
         print("moodlist: \(outlineView.selectedRow)")
+        let item = outlineView.itemAtRow(outlineView.selectedRow)
+        
+        if let mood = ((item as? NSTreeNode)?.representedObject) as? Mood {
+            NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.SelectMood.rawValue, object: self, userInfo: [MXNotificationUserInfo.Mood.rawValue: mood])
+        }
+
     }
     
 }

@@ -11,22 +11,33 @@ import Foundation
 // MARK: - Notifications
 
 enum MXNotifications: String {
-    case ToggleMixably = "toggleMixably"
+    // Player Control
     case StartPlaying = "startPlaying"
     case PausePlaying = "pausePlaying"
     case StopPlaying = "stopPlaying"
     case ChangeSong = "changeSong"
+    // Playlist
     case SelectPlaylist = "selectPlaylist"
+    case ReloadSidebarPlaylist = "reloadSidebarPlaylist"
+    case ReloadSongs = "reloadSongs"
+    // Mixably
+    case ToggleMixably = "toggleMixably"
+    case SelectMood = "selectMood"
+    case AddToPlaylist = "addToPlaylist"
+    case SaveNewPlaylist = "saveNewPlaylist"
+    case ReloadSidebarMood = "reloadSidebarMood"
 }
 
 enum MXNotificationUserInfo: String {
     case Song = "song"
     case Playlist = "playlist"
+    case Mood = "mood"
 }
 
 // MARK: - Display
 
 let AllSongs = "All Songs"
+let NewPlaylistName = "New Playlist"
 
 // MARK: - AppKit
 
