@@ -46,7 +46,7 @@ final class MXMixablySongsViewController: NSViewController {
     }
     
     func newPlaylistName() -> String {
-        let defaultLists = realm.objects(Playlist).filter("name BEGINSWITH %@", NewPlaylistName).sorted("name")
+        let defaultLists = realm.objects(Playlist).filter("name BEGINSWITH %@", NewPlaylistName)
         if defaultLists.count > 0 {
             let validLists = defaultLists.map { list in
                 return list.name.stringByReplacingOccurrencesOfString(NewPlaylistName + " ", withString: "")
@@ -55,6 +55,8 @@ final class MXMixablySongsViewController: NSViewController {
                 }.filter { number in
                     return number != nil
             }
+            
+            let _ = validLists.sort { return $0 < $1 }
             
             if validLists.count > 0 {
                 return NewPlaylistName + " \(validLists.last!! + 1)"
