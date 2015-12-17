@@ -8,9 +8,15 @@
 
 import Foundation
 import AVFoundation
+import RealmSwift
 
 final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
     static let sharedManager = MXPlayerManager()
+    
+    let realm = try! Realm()
+    
+    var selectedPlaylist: Playlist?
+    var selectedMood: Mood?
     
     var isRepeat = false
     var isShuffle = false {
@@ -55,11 +61,10 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
         }
     }
     
-    var playList: [Song] = [] {
-        didSet {
-            if !isShuffle {
-                currentPlayList = playList
-            }
+    // Current playing song list
+    var songs: [Song] {
+        get {
+            return currentPlayList
         }
     }
     
@@ -74,6 +79,14 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
 
     var player: AVAudioPlayer?
     private var monitor: AnyObject?
+    // Storage of playlist
+    private var playList: [Song] = [] {
+        didSet {
+            if !isShuffle {
+                currentPlayList = playList
+            }
+        }
+    }
     private var shuffledPlayList: [Song] = []
     private var currentPlayList: [Song] = []
     private var history: [Song]? = []
@@ -87,6 +100,9 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
             }
             return event
         })
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "selectPlaylist:", name: MXNotifications.SelectPlaylist.rawValue, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "selectMood:", name: MXNotifications.SelectMood.rawValue, object: nil)
     }
     
     deinit {
@@ -99,6 +115,8 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
         }
         player = nil
     }
+    
+    // MARK: - Player Control
     
     func play() {
         if currentSong == nil {
@@ -183,4 +201,39 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         next()
     }
+    
+    // MARK: - Notifications
+    
+    func selectPlaylist(notification: NSNotification?) {
+        guard let playlist = notification?.userInfo?[MXNotificationUserInfo.Playlist.rawValue] as? Playlist else {
+            return
+        }
+        
+        selectedPlaylist = playlist
+        
+        if playlist.name == AllSongs {
+            loadAllSongs()
+        } else {
+            loadSongsOfPlaylist(playlist)
+        }
+    }
+    
+    func selectMood(notification: NSNotification?) {
+        guard let mood = notification?.userInfo?[MXNotificationUserInfo.Mood.rawValue] as? Mood else {
+            return
+        }
+        
+        selectedMood = mood
+    }
+    
+    // MARK: - Song List Helpers
+    
+    func loadAllSongs() {
+        playList = realm.objects(Song).map { (song) in return song }
+    }
+    
+    func loadSongsOfPlaylist(playlist: Playlist) {
+        playList = playlist.songs.map { (song) in return song }
+    }
+
 }
