@@ -12,6 +12,7 @@ import iTunesLibrary
 
 final class Song: Object {
     
+    dynamic var id = NSUUID().UUIDString
     dynamic var name = "New Song"
     dynamic var location = ""
     dynamic var duration = 0.0
@@ -29,6 +30,10 @@ final class Song: Object {
         self.name = item.title
         self.location = item.location.absoluteString
         self.duration = NSTimeInterval(item.totalTime) / 1000.0
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
     
     // =======================
