@@ -48,7 +48,7 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
         // Register Notifications
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "toggleMixably:", name: MXNotifications.ToggleMixably.rawValue, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "selectPlaylist:", name: MXNotifications.SelectPlaylist.rawValue, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "selectPlaylist:", name: MXNotifications.ReloadSongs.rawValue, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "showMixably:", name: MXNotifications.SelectMood.rawValue, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeSong:", name: MXNotifications.ChangeSong.rawValue, object: nil)
     }
@@ -91,6 +91,11 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
         
         dismissViewController(vc)
         mixablyViewController = nil
+        
+        // Reload songs
+        if let playlist = MXPlayerManager.sharedManager.selectedPlaylist {
+            NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.SelectPlaylist.rawValue, object: self, userInfo: [MXNotificationUserInfo.Playlist.rawValue: playlist])
+        }
     }
     
     func selectPlaylist(notification: NSNotification?) {
