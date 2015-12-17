@@ -21,6 +21,8 @@ final class MXPlayerViewController: NSViewController {
     
     @IBOutlet weak var nextButton: NSButton!
     
+    @IBOutlet weak var mixablyButton: NSButton!
+    
     var songTimer: NSTimer?
     
     override func viewDidLoad() {
@@ -33,6 +35,8 @@ final class MXPlayerViewController: NSViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "stopPlaying:", name: MXNotifications.StopPlaying.rawValue, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeSong:", name: MXNotifications.ChangeSong.rawValue, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showMixably:", name: MXNotifications.SelectMood.rawValue, object: nil)
         
         backButton.enabled = false
         nextButton.enabled = false
@@ -117,5 +121,9 @@ final class MXPlayerViewController: NSViewController {
         
         let formatter = NSDateComponentsFormatter()
         songLengthTextField.stringValue = "\(formatter.stringFromTimeInterval(song.duration)!)"
+    }
+    
+    func showMixably(notification: NSNotification) {
+        mixablyButton.state = NSOnState
     }
 }

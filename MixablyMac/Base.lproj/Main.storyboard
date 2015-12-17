@@ -877,6 +877,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="HLi-eE-ZP5" id="ZKT-Sc-Kww"/>
+                        <outlet property="mixablyButton" destination="JtB-Ir-b3o" id="gqk-s2-aUi"/>
                         <outlet property="nextButton" destination="fQO-WR-CiA" id="ES6-yU-LiQ"/>
                         <outlet property="playPauseButton" destination="BcQ-oI-b89" id="erl-iT-mW6"/>
                         <outlet property="songLengthTextField" destination="iJh-wx-i3p" id="XJK-mE-a4h"/>

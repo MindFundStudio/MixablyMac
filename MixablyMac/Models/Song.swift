@@ -12,22 +12,33 @@ import iTunesLibrary
 
 final class Song: Object {
     
+    // =================
+    // MARK: - Constants
+    // =================
+    
     @objc enum Status:Int {
         case Unanalysed = 0, InProgress, Analyzed
     }
     
-    dynamic var id = NSUUID().UUIDString
-    dynamic var name = "New Song"
-    dynamic var location = ""
-    dynamic var duration = 0.0
-    dynamic var statusRaw = 0
+    private let highlightedTextColor = NSColor(colorLiteralRed: 74/255.0, green: 144/255.0, blue: 226/255.0, alpha: 1)
+    private let normalTextColor = NSColor.blackColor()
     
-    dynamic var tonality = ""
-    dynamic var rmsEnergy = 100.0
-    dynamic var intensity = 100.0
-    dynamic var rhythm = 100.0
-    dynamic var tempo = 100.0
-    dynamic var bass = 100.0
+    // ==================
+    // MARK: - Properties
+    // ==================
+    
+    dynamic var id:String = NSUUID().UUIDString
+    dynamic var name:String = "New Song"
+    dynamic var location:String = ""
+    dynamic var duration:Double = 0.0
+    dynamic var statusRaw:Int = 0
+    
+    dynamic var tonality:String?
+    dynamic var rmsEnergy:Double = 0
+    dynamic var intensity:Double = 0
+    dynamic var rhythm:Double = 0
+    dynamic var tempo:Double = 0
+    dynamic var bass:Double = 0
     
     dynamic var status:Status {
         get {
@@ -38,6 +49,12 @@ final class Song: Object {
         }
     }
     
+    dynamic var selected:Bool = false
+    dynamic var highlighted:Bool = false
+    dynamic var textColor:NSColor {
+        return highlighted ? highlightedTextColor : normalTextColor
+    }
+    
     convenience init(item: ITLibMediaItem) {
         self.init()
         self.name = item.title
@@ -45,12 +62,12 @@ final class Song: Object {
         self.duration = NSTimeInterval(item.totalTime) / 1000.0
     }
     
-    override static func primaryKey() -> String? {
+    func primaryKey() -> String? {
         return "id"
     }
     
     override static func ignoredProperties() -> [String] {
-        return ["status"]
+        return ["selected", "highlighted", "textColor", "status"]
     }
     
     // =======================

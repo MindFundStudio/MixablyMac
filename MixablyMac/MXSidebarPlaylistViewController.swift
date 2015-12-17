@@ -16,30 +16,54 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
     let realm = try! Realm()
     var topLevelItems = ["Library", "Playlist"]
     var childrenDictionary: [String: [Playlist]]!
+    var playlist: [Playlist] = []
+    var playlistResults: Results<Playlist>? {
+        didSet {
+            guard playlistResults != nil else { return }
+            
+            playlist = playlistResults!.map { (x) in return x }
+            childrenDictionary["Playlist"] = playlist
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
-        let playlist1 = Playlist()
-        playlist1.name = AllSongs
+        let playlist = Playlist()
+        playlist.name = AllSongs
         childrenDictionary = [
-            "Library": [playlist1],
-            "Playlist": realm.objects(Playlist).map { (x) in return x }
+            "Library": [playlist]
         ]
+        playlistResults = realm.objects(Playlist)
         
         NSAnimationContext.beginGrouping()
         NSAnimationContext.currentContext().duration = 0
         sourceListView.expandItem(nil, expandChildren: true)
         NSAnimationContext.endGrouping()
 
-        sourceListView.selectRowIndexes(NSIndexSet(index: 1), byExtendingSelection: false)
-
         // Enable Drag & Drop
         sourceListView.registerForDraggedTypes([dragType])
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadPlaylist:", name: MXNotifications.ReloadSidebarPlaylist.rawValue, object: nil)
+    }
+    
+    override func viewDidAppear() {
+        if MXPlayerManager.sharedManager.selectedPlaylist == nil {
+            sourceListView.selectRowIndexes(NSIndexSet(index: 1), byExtendingSelection: false)
+        }
     }
     
     // MARK: - Helpers
+    
+    func reloadOutlineView() {
+        let originalSelect = sourceListView.selectedRowIndexes
+        
+        playlistResults = realm.objects(Playlist)
+        sourceListView.reloadData()
+        
+        sourceListView.selectRowIndexes(originalSelect, byExtendingSelection: true)
+    }
     
     func isHeader(item: AnyObject) -> Bool {
         if let item = item as? String {
@@ -170,9 +194,14 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
         print("playlist: \(sourceListView.selectedRow)")
         let item = sourceListView.itemAtRow(sourceListView.selectedRow)
         
-        if let item = item as? Playlist where item.name == AllSongs && item != "a" {
+        if let item = item as? Playlist {
             NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.SelectPlaylist.rawValue, object: self, userInfo: [MXNotificationUserInfo.Playlist.rawValue: item])
         }
     }
     
+    // MARK: - Notifications
+    
+    func reloadPlaylist(notification: NSNotification) {
+        reloadOutlineView()
+    }
 }
