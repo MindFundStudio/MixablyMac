@@ -9,6 +9,7 @@
 import Foundation
 import iTunesLibrary
 import RealmSwift
+import PSOperations
 
 final class MXSongManager {
     
@@ -34,11 +35,41 @@ final class MXSongManager {
                 realm.add(songs)
             }
             
+            let operationQueue = OperationQueue()
+            operationQueue.maxConcurrentOperationCount = 4
+            
+            for song in songs {
+                let fileURL = NSURL(fileURLWithPath: song.location)
+                let operation = MXAnalyseOperation(fileURL: fileURL) { features, error in
+                    // Do something with features and error
+                    print("Main Thread? \(NSThread.isMainThread())")
+                    // Save features to song
+                    if let features = features {
+                        song.tonality = features.tonality
+                        song.intensity = features.intensity
+                        song.rmsEnergy = features.rmsEnergy
+                        song.tempo = features.tempo
+                        
+                        let realm = try! Realm()
+                        try! realm.write {
+                            realm.add(song, update: true)
+                        }
+                    }
+                }
+                
+                // Make sure to add to an OperationQueue
+                operationQueue.addOperation(operation)
+            }
+            
             return songs
         } catch let error as NSError {
             print("error loading iTunesLibrary")
             throw error
         }
+    }
+    
+    class func processSong(song: Song) {
+        
     }
     
 }

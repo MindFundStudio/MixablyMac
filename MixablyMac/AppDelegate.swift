@@ -35,7 +35,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         })
         
         // Seed Data
-//        NSUserDefaults.standardUserDefaults().setBool(false, forKey: MX_INITIAL_LAUNCH)
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: MX_INITIAL_LAUNCH)
         do {
             try MXSongManager.importSongs()
             MXDataManager.importSeedData()
