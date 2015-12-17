@@ -12,10 +12,15 @@ import iTunesLibrary
 
 final class Song: Object {
     
+    @objc enum Status:Int {
+        case Unanalysed = 0, InProgress, Analyzed
+    }
+    
     dynamic var id = NSUUID().UUIDString
     dynamic var name = "New Song"
     dynamic var location = ""
     dynamic var duration = 0.0
+    dynamic var statusRaw = 0
     
     dynamic var tonality = ""
     dynamic var rmsEnergy = 100.0
@@ -24,6 +29,14 @@ final class Song: Object {
     dynamic var tempo = 100.0
     dynamic var bass = 100.0
     
+    dynamic var status:Status {
+        get {
+            return Status(rawValue: statusRaw)!
+        }
+        set {
+            statusRaw = status.rawValue
+        }
+    }
     
     convenience init(item: ITLibMediaItem) {
         self.init()
@@ -34,6 +47,10 @@ final class Song: Object {
     
     override static func primaryKey() -> String? {
         return "id"
+    }
+    
+    override static func ignoredProperties() -> [String] {
+        return ["status"]
     }
     
     // =======================
