@@ -75,7 +75,8 @@ final class MXScoreSongsOperation: Operation {
         do {
             
             let realm = try Realm()
-            songs = realm.objects(Song) // Should filter songs that have missing extracted features
+            let predicate = NSPredicate(format: "statusRaw == %@", Song.Status.Analyzed.rawValue)
+            songs = realm.objects(Song).filter(predicate)
             
             var scoredSongs = [ScoredSong]()
             
