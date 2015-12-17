@@ -24,6 +24,10 @@
 		3AB2AF761C1F515C008F4371 /* MXFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB2AF751C1F515C008F4371 /* MXFeatures.swift */; };
 		3ABAEB4D1C22B22C00BE8F97 /* ScoredSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABAEB4C1C22B22C00BE8F97 /* ScoredSong.swift */; };
 		3ABAEB4F1C22B2B900BE8F97 /* MXScoreSongsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABAEB4E1C22B2B900BE8F97 /* MXScoreSongsOperation.swift */; };
+		3ABAEB551C22FF1200BE8F97 /* blackbox in Resources */ = {isa = PBXBuildFile; fileRef = 3ABAEB511C22FF1200BE8F97 /* blackbox */; };
+		3ABAEB561C22FF1200BE8F97 /* sonic_annotator in Resources */ = {isa = PBXBuildFile; fileRef = 3ABAEB521C22FF1200BE8F97 /* sonic_annotator */; };
+		3ABAEB571C22FF1200BE8F97 /* vamp_plugins in Resources */ = {isa = PBXBuildFile; fileRef = 3ABAEB531C22FF1200BE8F97 /* vamp_plugins */; };
+		3ABAEB581C22FF1200BE8F97 /* vamp_transforms in Resources */ = {isa = PBXBuildFile; fileRef = 3ABAEB541C22FF1200BE8F97 /* vamp_transforms */; };
 		3AE4E7CE1C1821D300BC120D /* MXMixablyPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4E7CD1C1821D300BC120D /* MXMixablyPresentationAnimator.swift */; };
 		3AE4E7D11C183BAE00BC120D /* CALayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4E7D01C183BAE00BC120D /* CALayer+Extensions.swift */; };
 		4A34E94E63C98EE6C39AC602 /* Pods_MixablyMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACEA5876B72FE5282B68214 /* Pods_MixablyMac.framework */; };
@@ -85,6 +89,10 @@
 		3AB2AF751C1F515C008F4371 /* MXFeatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXFeatures.swift; sourceTree = "<group>"; };
 		3ABAEB4C1C22B22C00BE8F97 /* ScoredSong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoredSong.swift; sourceTree = "<group>"; };
 		3ABAEB4E1C22B2B900BE8F97 /* MXScoreSongsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXScoreSongsOperation.swift; sourceTree = "<group>"; };
+		3ABAEB511C22FF1200BE8F97 /* blackbox */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = blackbox; sourceTree = "<group>"; };
+		3ABAEB521C22FF1200BE8F97 /* sonic_annotator */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sonic_annotator; sourceTree = "<group>"; };
+		3ABAEB531C22FF1200BE8F97 /* vamp_plugins */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vamp_plugins; sourceTree = "<group>"; };
+		3ABAEB541C22FF1200BE8F97 /* vamp_transforms */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vamp_transforms; sourceTree = "<group>"; };
 		3ACEA5876B72FE5282B68214 /* Pods_MixablyMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixablyMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE4E7CD1C1821D300BC120D /* MXMixablyPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXMixablyPresentationAnimator.swift; sourceTree = "<group>"; };
 		3AE4E7D01C183BAE00BC120D /* CALayer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Extensions.swift"; sourceTree = "<group>"; };
@@ -179,6 +187,7 @@
 		3AAF4D851C16AF3D0091C2B3 /* MixablyMac */ = {
 			isa = PBXGroup;
 			children = (
+				3ABAEB501C22FF0300BE8F97 /* Vendors */,
 				3AB2AF721C1F50FD008F4371 /* Operations */,
 				D10003FE1C1843C300563D6B /* Helpers */,
 				3AE4E7CF1C183BA100BC120D /* Extensions */,
@@ -262,6 +271,17 @@
 				3ABAEB4E1C22B2B900BE8F97 /* MXScoreSongsOperation.swift */,
 			);
 			name = Operations;
+			sourceTree = "<group>";
+		};
+		3ABAEB501C22FF0300BE8F97 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				3ABAEB511C22FF1200BE8F97 /* blackbox */,
+				3ABAEB521C22FF1200BE8F97 /* sonic_annotator */,
+				3ABAEB531C22FF1200BE8F97 /* vamp_plugins */,
+				3ABAEB541C22FF1200BE8F97 /* vamp_transforms */,
+			);
+			name = Vendors;
 			sourceTree = "<group>";
 		};
 		3AE4E7CC1C1821AF00BC120D /* PresentationAnimators */ = {
@@ -435,9 +455,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ABAEB561C22FF1200BE8F97 /* sonic_annotator in Resources */,
+				3ABAEB581C22FF1200BE8F97 /* vamp_transforms in Resources */,
 				3A25F4481C16D868007ED23B /* Songs.storyboard in Resources */,
 				3AAF4D8B1C16AF3D0091C2B3 /* Assets.xcassets in Resources */,
 				3AAF4D8E1C16AF3D0091C2B3 /* Main.storyboard in Resources */,
+				3ABAEB551C22FF1200BE8F97 /* blackbox in Resources */,
+				3ABAEB571C22FF1200BE8F97 /* vamp_plugins in Resources */,
 				3A220C831C16DA2A00985BC7 /* Mixably.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
