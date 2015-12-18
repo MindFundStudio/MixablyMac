@@ -263,6 +263,7 @@
                                             </tableColumns>
                                             <connections>
                                                 <binding destination="1up-Kv-Eej" name="content" keyPath="arrangedObjects" id="m2M-3g-M0v"/>
+                                                <outlet property="dataSource" destination="bf0-MY-G1j" id="Xp6-yE-dvi"/>
                                             </connections>
                                         </tableView>
                                     </subviews>

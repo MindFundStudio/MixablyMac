@@ -216,6 +216,8 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
         } else {
             loadSongsOfPlaylist(playlist)
         }
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.ReloadSongs.rawValue, object: self, userInfo: [MXNotificationUserInfo.Playlist.rawValue: playlist])
     }
     
     func selectMood(notification: NSNotification?) {

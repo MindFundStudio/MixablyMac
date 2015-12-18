@@ -40,8 +40,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         // Seed Data
         NSUserDefaults.standardUserDefaults().setBool(false, forKey: MX_INITIAL_LAUNCH)
         do {
-            try MXSongManager.importSongs()
             MXDataManager.importSeedData()
+            try MXSongManager.importSongs()
+        
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: MX_INITIAL_LAUNCH)
         } catch let error as NSError {
             print("Error: \(error)")
             NSAlert(error: error).runModal()
