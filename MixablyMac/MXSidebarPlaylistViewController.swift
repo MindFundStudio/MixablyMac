@@ -151,34 +151,48 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
     func outlineView(outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: AnyObject?, childIndex index: Int) -> Bool {
         let pb = info.draggingPasteboard()
         let name = pb.stringForType(NSPasteboardTypeString)
+        let identifier = pb.stringForType(NSPasteboardTypeRTF)
         var sourceItem: Playlist!
         var sourceIndex: Int!
         
-        if let item = item as? String where item == "Playlist" {
-            var sourceArray = childrenDictionary[item]!
-            
-            for (index, p) in sourceArray.enumerate() {
-                if p.name == name {
-                    sourceItem = p
-                    sourceIndex = index
-                    break
+        if let identifier = identifier where identifier == "MXMixably", let name = name {
+            if let playlist = item as? Playlist {
+                let realm = try! Realm()
+                let songs = realm.objects(Song).filter("name = %@", name)
+                try! realm.write {
+                    playlist.songs.appendContentsOf(songs)
                 }
-            }
-            if sourceIndex == nil {
+                return true
+            } else {
                 return false
             }
-            
-            sourceArray.removeAtIndex(sourceIndex)
-            if sourceIndex < index {
-                sourceArray.insert(sourceItem, atIndex: index - 1)
+        } else if let identifier = identifier where identifier == "MXPlaylist" {
+            if let item = item as? String where item == "Playlist" {
+                var sourceArray = childrenDictionary[item]!
+                
+                for (index, p) in sourceArray.enumerate() {
+                    if p.name == name {
+                        sourceItem = p
+                        sourceIndex = index
+                        break
+                    }
+                }
+                if sourceIndex == nil {
+                    return false
+                }
+                
+                sourceArray.removeAtIndex(sourceIndex)
+                if sourceIndex < index {
+                    sourceArray.insert(sourceItem, atIndex: index - 1)
+                } else {
+                    sourceArray.insert(sourceItem, atIndex: index)
+                }
+                
+                childrenDictionary[item]! = sourceArray
+                sourceListView.reloadData()
             } else {
-                sourceArray.insert(sourceItem, atIndex: index)
+                return false
             }
-            
-            childrenDictionary[item]! = sourceArray
-            sourceListView.reloadData()
-        } else {
-            return false
         }
         
         return true
