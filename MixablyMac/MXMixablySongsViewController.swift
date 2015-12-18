@@ -9,7 +9,7 @@
 import Cocoa
 import RealmSwift
 
-final class MXMixablySongsViewController: NSViewController {
+final class MXMixablySongsViewController: NSViewController, NSTableViewDataSource {
     
     let realm = try! Realm()
     var results: Results<Song>! {
@@ -95,6 +95,16 @@ final class MXMixablySongsViewController: NSViewController {
         }
     }
     
+    // MARK: - DataSource
+    
+    func tableView(tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
+        let pbItem = NSPasteboardItem()
+        pbItem.setString(songs[row].name, forType: NSPasteboardTypeString)
+        pbItem.setString("MXMixably", forType: NSPasteboardTypeRTF)
+        
+        return pbItem
+    }
+
     // MARK: - Notifications
     
     func saveNewPlaylist(notification: NSNotification?) {

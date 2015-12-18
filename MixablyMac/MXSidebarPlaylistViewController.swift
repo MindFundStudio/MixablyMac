@@ -114,12 +114,32 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
         
         let pbItem = NSPasteboardItem()
         pbItem.setString(playlist.name, forType: NSPasteboardTypeString)
+        pbItem.setString("MXPlaylist", forType: NSPasteboardTypeRTF)
         
         return pbItem
     }
     
     func outlineView(outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: AnyObject?, proposedChildIndex index: Int) -> NSDragOperation {
-        let canDrag = index >= 0 && item != nil
+        let pb = info.draggingPasteboard()
+        let identifier = pb.stringForType(NSPasteboardTypeRTF)
+        
+        var canDrag = false
+        
+        if let identifier = identifier where identifier == "MXMixably" {
+            if let item = item as? String where item == "Library" || item == "Playlist" {
+                canDrag = false
+            } else if let playlist = item as? Playlist where playlist.name == AllSongs {
+                canDrag = false
+            } else {
+                canDrag = index < 0 && item != nil
+            }
+        } else if let identifier = identifier where identifier == "MXPlaylist" {
+            if let item = item as? String where item == "Library" {
+                canDrag = false
+            } else {
+                canDrag = index >= 0 && item != nil
+            }
+        }
         
         if canDrag {
             return .Move
