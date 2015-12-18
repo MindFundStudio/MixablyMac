@@ -44,8 +44,6 @@ final class MXSongManager {
                 let operation = MXAnalyseOperation(fileURL: fileURL) { features, error in
                     
                     // Do something with features and error
-                    print("Main Thread? \(NSThread.isMainThread())")
-                    
                     if let error = error {
                         print("error: \(error.description)")
                     } else {

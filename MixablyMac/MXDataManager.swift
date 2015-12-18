@@ -12,8 +12,6 @@ import RealmSwift
 final class MXDataManager {
     
     class func importSeedData() {
-        print(Realm.Configuration.defaultConfiguration.path)
-        
         let userDefaults = NSUserDefaults.standardUserDefaults()
         if userDefaults.boolForKey(MX_INITIAL_LAUNCH) {
             return

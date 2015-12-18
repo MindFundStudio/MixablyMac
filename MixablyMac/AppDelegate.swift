@@ -18,7 +18,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         
-        print(Realm.defaultPath)
+        print(Realm.Configuration.defaultConfiguration.path)
         
         statusItem.title = ""
         
@@ -38,7 +38,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         })
         
         // Seed Data
-        NSUserDefaults.standardUserDefaults().setBool(false, forKey: MX_INITIAL_LAUNCH)
+//        NSUserDefaults.standardUserDefaults().setBool(false, forKey: MX_INITIAL_LAUNCH)
         do {
             MXDataManager.importSeedData()
             try MXSongManager.importSongs()
