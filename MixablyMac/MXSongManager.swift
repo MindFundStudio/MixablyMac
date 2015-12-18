@@ -39,22 +39,26 @@ final class MXSongManager {
             operationQueue.maxConcurrentOperationCount = 4
             
             for song in songs {
-                let fileURL = NSURL(fileURLWithPath: song.location)
+                
+                let fileURL = NSURL(string: song.location)!
                 let operation = MXAnalyseOperation(fileURL: fileURL) { features, error in
+                    
                     // Do something with features and error
                     print("Main Thread? \(NSThread.isMainThread())")
+                    
                     // Save features to song
-                    if let features = features {
-                        song.tonality = features.tonality
-                        song.intensity = features.intensity
-                        song.rmsEnergy = features.rmsEnergy
-                        song.tempo = features.tempo
-                        
-                        let realm = try! Realm()
-                        try! realm.write {
-                            realm.add(song, update: true)
-                        }
-                    }
+//                    if let features = features {
+//                        print(features)
+//                        song.tonality = features.tonality
+//                        song.intensity = features.intensity
+//                        song.rmsEnergy = features.rmsEnergy
+//                        song.tempo = features.tempo
+//                        
+//                        let realm = try! Realm()
+//                        try! realm.write {
+//                            realm.add(song, update: true)
+//                        }
+//                    }
                 }
                 
                 // Make sure to add to an OperationQueue

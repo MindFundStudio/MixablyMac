@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import RealmSwift
 
 @NSApplicationMain
 final class AppDelegate: NSObject, NSApplicationDelegate {
@@ -16,6 +17,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     var eventMonitor: EventMonitor?
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        
+        print(Realm.defaultPath)
         
         statusItem.title = ""
         
