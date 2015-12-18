@@ -46,19 +46,24 @@ final class MXSongManager {
                     // Do something with features and error
                     print("Main Thread? \(NSThread.isMainThread())")
                     
-                    // Save features to song
-//                    if let features = features {
-//                        print(features)
-//                        song.tonality = features.tonality
-//                        song.intensity = features.intensity
-//                        song.rmsEnergy = features.rmsEnergy
-//                        song.tempo = features.tempo
-//                        
-//                        let realm = try! Realm()
-//                        try! realm.write {
-//                            realm.add(song, update: true)
-//                        }
-//                    }
+                    if let error = error {
+                        print("error: \(error.description)")
+                    } else {
+                        // Save features to song
+                        if let features = features {
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                let song = realm.objects(Song).filter("id = %@", song.id).first
+                                if let song = song {
+                                    try! realm.write {
+                                        song.tonality = features.tonality
+                                        song.intensity = features.intensity
+                                        song.rmsEnergy = features.rmsEnergy
+                                        song.tempo = features.tempo
+                                    }
+                                }
+                            })
+                        }
+                    }
                 }
                 
                 // Make sure to add to an OperationQueue
