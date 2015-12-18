@@ -120,13 +120,13 @@ final class MXAnalyseOperation: Operation {
                     bins: bins)
                 
                 completion?(features, nil)
+                finish()
             }
-            
-            // Use taskCompleted notification to signal completion of task
-            NSNotificationCenter.defaultCenter().addObserver(self,
-                selector: "taskCompleted:",
-                name: NSTaskDidTerminateNotification,
-                object: task)
+            else {
+                let error = NSError(domain: "MXErrorDomain", code: 1, userInfo: ["location": self.fileURL])
+                completion?(nil, error)
+                finishWithError(error)
+            }
             
             task.waitUntilExit()
             
@@ -134,10 +134,5 @@ final class MXAnalyseOperation: Operation {
             // This really should not happen
             assertionFailure("Fatal: MXAnalyzeOperation Error, cannot find bundle resource path")
         }
-    }
-    
-    func taskCompleted(notification:NSNotification) {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-        finish()
     }
 }

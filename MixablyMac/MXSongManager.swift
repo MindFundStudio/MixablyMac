@@ -9,6 +9,7 @@
 import Foundation
 import iTunesLibrary
 import RealmSwift
+import PSOperations
 
 final class MXSongManager {
     
@@ -34,11 +35,50 @@ final class MXSongManager {
                 realm.add(songs)
             }
             
+            let operationQueue = OperationQueue()
+            operationQueue.maxConcurrentOperationCount = 4
+            
+            for song in songs {
+                
+                let fileURL = NSURL(string: song.location)!
+                let operation = MXAnalyseOperation(fileURL: fileURL) { features, error in
+                    
+                    // Do something with features and error
+                    print("Main Thread? \(NSThread.isMainThread())")
+                    
+                    if let error = error {
+                        print("error: \(error.description)")
+                    } else {
+                        // Save features to song
+                        if let features = features {
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                let song = realm.objects(Song).filter("id = %@", song.id).first
+                                if let song = song {
+                                    try! realm.write {
+                                        song.tonality = features.tonality
+                                        song.intensity = features.intensity
+                                        song.rmsEnergy = features.rmsEnergy
+                                        song.tempo = features.tempo
+                                    }
+                                }
+                            })
+                        }
+                    }
+                }
+                
+                // Make sure to add to an OperationQueue
+                operationQueue.addOperation(operation)
+            }
+            
             return songs
         } catch let error as NSError {
             print("error loading iTunesLibrary")
             throw error
         }
+    }
+    
+    class func processSong(song: Song) {
+        
     }
     
 }

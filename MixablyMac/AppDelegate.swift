@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import RealmSwift
 
 @NSApplicationMain
 final class AppDelegate: NSObject, NSApplicationDelegate {
@@ -16,6 +17,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     var eventMonitor: EventMonitor?
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        
+        print(Realm.defaultPath)
         
         statusItem.title = ""
         
@@ -35,7 +38,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         })
         
         // Seed Data
-//        NSUserDefaults.standardUserDefaults().setBool(false, forKey: MX_INITIAL_LAUNCH)
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: MX_INITIAL_LAUNCH)
         do {
             try MXSongManager.importSongs()
             MXDataManager.importSeedData()
