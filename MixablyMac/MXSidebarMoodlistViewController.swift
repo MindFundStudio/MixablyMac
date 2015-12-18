@@ -32,7 +32,7 @@ final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewData
         outlineView.expandItem(nil, expandChildren: true)
         outlineView.deselectRow(0)
         
-        outlineView.registerForDraggedTypes([dragType])
+        outlineView.registerForDraggedTypes([NSPasteboardTypeString])
     }
     
     // MARK: - Helpers
@@ -52,7 +52,7 @@ final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewData
         let pbItem = NSPasteboardItem()
         
         if let mood = ((item as? NSTreeNode)?.representedObject) as? Mood {
-            pbItem.setString(mood.name, forType: dragType)
+            pbItem.setString(mood.name, forType: NSPasteboardTypeString)
             return pbItem
         }
         
@@ -71,7 +71,7 @@ final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewData
     
     func outlineView(outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: AnyObject?, childIndex index: Int) -> Bool {
         let pb = info.draggingPasteboard()
-        let name = pb.stringForType(dragType)
+        let name = pb.stringForType(NSPasteboardTypeString)
         
         var sourceNode: NSTreeNode?
         

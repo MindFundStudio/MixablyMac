@@ -43,7 +43,7 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
         NSAnimationContext.endGrouping()
 
         // Enable Drag & Drop
-        sourceListView.registerForDraggedTypes([dragType])
+        sourceListView.registerForDraggedTypes([NSPasteboardTypeString])
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadPlaylist:", name: MXNotifications.ReloadSidebarPlaylist.rawValue, object: nil)
     }
@@ -110,10 +110,10 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
     
     func outlineView(outlineView: NSOutlineView, pasteboardWriterForItem item: AnyObject) -> NSPasteboardWriting? {
         guard let playlist = item as? Playlist else { return nil }
-        guard let item = item as? Playlist where item.name != "All Songs" else { return nil }
+        guard let item = item as? Playlist where item.name != AllSongs else { return nil }
         
         let pbItem = NSPasteboardItem()
-        pbItem.setString(playlist.name, forType: dragType)
+        pbItem.setString(playlist.name, forType: NSPasteboardTypeString)
         
         return pbItem
     }
@@ -130,7 +130,7 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
     
     func outlineView(outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: AnyObject?, childIndex index: Int) -> Bool {
         let pb = info.draggingPasteboard()
-        let name = pb.stringForType(dragType)
+        let name = pb.stringForType(NSPasteboardTypeString)
         var sourceItem: Playlist!
         var sourceIndex: Int!
         
