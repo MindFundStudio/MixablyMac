@@ -58,12 +58,18 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
             combinedEnergyIntensityCoeff: mood.combinedEnergyIntensityCoeff
         )
         
-        let operation = MXScoreSongsOperation(inputs: inputs) { (var scoredSongs, error) -> Void in
+        let operation = MXScoreSongsOperation(inputs: inputs) { [weak self] (var scoredSongs, error) -> Void in
             if let error = error {
                 print(error.description)
-            } else {
+            } else if let wself = self {
                 scoredSongs = scoredSongs.filter { song in song.score > -100 && song.score < 100 }
-//                scoredSongs = scoredSongs.sort { $0 > $1 }
+                scoredSongs = scoredSongs.sort { $0.score > $1.score }
+                
+                let ids = scoredSongs.map { song in return song.id }
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    wself.results = wself.realm.objects(Song).filter("id IN %@", ids)
+                })
             }
         }
         queue.addOperation(operation)
