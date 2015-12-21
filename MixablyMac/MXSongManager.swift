@@ -57,6 +57,8 @@ final class MXSongManager {
                                         song.intensity = features.intensity
                                         song.rmsEnergy = features.rmsEnergy
                                         song.tempo = features.tempo
+                                        song.rhythm = features.rhythmStrength
+                                        song.bass = features.bass
                                     }
                                 }
                             })
