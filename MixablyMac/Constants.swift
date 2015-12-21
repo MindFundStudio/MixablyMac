@@ -25,6 +25,7 @@ enum MXNotifications: String {
     case SelectMood = "selectMood"
     case AddToPlaylist = "addToPlaylist"
     case SaveNewPlaylist = "saveNewPlaylist"
+    case ReloadMixably = "reloadMixably"
     case ReloadSidebarMood = "reloadSidebarMood"
 }
 

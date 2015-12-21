@@ -75,8 +75,7 @@ final class MXScoreSongsOperation: Operation {
         do {
             
             let realm = try Realm()
-            let predicate = NSPredicate(format: "statusRaw == %@", Song.Status.Analyzed.rawValue)
-            songs = realm.objects(Song).filter(predicate)
+            songs = realm.objects(Song).filter("statusRaw == %@", Song.Status.Analyzed.rawValue)
             
             var scoredSongs = [ScoredSong]()
             

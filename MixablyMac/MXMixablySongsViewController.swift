@@ -8,13 +8,17 @@
 
 import Cocoa
 import RealmSwift
+import PSOperations
 
 final class MXMixablySongsViewController: NSViewController, NSTableViewDataSource {
     
     let realm = try! Realm()
+    let queue = OperationQueue()
+    
     var results: Results<Song>! {
         didSet {
             songs = results.map { (song) in return song }
+            highlightSongs()
         }
     }
     dynamic var songs: [Song]!
@@ -23,16 +27,47 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
         super.viewDidLoad()
         // Do view setup here.
         
-        results = realm.objects(Song)
-        
-        highlightSongs()
+        // TODO: Load default mood
+        loadSongsOf(nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "saveNewPlaylist:", name: MXNotifications.SaveNewPlaylist.rawValue, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "addToPlaylist:", name: MXNotifications.AddToPlaylist.rawValue, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "selectPlaylist:", name: MXNotifications.SelectPlaylist.rawValue, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadMixably:", name: MXNotifications.ReloadMixably.rawValue, object: nil)
     }
     
     // MARK: - Helpers
+    
+    func loadSongsOf(mood: Mood?) {
+        if let mood = mood {
+            filterSongsBy(mood)
+        } else {
+            results = realm.objects(Song)
+        }
+    }
+    
+    func filterSongsBy(mood: Mood) {
+        let inputs = MXScoringInputs(
+            bassPredict: mood.bassPredict,
+            bassCoeff: mood.bassCoeff,
+            rhythmStrengthPredict: mood.rhythmStrengthPredict,
+            rhythmStrengthCoeff: mood.rhythmStrengthCoeff,
+            tempoPredict: mood.tempoPredict,
+            tempoCoeff: mood.tempoCoeff,
+            combinedEnergyIntensityPredict: mood.combinedEnergyIntensityPredict,
+            combinedEnergyIntensityCoeff: mood.combinedEnergyIntensityCoeff
+        )
+        
+        let operation = MXScoreSongsOperation(inputs: inputs) { (var scoredSongs, error) -> Void in
+            if let error = error {
+                print(error.description)
+            } else {
+                scoredSongs = scoredSongs.filter { song in song.score > -100 && song.score < 100 }
+//                scoredSongs = scoredSongs.sort { $0 > $1 }
+            }
+        }
+        queue.addOperation(operation)
+    }
     
     func newSelectedSongs() -> [Song] {
         let checkedSongs = songs.filter { (song) in return song.selected && !song.highlighted }
@@ -70,6 +105,7 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
     
     func highlightSongs(playlist: Playlist? = MXPlayerManager.sharedManager.selectedPlaylist) {
         guard playlist != nil else { return }
+        guard songs != nil else { return }
         
         let player = MXPlayerManager.sharedManager
         
@@ -139,6 +175,12 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
         print("Highlighting \(playlist.songs.count)")
         
         highlightSongs(playlist)
+    }
+    
+    func reloadMixably(notification: NSNotification?) {
+        guard let mood = notification?.userInfo?[MXNotificationUserInfo.Mood.rawValue] as? Mood else { return }
+        
+        filterSongsBy(mood)
     }
     
 }

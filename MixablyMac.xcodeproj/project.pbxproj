@@ -42,6 +42,7 @@
 		D1159F891C1ACEC500E43147 /* MXDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1159F881C1ACEC500E43147 /* MXDataManager.swift */; };
 		D1159F8B1C1AD6DB00E43147 /* MXSongManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1159F8A1C1AD6DB00E43147 /* MXSongManager.swift */; };
 		D1159F8D1C1B354D00E43147 /* MXMixablySongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1159F8C1C1B354D00E43147 /* MXMixablySongsViewController.swift */; };
+		D14803301C27CE0100039DA6 /* MXMixablyMoodFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D148032F1C27CE0100039DA6 /* MXMixablyMoodFilterViewController.swift */; };
 		D169D1051C192692002F62D6 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169D1041C192692002F62D6 /* Playlist.swift */; };
 		D169D1071C1926A4002F62D6 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169D1061C1926A4002F62D6 /* Mood.swift */; };
 		D1A49F251C1ED67D002540A0 /* MXMixablyActionGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A49F241C1ED67D002540A0 /* MXMixablyActionGroupViewController.swift */; };
@@ -109,6 +110,7 @@
 		D1159F881C1ACEC500E43147 /* MXDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXDataManager.swift; sourceTree = "<group>"; };
 		D1159F8A1C1AD6DB00E43147 /* MXSongManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSongManager.swift; sourceTree = "<group>"; };
 		D1159F8C1C1B354D00E43147 /* MXMixablySongsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXMixablySongsViewController.swift; sourceTree = "<group>"; };
+		D148032F1C27CE0100039DA6 /* MXMixablyMoodFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXMixablyMoodFilterViewController.swift; sourceTree = "<group>"; };
 		D169D1041C192692002F62D6 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Playlist.swift; path = Models/Playlist.swift; sourceTree = "<group>"; };
 		D169D1061C1926A4002F62D6 /* Mood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mood.swift; path = Models/Mood.swift; sourceTree = "<group>"; };
 		D1A49F241C1ED67D002540A0 /* MXMixablyActionGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXMixablyActionGroupViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				D1A49F241C1ED67D002540A0 /* MXMixablyActionGroupViewController.swift */,
 				3AAF4DB81C16C21D0091C2B3 /* MXMixablyViewController.swift */,
 				D1159F8C1C1B354D00E43147 /* MXMixablySongsViewController.swift */,
+				D148032F1C27CE0100039DA6 /* MXMixablyMoodFilterViewController.swift */,
 			);
 			name = Mixably;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				3AE4E7CE1C1821D300BC120D /* MXMixablyPresentationAnimator.swift in Sources */,
 				D10004011C1855EF00563D6B /* MXSidebarPlaylistViewController.swift in Sources */,
 				D1A49F251C1ED67D002540A0 /* MXMixablyActionGroupViewController.swift in Sources */,
+				D14803301C27CE0100039DA6 /* MXMixablyMoodFilterViewController.swift in Sources */,
 				3AAF4DB71C16C1E00091C2B3 /* MXPlaylistViewController.swift in Sources */,
 				3AAF4DB91C16C21D0091C2B3 /* MXMixablyViewController.swift in Sources */,
 				3AAF4D891C16AF3D0091C2B3 /* ViewController.swift in Sources */,
