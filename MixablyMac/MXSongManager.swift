@@ -48,14 +48,15 @@ final class MXSongManager {
                 let operation = MXAnalyseOperation(fileURL: fileURL) { features, error in
                     
                     // Do something with features and error
-                    if let error = error {
-                        print("error: \(error.description)")
-                    } else {
-                        // Save features to song
-                        if let features = features {
-                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                                let song = realm.objects(Song).filter("id = %@", song.id).first
-                                if let song = song {
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        if let error = error {
+                            print("error: \(error.description)")
+                            try! realm.write {
+                                song.statusRaw = Song.Status.Unanalysed.rawValue
+                            }
+                        } else {
+                            // Save features to song
+                            if let features = features {
                                     try! realm.write {
                                         song.tonality = features.tonality
                                         song.intensity = features.intensity
@@ -64,11 +65,10 @@ final class MXSongManager {
                                         song.rhythm = features.rhythmStrength
                                         song.bass = features.bass
                                         song.statusRaw = Song.Status.Analyzed.rawValue
-                                    }
                                 }
-                            })
+                            }
                         }
-                    }
+                    })
                 }
                 
                 // Make sure to add to an OperationQueue
