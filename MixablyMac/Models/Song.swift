@@ -31,7 +31,7 @@ final class Song: Object {
     dynamic var name:String = "New Song"
     dynamic var location:String = ""
     dynamic var duration:Double = 0.0
-    dynamic var statusRaw:Int = 0
+    dynamic var statusRaw:Int = Song.Status.Unanalysed.rawValue
     
     dynamic var tonality:String?
     dynamic var rmsEnergy:Double = 0

@@ -40,6 +40,10 @@ final class MXSongManager {
             
             for song in songs {
                 
+                try! realm.write {
+                    song.statusRaw = Song.Status.InProgress.rawValue
+                }
+                
                 let fileURL = NSURL(string: song.location)!
                 let operation = MXAnalyseOperation(fileURL: fileURL) { features, error in
                     
@@ -59,6 +63,7 @@ final class MXSongManager {
                                         song.tempo = features.tempo
                                         song.rhythm = features.rhythmStrength
                                         song.bass = features.bass
+                                        song.statusRaw = Song.Status.Analyzed.rawValue
                                     }
                                 }
                             })
