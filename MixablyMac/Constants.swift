@@ -38,7 +38,3 @@ enum MXNotificationUserInfo: String {
 
 let AllSongs = "All Songs"
 let NewPlaylistName = "New Playlist"
-
-// MARK: - NSUserDefaults
-
-let MX_INITIAL_LAUNCH = "appInitLaunch"

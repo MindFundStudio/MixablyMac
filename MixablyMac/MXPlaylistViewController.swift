@@ -133,7 +133,9 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
     
     func doubleClick(sender: NSTableView) {
         let manager = MXPlayerManager.sharedManager
-        manager.currentSong = songs[tableView.selectedRow]
+        if tableView.selectedRow != -1 {
+            manager.currentSong = songs[tableView.selectedRow]
+        }
         manager.play()
     }
     
