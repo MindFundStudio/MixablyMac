@@ -9,8 +9,9 @@
 import Foundation
 import iTunesLibrary
 import RealmSwift
+import PSOperations
 
-class MXSongManager {
+final class MXSongManager {
     
     class func importSongs() throws -> [Song]? {
         let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -34,11 +35,55 @@ class MXSongManager {
                 realm.add(songs)
             }
             
+            let operationQueue = OperationQueue()
+            operationQueue.maxConcurrentOperationCount = 4
+            
+            for song in songs {
+                
+                try! realm.write {
+                    song.statusRaw = Song.Status.InProgress.rawValue
+                }
+                
+                let fileURL = NSURL(string: song.location)!
+                let operation = MXAnalyseOperation(fileURL: fileURL) { features, error in
+                    
+                    // Do something with features and error
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        if let error = error {
+                            print("error: \(error.description)")
+                            try! realm.write {
+                                song.statusRaw = Song.Status.Unanalysed.rawValue
+                            }
+                        } else {
+                            // Save features to song
+                            if let features = features {
+                                    try! realm.write {
+                                        song.tonality = features.tonality
+                                        song.intensity = features.intensity
+                                        song.rmsEnergy = features.rmsEnergy
+                                        song.tempo = features.tempo
+                                        song.rhythm = features.rhythmStrength
+                                        song.bass = features.bass
+                                        song.statusRaw = Song.Status.Analyzed.rawValue
+                                }
+                            }
+                        }
+                    })
+                }
+                
+                // Make sure to add to an OperationQueue
+                operationQueue.addOperation(operation)
+            }
+            
             return songs
         } catch let error as NSError {
             print("error loading iTunesLibrary")
             throw error
         }
+    }
+    
+    class func processSong(song: Song) {
+        
     }
     
 }

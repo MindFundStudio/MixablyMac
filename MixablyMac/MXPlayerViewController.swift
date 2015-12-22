@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class MXPlayerViewController: NSViewController {
+final class MXPlayerViewController: NSViewController {
     let manager = MXPlayerManager.sharedManager
     
     @IBOutlet weak var songLengthTextField: NSTextField!
@@ -20,6 +20,8 @@ class MXPlayerViewController: NSViewController {
     @IBOutlet weak var backButton: NSButton!
     
     @IBOutlet weak var nextButton: NSButton!
+    
+    @IBOutlet weak var mixablyButton: NSButton!
     
     var songTimer: NSTimer?
     
@@ -33,6 +35,8 @@ class MXPlayerViewController: NSViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "stopPlaying:", name: MXNotifications.StopPlaying.rawValue, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeSong:", name: MXNotifications.ChangeSong.rawValue, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showMixably:", name: MXNotifications.SelectMood.rawValue, object: nil)
         
         backButton.enabled = false
         nextButton.enabled = false
@@ -117,5 +121,9 @@ class MXPlayerViewController: NSViewController {
         
         let formatter = NSDateComponentsFormatter()
         songLengthTextField.stringValue = "\(formatter.stringFromTimeInterval(song.duration)!)"
+    }
+    
+    func showMixably(notification: NSNotification) {
+        mixablyButton.state = NSOnState
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class MXDataManager {
+final class MXDataManager {
     
     class func importSeedData() {
         let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -18,6 +18,10 @@ class MXDataManager {
         }
         
         let realm = try! Realm()
+        
+        try! realm.write {
+            realm.deleteAll()
+        }
         
         let m1 = Mood()
         m1.name = "M1"
@@ -35,8 +39,6 @@ class MXDataManager {
             realm.add(pl1)
             realm.add(pl2)
         }
-        
-        userDefaults.setBool(true, forKey: MX_INITIAL_LAUNCH)
     }
     
 }

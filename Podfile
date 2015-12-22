@@ -3,7 +3,7 @@ platform :osx, '10.11'
 use_frameworks!
 
 target 'MixablyMac' do
-  pod 'RealmSwift'
+  pod 'RealmSwift', '~> 0.97'
   pod 'pop', '~> 1.0'
   pod 'PSOperations', '~> 2.0.2'
   pod 'STRegex'

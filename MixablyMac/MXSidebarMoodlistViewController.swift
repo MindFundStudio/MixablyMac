@@ -9,7 +9,7 @@
 import Cocoa
 import RealmSwift
 
-class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
+final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
 
     @IBOutlet var moodlistController: NSTreeController!
     @IBOutlet weak var outlineView: NSOutlineView!
@@ -32,7 +32,7 @@ class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewDataSource
         outlineView.expandItem(nil, expandChildren: true)
         outlineView.deselectRow(0)
         
-        outlineView.registerForDraggedTypes([dragType])
+        outlineView.registerForDraggedTypes([NSPasteboardTypeString])
     }
     
     // MARK: - Helpers
@@ -52,7 +52,7 @@ class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewDataSource
         let pbItem = NSPasteboardItem()
         
         if let mood = ((item as? NSTreeNode)?.representedObject) as? Mood {
-            pbItem.setString(mood.name, forType: dragType)
+            pbItem.setString(mood.name, forType: NSPasteboardTypeString)
             return pbItem
         }
         
@@ -71,7 +71,7 @@ class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewDataSource
     
     func outlineView(outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: AnyObject?, childIndex index: Int) -> Bool {
         let pb = info.draggingPasteboard()
-        let name = pb.stringForType(dragType)
+        let name = pb.stringForType(NSPasteboardTypeString)
         
         var sourceNode: NSTreeNode?
         
@@ -116,6 +116,12 @@ class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewDataSource
 
     func outlineViewSelectionDidChange(notification: NSNotification) {
         print("moodlist: \(outlineView.selectedRow)")
+        let item = outlineView.itemAtRow(outlineView.selectedRow)
+        
+        if let mood = ((item as? NSTreeNode)?.representedObject) as? Mood {
+            NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.SelectMood.rawValue, object: self, userInfo: [MXNotificationUserInfo.Mood.rawValue: mood])
+        }
+
     }
     
 }

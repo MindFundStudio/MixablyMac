@@ -22,6 +22,12 @@
 		3AAF4DB91C16C21D0091C2B3 /* MXMixablyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF4DB81C16C21D0091C2B3 /* MXMixablyViewController.swift */; };
 		3AB2AF741C1F5132008F4371 /* MXAnalyseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB2AF731C1F5132008F4371 /* MXAnalyseOperation.swift */; };
 		3AB2AF761C1F515C008F4371 /* MXFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB2AF751C1F515C008F4371 /* MXFeatures.swift */; };
+		3ABAEB4D1C22B22C00BE8F97 /* ScoredSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABAEB4C1C22B22C00BE8F97 /* ScoredSong.swift */; };
+		3ABAEB4F1C22B2B900BE8F97 /* MXScoreSongsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABAEB4E1C22B2B900BE8F97 /* MXScoreSongsOperation.swift */; };
+		3ABAEB551C22FF1200BE8F97 /* blackbox in Resources */ = {isa = PBXBuildFile; fileRef = 3ABAEB511C22FF1200BE8F97 /* blackbox */; };
+		3ABAEB561C22FF1200BE8F97 /* sonic_annotator in Resources */ = {isa = PBXBuildFile; fileRef = 3ABAEB521C22FF1200BE8F97 /* sonic_annotator */; };
+		3ABAEB571C22FF1200BE8F97 /* vamp_plugins in Resources */ = {isa = PBXBuildFile; fileRef = 3ABAEB531C22FF1200BE8F97 /* vamp_plugins */; };
+		3ABAEB581C22FF1200BE8F97 /* vamp_transforms in Resources */ = {isa = PBXBuildFile; fileRef = 3ABAEB541C22FF1200BE8F97 /* vamp_transforms */; };
 		3AE4E7CE1C1821D300BC120D /* MXMixablyPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4E7CD1C1821D300BC120D /* MXMixablyPresentationAnimator.swift */; };
 		3AE4E7D11C183BAE00BC120D /* CALayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4E7D01C183BAE00BC120D /* CALayer+Extensions.swift */; };
 		4A34E94E63C98EE6C39AC602 /* Pods_MixablyMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACEA5876B72FE5282B68214 /* Pods_MixablyMac.framework */; };
@@ -39,6 +45,7 @@
 		D1159F8D1C1B354D00E43147 /* MXMixablySongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1159F8C1C1B354D00E43147 /* MXMixablySongsViewController.swift */; };
 		D169D1051C192692002F62D6 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169D1041C192692002F62D6 /* Playlist.swift */; };
 		D169D1071C1926A4002F62D6 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169D1061C1926A4002F62D6 /* Mood.swift */; };
+		D1A49F251C1ED67D002540A0 /* MXMixablyActionGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A49F241C1ED67D002540A0 /* MXMixablyActionGroupViewController.swift */; };
 		D1DFEECD1C16F243000B9991 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFEECC1C16F243000B9991 /* Song.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +88,12 @@
 		3AAF4DB81C16C21D0091C2B3 /* MXMixablyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXMixablyViewController.swift; sourceTree = "<group>"; };
 		3AB2AF731C1F5132008F4371 /* MXAnalyseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXAnalyseOperation.swift; sourceTree = "<group>"; };
 		3AB2AF751C1F515C008F4371 /* MXFeatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXFeatures.swift; sourceTree = "<group>"; };
+		3ABAEB4C1C22B22C00BE8F97 /* ScoredSong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoredSong.swift; sourceTree = "<group>"; };
+		3ABAEB4E1C22B2B900BE8F97 /* MXScoreSongsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXScoreSongsOperation.swift; sourceTree = "<group>"; };
+		3ABAEB511C22FF1200BE8F97 /* blackbox */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = blackbox; sourceTree = "<group>"; };
+		3ABAEB521C22FF1200BE8F97 /* sonic_annotator */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sonic_annotator; sourceTree = "<group>"; };
+		3ABAEB531C22FF1200BE8F97 /* vamp_plugins */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vamp_plugins; sourceTree = "<group>"; };
+		3ABAEB541C22FF1200BE8F97 /* vamp_transforms */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vamp_transforms; sourceTree = "<group>"; };
 		3ACEA5876B72FE5282B68214 /* Pods_MixablyMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixablyMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE4E7CD1C1821D300BC120D /* MXMixablyPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXMixablyPresentationAnimator.swift; sourceTree = "<group>"; };
 		3AE4E7D01C183BAE00BC120D /* CALayer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Extensions.swift"; sourceTree = "<group>"; };
@@ -100,6 +113,7 @@
 		D1159F8C1C1B354D00E43147 /* MXMixablySongsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXMixablySongsViewController.swift; sourceTree = "<group>"; };
 		D169D1041C192692002F62D6 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Playlist.swift; path = Models/Playlist.swift; sourceTree = "<group>"; };
 		D169D1061C1926A4002F62D6 /* Mood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mood.swift; path = Models/Mood.swift; sourceTree = "<group>"; };
+		D1A49F241C1ED67D002540A0 /* MXMixablyActionGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXMixablyActionGroupViewController.swift; sourceTree = "<group>"; };
 		D1DFEECC1C16F243000B9991 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Song.swift; path = Models/Song.swift; sourceTree = "<group>"; };
 		DF7961601E0145F14D531120 /* Pods-MixablyMac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixablyMac.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixablyMac/Pods-MixablyMac.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,6 +189,7 @@
 		3AAF4D851C16AF3D0091C2B3 /* MixablyMac */ = {
 			isa = PBXGroup;
 			children = (
+				3ABAEB501C22FF0300BE8F97 /* Vendors */,
 				3AB2AF721C1F50FD008F4371 /* Operations */,
 				D10003FE1C1843C300563D6B /* Helpers */,
 				3AE4E7CF1C183BA100BC120D /* Extensions */,
@@ -222,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				3A220C821C16DA2A00985BC7 /* Mixably.storyboard */,
+				D1A49F241C1ED67D002540A0 /* MXMixablyActionGroupViewController.swift */,
 				3AAF4DB81C16C21D0091C2B3 /* MXMixablyViewController.swift */,
 				D1159F8C1C1B354D00E43147 /* MXMixablySongsViewController.swift */,
 			);
@@ -254,8 +270,20 @@
 			children = (
 				3AB2AF731C1F5132008F4371 /* MXAnalyseOperation.swift */,
 				3AB2AF751C1F515C008F4371 /* MXFeatures.swift */,
+				3ABAEB4E1C22B2B900BE8F97 /* MXScoreSongsOperation.swift */,
 			);
 			name = Operations;
+			sourceTree = "<group>";
+		};
+		3ABAEB501C22FF0300BE8F97 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				3ABAEB511C22FF1200BE8F97 /* blackbox */,
+				3ABAEB521C22FF1200BE8F97 /* sonic_annotator */,
+				3ABAEB531C22FF1200BE8F97 /* vamp_plugins */,
+				3ABAEB541C22FF1200BE8F97 /* vamp_transforms */,
+			);
+			name = Vendors;
 			sourceTree = "<group>";
 		};
 		3AE4E7CC1C1821AF00BC120D /* PresentationAnimators */ = {
@@ -309,6 +337,7 @@
 		D1DFEECB1C16F219000B9991 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3ABAEB4C1C22B22C00BE8F97 /* ScoredSong.swift */,
 				D1DFEECC1C16F243000B9991 /* Song.swift */,
 				D169D1041C192692002F62D6 /* Playlist.swift */,
 				D169D1061C1926A4002F62D6 /* Mood.swift */,
@@ -390,7 +419,7 @@
 						DevelopmentTeam = 3FW6HLELFH;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -429,9 +458,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ABAEB561C22FF1200BE8F97 /* sonic_annotator in Resources */,
+				3ABAEB581C22FF1200BE8F97 /* vamp_transforms in Resources */,
 				3A25F4481C16D868007ED23B /* Songs.storyboard in Resources */,
 				3AAF4D8B1C16AF3D0091C2B3 /* Assets.xcassets in Resources */,
 				3AAF4D8E1C16AF3D0091C2B3 /* Main.storyboard in Resources */,
+				3ABAEB551C22FF1200BE8F97 /* blackbox in Resources */,
+				3ABAEB571C22FF1200BE8F97 /* vamp_plugins in Resources */,
 				3A220C831C16DA2A00985BC7 /* Mixably.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,8 +540,10 @@
 			files = (
 				3AAF4DB51C16C0A60091C2B3 /* MXPlayerViewController.swift in Sources */,
 				D169D1051C192692002F62D6 /* Playlist.swift in Sources */,
+				3ABAEB4D1C22B22C00BE8F97 /* ScoredSong.swift in Sources */,
 				3AE4E7CE1C1821D300BC120D /* MXMixablyPresentationAnimator.swift in Sources */,
 				D10004011C1855EF00563D6B /* MXSidebarPlaylistViewController.swift in Sources */,
+				D1A49F251C1ED67D002540A0 /* MXMixablyActionGroupViewController.swift in Sources */,
 				3AAF4DB71C16C1E00091C2B3 /* MXPlaylistViewController.swift in Sources */,
 				3AAF4DB91C16C21D0091C2B3 /* MXMixablyViewController.swift in Sources */,
 				7CD525AC1C1E656600E7146E /* MXFileSystemWatcher.swift in Sources */,
@@ -524,6 +559,7 @@
 				7CB1B9BA1C191FD30056A942 /* MutableCollectionType+Extensions.swift in Sources */,
 				D1159F891C1ACEC500E43147 /* MXDataManager.swift in Sources */,
 				3AB2AF761C1F515C008F4371 /* MXFeatures.swift in Sources */,
+				3ABAEB4F1C22B2B900BE8F97 /* MXScoreSongsOperation.swift in Sources */,
 				7CB1B9B21C180E960056A942 /* EventMonitor.swift in Sources */,
 				3AB2AF741C1F5132008F4371 /* MXAnalyseOperation.swift in Sources */,
 				D1159F871C1A942400E43147 /* MXSidebarMoodlistViewController.swift in Sources */,
@@ -668,7 +704,6 @@
 			baseConfigurationReference = DF7961601E0145F14D531120 /* Pods-MixablyMac.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MixablyMac/MixablyMac.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -689,7 +724,6 @@
 			baseConfigurationReference = AC632175D9C6A5455B2CA21D /* Pods-MixablyMac.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MixablyMac/MixablyMac.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;

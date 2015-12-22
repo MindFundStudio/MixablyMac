@@ -9,37 +9,61 @@
 import Cocoa
 import RealmSwift
 
-class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, NSOutlineViewDataSource {
+final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, NSOutlineViewDataSource {
 
     @IBOutlet weak var sourceListView: NSOutlineView!
     
     let realm = try! Realm()
     var topLevelItems = ["Library", "Playlist"]
     var childrenDictionary: [String: [Playlist]]!
+    var playlist: [Playlist] = []
+    var playlistResults: Results<Playlist>? {
+        didSet {
+            guard playlistResults != nil else { return }
+            
+            playlist = playlistResults!.map { (x) in return x }
+            childrenDictionary["Playlist"] = playlist
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
-        let playlist1 = Playlist()
-        playlist1.name = AllSongs
+        let playlist = Playlist()
+        playlist.name = AllSongs
         childrenDictionary = [
-            "Library": [playlist1],
-            "Playlist": realm.objects(Playlist).map { (x) in return x }
+            "Library": [playlist]
         ]
+        playlistResults = realm.objects(Playlist)
         
         NSAnimationContext.beginGrouping()
         NSAnimationContext.currentContext().duration = 0
         sourceListView.expandItem(nil, expandChildren: true)
         NSAnimationContext.endGrouping()
 
-        sourceListView.selectRowIndexes(NSIndexSet(index: 1), byExtendingSelection: false)
-
         // Enable Drag & Drop
-        sourceListView.registerForDraggedTypes([dragType])
+        sourceListView.registerForDraggedTypes([NSPasteboardTypeString])
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadPlaylist:", name: MXNotifications.ReloadSidebarPlaylist.rawValue, object: nil)
+    }
+    
+    override func viewDidAppear() {
+        if MXPlayerManager.sharedManager.selectedPlaylist == nil {
+            sourceListView.selectRowIndexes(NSIndexSet(index: 1), byExtendingSelection: false)
+        }
     }
     
     // MARK: - Helpers
+    
+    func reloadOutlineView() {
+        let originalSelect = sourceListView.selectedRowIndexes
+        
+        playlistResults = realm.objects(Playlist)
+        sourceListView.reloadData()
+        
+        sourceListView.selectRowIndexes(originalSelect, byExtendingSelection: true)
+    }
     
     func isHeader(item: AnyObject) -> Bool {
         if let item = item as? String {
@@ -86,16 +110,36 @@ class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, 
     
     func outlineView(outlineView: NSOutlineView, pasteboardWriterForItem item: AnyObject) -> NSPasteboardWriting? {
         guard let playlist = item as? Playlist else { return nil }
-        guard let item = item as? Playlist where item.name != "All Songs" else { return nil }
+        guard let item = item as? Playlist where item.name != AllSongs else { return nil }
         
         let pbItem = NSPasteboardItem()
-        pbItem.setString(playlist.name, forType: dragType)
+        pbItem.setString(playlist.name, forType: NSPasteboardTypeString)
+        pbItem.setString("MXPlaylist", forType: NSPasteboardTypeRTF)
         
         return pbItem
     }
     
     func outlineView(outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: AnyObject?, proposedChildIndex index: Int) -> NSDragOperation {
-        let canDrag = index >= 0 && item != nil
+        let pb = info.draggingPasteboard()
+        let identifier = pb.stringForType(NSPasteboardTypeRTF)
+        
+        var canDrag = false
+        
+        if let identifier = identifier where identifier == "MXMixably" {
+            if let item = item as? String where item == "Library" || item == "Playlist" {
+                canDrag = false
+            } else if let playlist = item as? Playlist where playlist.name == AllSongs {
+                canDrag = false
+            } else {
+                canDrag = index < 0 && item != nil
+            }
+        } else if let identifier = identifier where identifier == "MXPlaylist" {
+            if let item = item as? String where item == "Library" {
+                canDrag = false
+            } else {
+                canDrag = index >= 0 && item != nil
+            }
+        }
         
         if canDrag {
             return .Move
@@ -106,35 +150,49 @@ class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, 
     
     func outlineView(outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: AnyObject?, childIndex index: Int) -> Bool {
         let pb = info.draggingPasteboard()
-        let name = pb.stringForType(dragType)
+        let name = pb.stringForType(NSPasteboardTypeString)
+        let identifier = pb.stringForType(NSPasteboardTypeRTF)
         var sourceItem: Playlist!
         var sourceIndex: Int!
         
-        if let item = item as? String where item == "Playlist" {
-            var sourceArray = childrenDictionary[item]!
-            
-            for (index, p) in sourceArray.enumerate() {
-                if p.name == name {
-                    sourceItem = p
-                    sourceIndex = index
-                    break
+        if let identifier = identifier where identifier == "MXMixably", let name = name {
+            if let playlist = item as? Playlist {
+                let realm = try! Realm()
+                let songs = realm.objects(Song).filter("name = %@", name)
+                try! realm.write {
+                    playlist.songs.appendContentsOf(songs)
                 }
-            }
-            if sourceIndex == nil {
+                return true
+            } else {
                 return false
             }
-            
-            sourceArray.removeAtIndex(sourceIndex)
-            if sourceIndex < index {
-                sourceArray.insert(sourceItem, atIndex: index - 1)
+        } else if let identifier = identifier where identifier == "MXPlaylist" {
+            if let item = item as? String where item == "Playlist" {
+                var sourceArray = childrenDictionary[item]!
+                
+                for (index, p) in sourceArray.enumerate() {
+                    if p.name == name {
+                        sourceItem = p
+                        sourceIndex = index
+                        break
+                    }
+                }
+                if sourceIndex == nil {
+                    return false
+                }
+                
+                sourceArray.removeAtIndex(sourceIndex)
+                if sourceIndex < index {
+                    sourceArray.insert(sourceItem, atIndex: index - 1)
+                } else {
+                    sourceArray.insert(sourceItem, atIndex: index)
+                }
+                
+                childrenDictionary[item]! = sourceArray
+                sourceListView.reloadData()
             } else {
-                sourceArray.insert(sourceItem, atIndex: index)
+                return false
             }
-            
-            childrenDictionary[item]! = sourceArray
-            sourceListView.reloadData()
-        } else {
-            return false
         }
         
         return true
@@ -170,9 +228,14 @@ class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDelegate, 
         print("playlist: \(sourceListView.selectedRow)")
         let item = sourceListView.itemAtRow(sourceListView.selectedRow)
         
-        if let item = item as? Playlist where item.name == AllSongs && item != "a" {
+        if let item = item as? Playlist {
             NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.SelectPlaylist.rawValue, object: self, userInfo: [MXNotificationUserInfo.Playlist.rawValue: item])
         }
     }
     
+    // MARK: - Notifications
+    
+    func reloadPlaylist(notification: NSNotification) {
+        reloadOutlineView()
+    }
 }

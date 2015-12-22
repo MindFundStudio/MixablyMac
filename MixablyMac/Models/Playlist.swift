@@ -9,7 +9,7 @@
 import Cocoa
 import RealmSwift
 
-class Playlist: Object {
+final class Playlist: Object {
     
     dynamic var name = "New Playlist"
     dynamic var order = 0

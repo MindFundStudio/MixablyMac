@@ -7,15 +7,18 @@
 //
 
 import Cocoa
+import RealmSwift
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+final class AppDelegate: NSObject, NSApplicationDelegate {
 
     let popover = NSPopover()
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
     var eventMonitor: EventMonitor?
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        
+        print(Realm.Configuration.defaultConfiguration.path)
         
         statusItem.title = ""
         
@@ -37,8 +40,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Seed Data
 //        NSUserDefaults.standardUserDefaults().setBool(false, forKey: MX_INITIAL_LAUNCH)
         do {
-            try MXSongManager.importSongs()
             MXDataManager.importSeedData()
+            try MXSongManager.importSongs()
+        
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: MX_INITIAL_LAUNCH)
         } catch let error as NSError {
             print("Error: \(error)")
             NSAlert(error: error).runModal()

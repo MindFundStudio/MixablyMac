@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class MXMainViewController: NSViewController {
+final class MXMainViewController: NSViewController {
     
     class func loadFromNib() -> MXMainViewController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
