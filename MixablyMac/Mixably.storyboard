@@ -301,9 +301,20 @@
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sDK-NU-qXk">
                                         <rect key="frame" x="0.0" y="0.0" width="65" height="260"/>
                                         <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bNc-1f-z3J">
+                                                <rect key="frame" x="19" y="243" width="27" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="100" id="rjZ-nw-vaT">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <connections>
+                                                    <binding destination="jzG-xF-0py" name="value" keyPath="self.tempoMainSlider.intValue" id="LOu-Eq-00V"/>
+                                                </connections>
+                                            </textField>
                                             <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X4V-Lx-K3T">
-                                                <rect key="frame" x="22" y="29" width="21" height="233"/>
-                                                <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="KZJ-6q-Fur"/>
+                                                <rect key="frame" x="22" y="29" width="21" height="208"/>
+                                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="KZJ-6q-Fur"/>
                                                 <connections>
                                                     <action selector="update:" target="jzG-xF-0py" id="v5d-Bv-GEH"/>
                                                 </connections>
@@ -319,8 +330,10 @@
                                         <visibilityPriorities>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
+                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
@@ -328,8 +341,19 @@
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fLU-ii-Tah">
                                         <rect key="frame" x="115" y="0.0" width="65" height="260"/>
                                         <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kTP-TN-KX3">
+                                                <rect key="frame" x="19" y="243" width="27" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="100" id="yEX-Yg-rhl">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <connections>
+                                                    <binding destination="jzG-xF-0py" name="value" keyPath="self.intensityMainSlider.intValue" id="4Ze-mI-khE"/>
+                                                </connections>
+                                            </textField>
                                             <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TGZ-1j-qUz">
-                                                <rect key="frame" x="22" y="29" width="21" height="233"/>
+                                                <rect key="frame" x="22" y="29" width="21" height="208"/>
                                                 <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="zB7-gn-2A8"/>
                                                 <connections>
                                                     <action selector="update:" target="jzG-xF-0py" id="VrU-0r-wMO"/>
@@ -346,8 +370,10 @@
                                         <visibilityPriorities>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
+                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
@@ -355,8 +381,19 @@
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cBs-OX-k4p">
                                         <rect key="frame" x="230" y="0.0" width="65" height="260"/>
                                         <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LUh-Qm-fpQ">
+                                                <rect key="frame" x="19" y="243" width="27" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="100" id="ANE-8J-wi6">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <connections>
+                                                    <binding destination="jzG-xF-0py" name="value" keyPath="self.rhythmMainSlider.intValue" id="68x-Bw-SfX"/>
+                                                </connections>
+                                            </textField>
                                             <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FOU-PZ-MqC">
-                                                <rect key="frame" x="22" y="29" width="21" height="233"/>
+                                                <rect key="frame" x="22" y="29" width="21" height="208"/>
                                                 <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="MS2-XI-NDg"/>
                                                 <connections>
                                                     <action selector="update:" target="jzG-xF-0py" id="jph-h6-J1M"/>
@@ -373,8 +410,10 @@
                                         <visibilityPriorities>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
+                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
@@ -382,8 +421,19 @@
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OFc-bi-dtD">
                                         <rect key="frame" x="345" y="0.0" width="65" height="260"/>
                                         <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nkt-2m-zqu">
+                                                <rect key="frame" x="19" y="243" width="27" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="100" id="l7y-fq-hpI">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <connections>
+                                                    <binding destination="jzG-xF-0py" name="value" keyPath="self.bassMainSlider.intValue" id="3Ea-2d-efH"/>
+                                                </connections>
+                                            </textField>
                                             <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="V3J-Ua-ghw">
-                                                <rect key="frame" x="22" y="29" width="21" height="233"/>
+                                                <rect key="frame" x="22" y="29" width="21" height="208"/>
                                                 <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="sob-Qc-d8j"/>
                                                 <connections>
                                                     <action selector="update:" target="jzG-xF-0py" id="La7-V8-Hja"/>
@@ -400,8 +450,10 @@
                                         <visibilityPriorities>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
+                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
@@ -430,16 +482,21 @@
                     </view>
                     <connections>
                         <outlet property="bassMainSlider" destination="V3J-Ua-ghw" id="82p-Ee-jrr"/>
+                        <outlet property="bassMainValue" destination="nkt-2m-zqu" id="ZBG-NU-MBO"/>
                         <outlet property="bassSubSlider" destination="Xgy-8p-ZeK" id="ECq-fj-vDD"/>
                         <outlet property="intensityMainSlider" destination="TGZ-1j-qUz" id="VK9-nu-z1z"/>
+                        <outlet property="intensityMainValue" destination="kTP-TN-KX3" id="BN1-pJ-OMU"/>
                         <outlet property="intensitySubSlider" destination="ddp-83-9kZ" id="w53-s2-FiG"/>
                         <outlet property="rhythmMainSlider" destination="FOU-PZ-MqC" id="UmB-zJ-HKv"/>
+                        <outlet property="rhythmMainValue" destination="LUh-Qm-fpQ" id="lO6-an-Tvd"/>
                         <outlet property="rhythmSubSlider" destination="QVv-98-i6U" id="IAC-ti-gw4"/>
                         <outlet property="tempoMainSlider" destination="X4V-Lx-K3T" id="j09-bN-8OR"/>
+                        <outlet property="tempoMainValue" destination="bNc-1f-z3J" id="ACW-hb-ka3"/>
                         <outlet property="tempoSubSlider" destination="AcG-Qt-Gev" id="Jg9-KD-xuc"/>
                     </connections>
                 </viewController>
                 <customObject id="TM0-Dy-3Qb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="e2e-vm-oSP"/>
             </objects>
             <point key="canvasLocation" x="2624" y="3277"/>
         </scene>

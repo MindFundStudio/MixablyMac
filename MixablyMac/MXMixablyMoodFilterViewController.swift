@@ -10,14 +10,42 @@ import Cocoa
 
 class MXMixablyMoodFilterViewController: NSViewController {
 
+    @IBOutlet weak var tempoMainValue: NSTextField!
     @IBOutlet weak var tempoMainSlider: NSSlider!
     @IBOutlet weak var tempoSubSlider: NSSlider!
+    
+    @IBOutlet weak var intensityMainValue: NSTextField!
     @IBOutlet weak var intensityMainSlider: NSSlider!
     @IBOutlet weak var intensitySubSlider: NSSlider!
+    
+    @IBOutlet weak var rhythmMainValue: NSTextField!
     @IBOutlet weak var rhythmMainSlider: NSSlider!
     @IBOutlet weak var rhythmSubSlider: NSSlider!
+    
+    @IBOutlet weak var bassMainValue: NSTextField!
     @IBOutlet weak var bassMainSlider: NSSlider!
     @IBOutlet weak var bassSubSlider: NSSlider!
+    
+    private var mainTempo = 0.0 {
+        didSet {
+            tempoMainValue.stringValue = "\(tempoMainSlider.intValue)"
+        }
+    }
+    private var mainIntensity = 0.0 {
+        didSet {
+            intensityMainValue.stringValue = "\(intensityMainSlider.intValue)"
+        }
+    }
+    private var mainRhythm = 0.0 {
+        didSet {
+            rhythmMainValue.stringValue = "\(rhythmMainSlider.intValue)"
+        }
+    }
+    private var mainBass = 0.0 {
+        didSet {
+            bassMainValue.stringValue = "\(bassMainSlider.intValue)"
+        }
+    }
     
     override func viewDidLoad() {
         
@@ -25,6 +53,11 @@ class MXMixablyMoodFilterViewController: NSViewController {
     
     @IBAction func update(sender: NSSlider) {
         print("action: \(sender.doubleValue)")
+        
+        mainTempo = tempoMainSlider.doubleValue
+        mainIntensity = intensityMainSlider.doubleValue
+        mainRhythm = rhythmMainSlider.doubleValue
+        mainBass = bassMainSlider.doubleValue
         
         let mood = Mood()
         mood.tempoPredict = tempoMainSlider.doubleValue

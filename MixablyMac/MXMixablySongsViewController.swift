@@ -62,8 +62,8 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
             if let error = error {
                 print(error.description)
             } else if let wself = self {
-                scoredSongs = scoredSongs.filter { song in song.score > -100 && song.score < 100 }
-                scoredSongs = scoredSongs.sort { $0.score > $1.score }
+//                scoredSongs = scoredSongs.filter { song in song.score > -100 && song.score < 100 }
+                scoredSongs = scoredSongs.sort { $0.score < $1.score }
                 
                 let ids = scoredSongs.map { song in return song.id }
                 
