@@ -42,8 +42,9 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
                 currentIndex = currentPlayList.indexOf({ (song) -> Bool in
                     return song.location == currentSong.location
                 })
-                if currentSong.location != player?.url?.absoluteString {
-                    player = try? AVAudioPlayer(contentsOfURL: NSURL(string: currentSong.location)!)
+                
+                if currentSong.location != player?.url?.path {
+                    player = try? AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: currentSong.location))
                     player?.delegate = self
                     player?.volume = volume
                 }

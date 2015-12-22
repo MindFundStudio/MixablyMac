@@ -8,6 +8,8 @@
 
 import Cocoa
 import RealmSwift
+import iTunesLibrary
+import SwiftyUserDefaults
 
 @NSApplicationMain
 final class AppDelegate: NSObject, NSApplicationDelegate {
@@ -15,35 +17,36 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     let popover = NSPopover()
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
     var eventMonitor: EventMonitor?
-    
+    var songManger: MXSongManager?
+
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        
         print(Realm.Configuration.defaultConfiguration.path)
+        songManger = MXSongManager()
+        songManger?.trackSongDirectory()
         
         statusItem.title = ""
-        
+
         if let button = statusItem.button {
             button.image = NSImage(named: "StatusBarButtonImage")
             button.action = Selector("togglePopover:")
         }
-        
+
         // Popover
-        
+
         popover.contentViewController = MXMainViewController.loadFromNib()
-        
+
         eventMonitor = EventMonitor(mask: [.LeftMouseDownMask, .RightMouseDownMask], handler: { (event) -> () in
             if self.popover.shown {
                 self.closePopover(event)
             }
         })
-        
+
         // Seed Data
-//        NSUserDefaults.standardUserDefaults().setBool(false, forKey: MX_INITIAL_LAUNCH)
+//        Defaults[.appInitLaunch] = false
         do {
             MXDataManager.importSeedData()
-            try MXSongManager.importSongs()
-        
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: MX_INITIAL_LAUNCH)
+            try songManger?.importSongs()
+            Defaults[.appInitLaunch] = true
         } catch let error as NSError {
             print("Error: \(error)")
             NSAlert(error: error).runModal()
@@ -52,22 +55,23 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
+        songManger = nil
     }
-    
+
     // Helpers
-    
+
     func showPopover(sender: AnyObject?) {
         if let button = statusItem.button {
             popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: .MinY)
         }
         eventMonitor?.start()
     }
-    
+
     func closePopover(sender: AnyObject?) {
         popover.performClose(sender)
         eventMonitor?.stop()
     }
-    
+
     func togglePopover(sender: AnyObject?) {
         if popover.shown {
             closePopover(sender)

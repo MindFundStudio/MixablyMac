@@ -8,12 +8,12 @@
 
 import Foundation
 import RealmSwift
+import SwiftyUserDefaults
 
 final class MXDataManager {
     
     class func importSeedData() {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        if userDefaults.boolForKey(MX_INITIAL_LAUNCH) {
+        if Defaults[.appInitLaunch] {
             return
         }
         

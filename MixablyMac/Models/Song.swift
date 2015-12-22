@@ -9,6 +9,11 @@
 import Cocoa
 import RealmSwift
 import iTunesLibrary
+import AVFoundation
+
+enum SongError: ErrorType {
+    case NotFound
+}
 
 final class Song: Object {
     
@@ -58,8 +63,17 @@ final class Song: Object {
     convenience init(item: ITLibMediaItem) {
         self.init()
         self.name = item.title
-        self.location = item.location.absoluteString
+        if item.location != nil {
+            self.location = item.location.path!
+        } else {
+            self.location = ""
+        }
         self.duration = NSTimeInterval(item.totalTime) / 1000.0
+    }
+    
+    convenience init(url: NSURL) {
+        self.init()
+        updateAttributesFromURL(url)
     }
     
     func primaryKey() -> String? {
@@ -114,4 +128,15 @@ final class Song: Object {
         return sqrt(tempBass + tempRhythmStrength + tempTempo + tempCombinedEnergyAndIntensity / 2)
     }
     
+    func updateAttributesFromURL(url: NSURL) {
+        let asset = AVURLAsset(URL: url)
+        for metaDataItem in asset.commonMetadata {
+            if metaDataItem.commonKey == "title" {
+                self.name = metaDataItem.value as! String
+            }
+        }
+        
+        self.duration = Double(CMTimeGetSeconds(asset.duration))
+        self.location = url.path!
+    }
 }

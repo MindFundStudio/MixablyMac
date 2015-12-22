@@ -8,6 +8,7 @@ target 'MixablyMac' do
   pod 'PSOperations', '~> 2.0.2'
   pod 'STRegex'
   pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+  pod 'SwiftyUserDefaults'
 end
 
 target 'MixablyMacTests' do
