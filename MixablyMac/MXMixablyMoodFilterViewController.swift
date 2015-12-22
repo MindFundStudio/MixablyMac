@@ -48,7 +48,7 @@ class MXMixablyMoodFilterViewController: NSViewController {
     }
     
     override func viewDidLoad() {
-        
+        updateMood()
     }
     
     @IBAction func update(sender: NSSlider) {
@@ -59,6 +59,12 @@ class MXMixablyMoodFilterViewController: NSViewController {
         mainRhythm = rhythmMainSlider.doubleValue
         mainBass = bassMainSlider.doubleValue
         
+        updateMood()
+    }
+    
+    // MARK: - Helpers
+    
+    func updateMood() {
         let mood = Mood()
         mood.tempoPredict = tempoMainSlider.doubleValue
         mood.tempoCoeff = tempoSubSlider.doubleValue
@@ -68,7 +74,7 @@ class MXMixablyMoodFilterViewController: NSViewController {
         mood.rhythmStrengthCoeff = rhythmSubSlider.doubleValue
         mood.bassPredict = bassMainSlider.doubleValue
         mood.bassCoeff = bassSubSlider.doubleValue
-
+        
         NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.ReloadMixably.rawValue, object: self, userInfo: [MXNotificationUserInfo.Mood.rawValue: mood])
     }
 }
