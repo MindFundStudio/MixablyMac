@@ -52,6 +52,23 @@ final class MXSongManager {
             throw error
         }
     }
+    
+    func processUnanalysedSongs() throws {
+        guard Defaults[.appInitLaunch] else { return }
+        
+        do {
+            let realm = try Realm()
+            
+            let songs = realm.objects(Song).filter("statusRaw != %@", Song.Status.Analyzed.rawValue)
+            print("re-process song count: \(songs.count)")
+            
+            for song in songs {
+                saveSong(song)
+            }
+        } catch let error as NSError {
+            throw error
+        }
+    }
 
     func trackSongDirectory() {
         do {

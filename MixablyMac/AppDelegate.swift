@@ -46,6 +46,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         do {
             MXDataManager.importSeedData()
             try songManger?.importSongs()
+            try songManger?.processUnanalysedSongs()
             Defaults[.appInitLaunch] = true
         } catch let error as NSError {
             print("Error: \(error)")
