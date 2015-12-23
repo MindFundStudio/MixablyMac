@@ -15,20 +15,11 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
     let realm = try! Realm()
     let queue = OperationQueue()
     
-    var results: Results<Song>! {
-        didSet {
-            songs = results.map { (song) in return song }
-            highlightSongs()
-        }
-    }
-    dynamic var songs: [Song]!
+    dynamic var scoredSongs: [ScoredSong]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        
-        // TODO: Load default mood
-        loadSongsOf(nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "saveNewPlaylist:", name: MXNotifications.SaveNewPlaylist.rawValue, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "addToPlaylist:", name: MXNotifications.AddToPlaylist.rawValue, object: nil)
@@ -41,8 +32,6 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
     func loadSongsOf(mood: Mood?) {
         if let mood = mood {
             filterSongsBy(mood)
-        } else {
-            results = realm.objects(Song)
         }
     }
     
@@ -65,25 +54,28 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
 //                scoredSongs = scoredSongs.filter { song in song.score > -100 && song.score < 100 }
                 scoredSongs = scoredSongs.sort { $0.score < $1.score }
                 
-                let ids = scoredSongs.map { song in return song.id }
-                
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    wself.results = wself.realm.objects(Song).filter("id IN %@", ids)
+                    wself.scoredSongs = scoredSongs
+                    wself.highlightSongs()
                 })
             }
         }
         queue.addOperation(operation)
     }
     
-    func newSelectedSongs() -> [Song] {
-        let checkedSongs = songs.filter { (song) in return song.selected && !song.highlighted }
+    func newSelectedSongs() -> Results<Song> {
+        let checkedSongs = scoredSongs.filter { (song) in return song.selected && !song.highlighted }
         print(checkedSongs.count)
-        return checkedSongs
+        
+        let ids = checkedSongs.map { song in return song.id }
+        return realm.objects(Song).filter("id IN %@", ids)
     }
     
-    func allSelectedSongs() -> [Song] {
-        let checkedSongs = songs.filter { (song) in return song.selected }
-        return checkedSongs
+    func allSelectedSongs() -> Results<Song> {
+        let checkedSongs = scoredSongs.filter { (song) in return song.selected }
+        
+        let ids = checkedSongs.map { song in return song.id }
+        return realm.objects(Song).filter("id IN %@", ids)
     }
     
     func newPlaylistName() -> String {
@@ -111,15 +103,15 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
     
     func highlightSongs(playlist: Playlist? = MXPlayerManager.sharedManager.selectedPlaylist) {
         guard playlist != nil else { return }
-        guard songs != nil else { return }
+        guard scoredSongs != nil else { return }
         
         let player = MXPlayerManager.sharedManager
         
         if playlist!.name != AllSongs {
             let selectedPlaylistSongs = player.songs
             
-            songs = songs.map { song in
-                if selectedPlaylistSongs.filter({(x) in return x == song}).count > 0 {
+            scoredSongs = scoredSongs.map { song in
+                if selectedPlaylistSongs.filter({(x) in return x.location == song.location}).count > 0 {
                     song.highlighted = true
                     song.selected = true
                 } else {
@@ -129,7 +121,7 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
                 return song
             }
         } else {
-            songs = songs.map { (song) in
+            scoredSongs = scoredSongs.map { (song) in
                 song.highlighted = false
                 song.selected = false
                 return song
@@ -141,7 +133,7 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
     
     func tableView(tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
         let pbItem = NSPasteboardItem()
-        pbItem.setString(songs[row].name, forType: NSPasteboardTypeString)
+        pbItem.setString(scoredSongs[row].name, forType: NSPasteboardTypeString)
         pbItem.setString("MXMixably", forType: NSPasteboardTypeRTF)
         
         return pbItem
@@ -184,9 +176,13 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
     }
     
     func reloadMixably(notification: NSNotification?) {
-        guard let mood = notification?.userInfo?[MXNotificationUserInfo.Mood.rawValue] as? Mood else { return }
-        
-        filterSongsBy(mood)
+        if let mood = notification?.userInfo?[MXNotificationUserInfo.Mood.rawValue] as? Mood {
+            filterSongsBy(mood)
+        } else {
+            if let mood = MXPlayerManager.sharedManager.selectedMood {
+                filterSongsBy(mood)
+            }
+        }
     }
     
 }
