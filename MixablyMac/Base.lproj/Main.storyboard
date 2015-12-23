@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
@@ -659,7 +659,6 @@
                         <subviews>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="aZc-7W-bKC">
                                 <rect key="frame" x="0.0" y="0.0" width="643" height="569"/>
-                                <animations/>
                                 <connections>
                                     <segue destination="Uun-WO-hGG" kind="embed" id="vGi-cA-BXV"/>
                                 </connections>
@@ -671,7 +670,6 @@
                             <constraint firstAttribute="trailing" secondItem="aZc-7W-bKC" secondAttribute="trailing" id="pXX-Rg-xJN"/>
                             <constraint firstItem="aZc-7W-bKC" firstAttribute="leading" secondItem="hkW-Pw-E8O" secondAttribute="leading" id="qow-XO-yQj"/>
                         </constraints>
-                        <animations/>
                     </view>
                 </viewController>
                 <customObject id="26l-Rj-Ods" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -689,7 +687,6 @@
                     <splitView key="splitView" dividerStyle="thin" id="u54-BZ-fJz">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </splitView>
                     <connections>
                         <segue destination="28T-H6-w9b" kind="relationship" relationship="splitItems" id="KcN-eN-thO"/>
@@ -716,12 +713,10 @@
                                         <subviews>
                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hpe-FM-nJW">
                                                 <rect key="frame" x="0.0" y="3" width="7" height="12"/>
-                                                <animations/>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="VolumeDown" id="nvX-IN-6M9"/>
                                             </imageView>
                                             <slider verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6iU-nI-9oP">
                                                 <rect key="frame" x="13" y="-2" width="249" height="21"/>
-                                                <animations/>
                                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="0.55482456140350878" tickMarkPosition="above" sliderType="linear" id="hb8-Fd-aox"/>
                                                 <connections>
                                                     <action selector="slideVolume:" target="28T-H6-w9b" id="tLu-iF-j49"/>
@@ -729,11 +724,9 @@
                                             </slider>
                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R8R-QP-z33">
                                                 <rect key="frame" x="268" y="2" width="14" height="14"/>
-                                                <animations/>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="VolumeUp" id="5J4-pp-9YD"/>
                                             </imageView>
                                         </subviews>
-                                        <animations/>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
@@ -750,7 +743,6 @@
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iJh-wx-i3p" userLabel="SongLengthLabel">
                                                 <rect key="frame" x="-2" y="8" width="34" height="17"/>
-                                                <animations/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="--:--" id="0pF-MU-jNs">
                                                     <font key="font" metaFont="systemBold"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -759,7 +751,6 @@
                                             </textField>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XtO-Jd-wdp">
                                                 <rect key="frame" x="38" y="8" width="17" height="16"/>
-                                                <animations/>
                                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Shuffle" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="NPz-l9-Rn5">
                                                     <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -770,7 +761,6 @@
                                             </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="htz-Ic-AGO">
                                                 <rect key="frame" x="63" y="0.0" width="18" height="32"/>
-                                                <animations/>
                                                 <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="Repeat" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Irg-1o-mdU">
                                                     <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -780,7 +770,6 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <animations/>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
@@ -793,7 +782,6 @@
                                         </customSpacing>
                                     </stackView>
                                 </subviews>
-                                <animations/>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
@@ -808,7 +796,6 @@
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HLi-eE-ZP5">
                                         <rect key="frame" x="0.0" y="6" width="28" height="20"/>
-                                        <animations/>
                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Rewind" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="0BT-fn-BJ5">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -819,7 +806,6 @@
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BcQ-oI-b89">
                                         <rect key="frame" x="54" y="0.0" width="30" height="31"/>
-                                        <animations/>
                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Play" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="sIe-GW-bcY">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -830,7 +816,6 @@
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fQO-WR-CiA">
                                         <rect key="frame" x="110" y="6" width="29" height="20"/>
-                                        <animations/>
                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="FastForward" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="eH4-1u-dhI">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -840,7 +825,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <animations/>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
@@ -854,7 +838,6 @@
                             </stackView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JtB-Ir-b3o" userLabel="MixiblyButton">
                                 <rect key="frame" x="676" y="16" width="39" height="39"/>
-                                <animations/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Mixably" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="QNc-u4-0jA">
                                     <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -873,7 +856,6 @@
                             <constraint firstItem="UBA-Ji-cX5" firstAttribute="leading" secondItem="gqe-YF-fQj" secondAttribute="trailing" constant="40" id="vtQ-Cw-Rxm"/>
                             <constraint firstItem="UBA-Ji-cX5" firstAttribute="centerY" secondItem="RLX-pl-o68" secondAttribute="centerY" id="xgj-Ec-9Bu"/>
                         </constraints>
-                        <animations/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="HLi-eE-ZP5" id="ZKT-Sc-Kww"/>
