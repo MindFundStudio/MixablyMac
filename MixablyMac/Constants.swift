@@ -6,6 +6,7 @@
 //  Copyright © 2015 MiQ. All rights reserved.
 //
 
+import Cocoa
 import Foundation
 
 // MARK: - Notifications
@@ -25,6 +26,7 @@ enum MXNotifications: String {
     case SelectMood = "selectMood"
     case AddToPlaylist = "addToPlaylist"
     case SaveNewPlaylist = "saveNewPlaylist"
+    case ReloadMixably = "reloadMixably"
     case ReloadSidebarMood = "reloadSidebarMood"
 }
 
@@ -38,3 +40,10 @@ enum MXNotificationUserInfo: String {
 
 let AllSongs = "All Songs"
 let NewPlaylistName = "New Playlist"
+
+let highlightedTextColor = NSColor(colorLiteralRed: 74/255.0, green: 144/255.0, blue: 226/255.0, alpha: 1)
+let normalTextColor = NSColor.blackColor()
+
+// MARK: - NSUserDefaults
+
+let MX_INITIAL_LAUNCH = "appInitLaunch"

@@ -6,14 +6,20 @@
 //  Copyright © 2015 MiQ. All rights reserved.
 //
 
+import Cocoa
 import Foundation
 
-struct ScoredSong {
+class ScoredSong: NSObject {
     
-    let id:String
-    let name:String
-    let location:String
-    let score:Double
+    dynamic let id:String
+    dynamic let name:String
+    dynamic let location:String
+    dynamic let score:Double
+    dynamic var selected: Bool = false
+    dynamic var highlighted: Bool = false
+    dynamic var textColor:NSColor {
+        return highlighted ? highlightedTextColor : normalTextColor
+    }
     
     init(id:String, name:String, location:String, score:Double) {
         self.id = id

@@ -25,9 +25,6 @@ final class Song: Object {
         case Unanalysed = 0, InProgress, Analyzed
     }
     
-    private let highlightedTextColor = NSColor(colorLiteralRed: 74/255.0, green: 144/255.0, blue: 226/255.0, alpha: 1)
-    private let normalTextColor = NSColor.blackColor()
-    
     // ==================
     // MARK: - Properties
     // ==================
