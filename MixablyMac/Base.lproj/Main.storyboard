@@ -705,28 +705,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="735" height="70"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" state="inactive" translatesAutoresizingMaskIntoConstraints="NO" id="dYJ-KC-TZq">
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" state="inactive" translatesAutoresizingMaskIntoConstraints="NO" id="fQU-Bp-qp8">
                                 <rect key="frame" x="0.0" y="0.0" width="735" height="70"/>
                                 <subviews>
                                     <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqe-YF-fQj" userLabel="LeftControls">
-                                        <rect key="frame" x="8" y="11" width="282" height="49"/>
+                                        <rect key="frame" x="8" y="11" width="274" height="49"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VOn-MU-4vN">
-                                                <rect key="frame" x="0.0" y="32" width="282" height="17"/>
+                                                <rect key="frame" x="0.0" y="32" width="274" height="17"/>
                                                 <subviews>
                                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hpe-FM-nJW">
                                                         <rect key="frame" x="0.0" y="3" width="7" height="12"/>
                                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="VolumeDown" id="nvX-IN-6M9"/>
                                                     </imageView>
                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6iU-nI-9oP">
-                                                        <rect key="frame" x="13" y="-2" width="249" height="21"/>
+                                                        <rect key="frame" x="13" y="-2" width="241" height="21"/>
                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="0.55482456140350878" tickMarkPosition="above" sliderType="linear" id="hb8-Fd-aox"/>
                                                         <connections>
                                                             <action selector="slideVolume:" target="28T-H6-w9b" id="tLu-iF-j49"/>
                                                         </connections>
                                                     </slider>
                                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R8R-QP-z33">
-                                                        <rect key="frame" x="268" y="2" width="14" height="14"/>
+                                                        <rect key="frame" x="260" y="2" width="14" height="14"/>
                                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="VolumeUp" id="5J4-pp-9YD"/>
                                                     </imageView>
                                                 </subviews>
@@ -794,18 +794,8 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JtB-Ir-b3o" userLabel="MixiblyButton">
-                                        <rect key="frame" x="676" y="16" width="39" height="39"/>
-                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Mixably" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="QNc-u4-0jA">
-                                            <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="toogleMixably:" target="28T-H6-w9b" id="beL-if-WYF"/>
-                                        </connections>
-                                    </button>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="26" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UBA-Ji-cX5" userLabel="PlayerControls">
-                                        <rect key="frame" x="298" y="20" width="139" height="31"/>
+                                        <rect key="frame" x="298" y="19" width="139" height="31"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HLi-eE-ZP5">
                                                 <rect key="frame" x="0.0" y="6" width="28" height="20"/>
@@ -849,23 +839,33 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JtB-Ir-b3o" userLabel="MixiblyButton">
+                                        <rect key="frame" x="680" y="16" width="39" height="39"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Mixably" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="QNc-u4-0jA">
+                                            <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="toogleMixably:" target="28T-H6-w9b" id="beL-if-WYF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="UBA-Ji-cX5" firstAttribute="centerX" secondItem="dYJ-KC-TZq" secondAttribute="centerX" id="3ax-Dj-f4s"/>
-                                    <constraint firstItem="UBA-Ji-cX5" firstAttribute="centerY" secondItem="dYJ-KC-TZq" secondAttribute="centerY" id="Ilx-8e-5J3"/>
-                                    <constraint firstItem="gqe-YF-fQj" firstAttribute="centerY" secondItem="dYJ-KC-TZq" secondAttribute="centerY" id="eTi-Dz-fby"/>
-                                    <constraint firstAttribute="trailing" secondItem="JtB-Ir-b3o" secondAttribute="trailing" constant="20" id="eZk-dB-Q7I"/>
-                                    <constraint firstItem="UBA-Ji-cX5" firstAttribute="leading" secondItem="gqe-YF-fQj" secondAttribute="trailing" constant="8" id="nkD-a8-Lxc"/>
-                                    <constraint firstItem="JtB-Ir-b3o" firstAttribute="centerY" secondItem="dYJ-KC-TZq" secondAttribute="centerY" id="pkT-NV-OBZ"/>
-                                    <constraint firstItem="gqe-YF-fQj" firstAttribute="leading" secondItem="dYJ-KC-TZq" secondAttribute="leading" constant="8" id="rdp-Jc-QE5"/>
+                                    <constraint firstItem="JtB-Ir-b3o" firstAttribute="centerY" secondItem="fQU-Bp-qp8" secondAttribute="centerY" id="3E7-0C-d95"/>
+                                    <constraint firstAttribute="trailing" secondItem="JtB-Ir-b3o" secondAttribute="trailing" constant="16" id="Lc6-nQ-PkW"/>
+                                    <constraint firstItem="UBA-Ji-cX5" firstAttribute="leading" secondItem="gqe-YF-fQj" secondAttribute="trailing" constant="16" id="esI-jC-C3I"/>
+                                    <constraint firstItem="gqe-YF-fQj" firstAttribute="leading" secondItem="fQU-Bp-qp8" secondAttribute="leading" constant="8" id="kqX-sd-w2M"/>
+                                    <constraint firstItem="UBA-Ji-cX5" firstAttribute="centerY" secondItem="fQU-Bp-qp8" secondAttribute="centerY" id="pC1-EE-H93"/>
+                                    <constraint firstItem="gqe-YF-fQj" firstAttribute="centerY" secondItem="fQU-Bp-qp8" secondAttribute="centerY" id="qPN-yS-2IJ"/>
+                                    <constraint firstItem="UBA-Ji-cX5" firstAttribute="centerX" secondItem="fQU-Bp-qp8" secondAttribute="centerX" id="snD-f4-7Fa"/>
                                 </constraints>
                             </visualEffectView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="dYJ-KC-TZq" firstAttribute="top" secondItem="RLX-pl-o68" secondAttribute="top" id="9jg-Pl-Aab"/>
-                            <constraint firstAttribute="trailing" secondItem="dYJ-KC-TZq" secondAttribute="trailing" id="c8l-Pf-NwS"/>
-                            <constraint firstAttribute="bottom" secondItem="dYJ-KC-TZq" secondAttribute="bottom" id="e5D-7Y-QdR"/>
-                            <constraint firstItem="dYJ-KC-TZq" firstAttribute="leading" secondItem="RLX-pl-o68" secondAttribute="leading" id="w6t-gJ-ho6"/>
+                            <constraint firstItem="fQU-Bp-qp8" firstAttribute="top" secondItem="RLX-pl-o68" secondAttribute="top" id="YNo-Fs-4af"/>
+                            <constraint firstItem="fQU-Bp-qp8" firstAttribute="leading" secondItem="RLX-pl-o68" secondAttribute="leading" id="ga9-Gz-pzK"/>
+                            <constraint firstAttribute="trailing" secondItem="fQU-Bp-qp8" secondAttribute="trailing" id="jYf-v1-fxl"/>
+                            <constraint firstAttribute="bottom" secondItem="fQU-Bp-qp8" secondAttribute="bottom" id="vTN-oC-LeL"/>
                         </constraints>
                     </view>
                     <connections>
@@ -879,7 +879,7 @@
                 </viewController>
                 <customObject id="uEa-1a-NYA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1649.5" y="861"/>
+            <point key="canvasLocation" x="1623.5" y="856"/>
         </scene>
         <!--Songs-->
         <scene sceneID="mxE-9D-TvF">
