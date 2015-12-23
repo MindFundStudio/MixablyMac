@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A1E6ED91C2A44FC00A65233 /* MXNoDividerSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1E6ED81C2A44FC00A65233 /* MXNoDividerSplitView.swift */; };
 		3A220C831C16DA2A00985BC7 /* Mixably.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A220C821C16DA2A00985BC7 /* Mixably.storyboard */; };
 		3A25F4451C16C85F007ED23B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25F4441C16C85F007ED23B /* Constants.swift */; };
 		3A25F4481C16D868007ED23B /* Songs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A25F4461C16D868007ED23B /* Songs.storyboard */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A1E6ED81C2A44FC00A65233 /* MXNoDividerSplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXNoDividerSplitView.swift; sourceTree = "<group>"; };
 		3A220C821C16DA2A00985BC7 /* Mixably.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mixably.storyboard; sourceTree = "<group>"; };
 		3A25F4441C16C85F007ED23B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3A25F4471C16D868007ED23B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Songs.storyboard; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				3AE4E7CC1C1821AF00BC120D /* PresentationAnimators */,
 				3A25F4441C16C85F007ED23B /* Constants.swift */,
+				3A1E6ED81C2A44FC00A65233 /* MXNoDividerSplitView.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				3AAF4D891C16AF3D0091C2B3 /* ViewController.swift in Sources */,
 				D1DFEECD1C16F243000B9991 /* Song.swift in Sources */,
 				7CB1B9B61C1817900056A942 /* MXPlayerManager.swift in Sources */,
+				3A1E6ED91C2A44FC00A65233 /* MXNoDividerSplitView.swift in Sources */,
 				7CB1B9B81C191FC30056A942 /* CollectionType+Extensions.swift in Sources */,
 				3A25F4451C16C85F007ED23B /* Constants.swift in Sources */,
 				3AE4E7D11C183BAE00BC120D /* CALayer+Extensions.swift in Sources */,
