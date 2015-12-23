@@ -657,18 +657,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="643" height="569"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="aZc-7W-bKC">
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="gm2-gp-5sd">
                                 <rect key="frame" x="0.0" y="0.0" width="643" height="569"/>
-                                <connections>
-                                    <segue destination="Uun-WO-hGG" kind="embed" id="vGi-cA-BXV"/>
-                                </connections>
-                            </containerView>
+                                <subviews>
+                                    <containerView translatesAutoresizingMaskIntoConstraints="NO" id="aZc-7W-bKC">
+                                        <rect key="frame" x="0.0" y="0.0" width="643" height="569"/>
+                                        <connections>
+                                            <segue destination="Uun-WO-hGG" kind="embed" id="vGi-cA-BXV"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="aZc-7W-bKC" secondAttribute="bottom" id="VhR-UN-OAa"/>
+                                    <constraint firstItem="aZc-7W-bKC" firstAttribute="leading" secondItem="gm2-gp-5sd" secondAttribute="leading" id="jEn-Ia-FJT"/>
+                                    <constraint firstItem="aZc-7W-bKC" firstAttribute="top" secondItem="gm2-gp-5sd" secondAttribute="top" id="koG-KG-FcA"/>
+                                    <constraint firstAttribute="trailing" secondItem="aZc-7W-bKC" secondAttribute="trailing" id="xuj-Ye-MdE"/>
+                                </constraints>
+                            </visualEffectView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="aZc-7W-bKC" firstAttribute="top" secondItem="hkW-Pw-E8O" secondAttribute="top" id="14I-wb-5lS"/>
-                            <constraint firstAttribute="bottom" secondItem="aZc-7W-bKC" secondAttribute="bottom" id="VgS-LP-nkJ"/>
-                            <constraint firstAttribute="trailing" secondItem="aZc-7W-bKC" secondAttribute="trailing" id="pXX-Rg-xJN"/>
-                            <constraint firstItem="aZc-7W-bKC" firstAttribute="leading" secondItem="hkW-Pw-E8O" secondAttribute="leading" id="qow-XO-yQj"/>
+                            <constraint firstItem="gm2-gp-5sd" firstAttribute="leading" secondItem="hkW-Pw-E8O" secondAttribute="leading" id="GLm-iu-e7Q"/>
+                            <constraint firstAttribute="trailing" secondItem="gm2-gp-5sd" secondAttribute="trailing" id="VAZ-dI-f6K"/>
+                            <constraint firstAttribute="bottom" secondItem="gm2-gp-5sd" secondAttribute="bottom" id="Xe2-Dt-Fas"/>
+                            <constraint firstItem="gm2-gp-5sd" firstAttribute="top" secondItem="hkW-Pw-E8O" secondAttribute="top" id="cqE-zQ-TWc"/>
                         </constraints>
                     </view>
                 </viewController>

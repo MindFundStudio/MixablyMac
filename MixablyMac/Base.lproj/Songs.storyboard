@@ -21,10 +21,10 @@
                             </containerView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="QHR-Bh-M4e" secondAttribute="trailing" id="ABY-mn-MLi"/>
-                            <constraint firstItem="QHR-Bh-M4e" firstAttribute="top" secondItem="y8I-c7-VG9" secondAttribute="top" id="Izp-ei-Ked"/>
-                            <constraint firstAttribute="bottom" secondItem="QHR-Bh-M4e" secondAttribute="bottom" id="MQa-Nk-0Ba"/>
-                            <constraint firstItem="QHR-Bh-M4e" firstAttribute="leading" secondItem="y8I-c7-VG9" secondAttribute="leading" id="P01-7Y-vwz"/>
+                            <constraint firstAttribute="bottom" secondItem="QHR-Bh-M4e" secondAttribute="bottom" id="M8N-gt-yu7"/>
+                            <constraint firstItem="QHR-Bh-M4e" firstAttribute="leading" secondItem="y8I-c7-VG9" secondAttribute="leading" id="Pp3-jx-8sq"/>
+                            <constraint firstAttribute="trailing" secondItem="QHR-Bh-M4e" secondAttribute="trailing" id="hzr-8A-CNC"/>
+                            <constraint firstItem="QHR-Bh-M4e" firstAttribute="top" secondItem="y8I-c7-VG9" secondAttribute="top" id="ymc-Fl-4Yk"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -503,7 +503,7 @@
                                                                     <imageCell key="cell" refusesFirstResponder="YES" imageScaling="proportionallyDown" image="NSFolder" id="ppM-Pu-mtH"/>
                                                                 </imageView>
                                                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pXg-AY-bBs">
-                                                                    <rect key="frame" x="25" y="0.0" width="120" height="17"/>
+                                                                    <rect key="frame" x="23" y="0.0" width="124" height="17"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="I6N-PC-iR2">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
