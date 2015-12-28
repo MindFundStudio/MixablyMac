@@ -23,10 +23,23 @@ final class Mood: Object {
     dynamic var bassPredict:Double = 0.0
     dynamic var bassCoeff:Double = 0.0
     
+    dynamic var isNew = false
+    
     var songs = List<Song>()
+    
+    class func create() -> Mood {
+        let mood = Mood()
+        mood.name = ""
+        mood.isNew = true
+        return mood
+    }
     
     func isLeaf() -> Bool {
         return true
+    }
+    
+    override static func ignoredProperties() -> [String] {
+        return ["isNew"]
     }
     
 }

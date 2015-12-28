@@ -14,20 +14,30 @@ final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewData
     @IBOutlet var moodlistController: NSTreeController!
     @IBOutlet weak var outlineView: NSOutlineView!
     
+    let newMood = Mood.create()
     let realm = try! Realm()
+    var moods: [Mood]! {
+        didSet {
+            moods.append(newMood)
+            dict.setObject(moods, forKey: "children")
+        }
+    }
+    
+    var dict: NSMutableDictionary!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
         let root = [
-            "name": "MOODS",
+            "name": "Moods",
             "isLeaf": false
         ]
         
-        let dict: NSMutableDictionary = NSMutableDictionary(dictionary: root)
-        dict.setObject((realm.objects(Mood).map { (x) in return x }), forKey: "children")
+        dict = NSMutableDictionary(dictionary: root)
         moodlistController.addObject(dict)
+        
+        moods = realm.objects(Mood).map { (x) in return x }
         
         outlineView.expandItem(nil, expandChildren: true)
         outlineView.deselectRow(0)
@@ -42,6 +52,14 @@ final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewData
             return !(item.representedObject is Mood)
         } else {
             return !(item is Mood)
+        }
+    }
+    
+    func isNew(item: AnyObject) -> Bool {
+        if let item = item as? NSTreeNode {
+            return (item.representedObject as! Mood).isNew
+        } else {
+            return (item as! Mood).isNew
         }
     }
     
@@ -101,6 +119,8 @@ final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewData
     func outlineView(outlineView: NSOutlineView, viewForTableColumn tableColumn: NSTableColumn?, item: AnyObject) -> NSView? {
         if isHeader(item) {
             return outlineView.makeViewWithIdentifier("HeaderCell", owner: self)
+        } else if isNew(item) {
+            return outlineView.makeViewWithIdentifier("AddCell", owner: self)
         } else {
             return outlineView.makeViewWithIdentifier("DataCell", owner: self)
         }

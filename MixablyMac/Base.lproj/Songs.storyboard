@@ -233,7 +233,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="ovi-GI-QyX" viewBased="YES" id="g78-ma-eq2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="631" height="403"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="631" height="0.0"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
@@ -692,6 +692,31 @@
                                                                 <outlet property="textField" destination="pXg-AY-bBs" id="qBZ-HK-S3E"/>
                                                             </connections>
                                                         </tableCellView>
+                                                        <tableCellView identifier="AddCell" id="If4-kd-PZS">
+                                                            <rect key="frame" x="1" y="39" width="165" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCk-YN-c4R">
+                                                                    <rect key="frame" x="3" y="0.0" width="17" height="17"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSAddTemplate" id="eZo-BO-Top"/>
+                                                                </imageView>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hHD-7Z-B1r">
+                                                                    <rect key="frame" x="25" y="0.0" width="105" height="17"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="NXV-p0-di3">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="If4-kd-PZS" name="value" keyPath="objectValue.name" id="XX2-Or-cJ4"/>
+                                                                    </connections>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="imageView" destination="jCk-YN-c4R" id="pnm-Lf-kvJ"/>
+                                                                <outlet property="textField" destination="hHD-7Z-B1r" id="BRe-Qc-dqP"/>
+                                                            </connections>
+                                                        </tableCellView>
                                                     </prototypeCellViews>
                                                     <connections>
                                                         <binding destination="Cle-Vg-CrU" name="value" keyPath="arrangedObjects" id="WCU-hq-qs9"/>
@@ -741,6 +766,7 @@
     </scenes>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSFolder" width="32" height="32"/>
     </resources>
 </document>
