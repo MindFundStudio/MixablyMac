@@ -4,6 +4,7 @@ use_frameworks!
 
 target 'MixablyMac' do
   pod 'RealmSwift', '~> 0.97'
+  pod 'ReactKit'
   pod 'pop', '~> 1.0'
   pod 'PSOperations', '~> 2.0.2'
   pod 'STRegex'

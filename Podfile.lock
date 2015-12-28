@@ -1,18 +1,22 @@
 PODS:
   - pop (1.0.8)
   - PSOperations (2.0.2)
+  - ReactKit (0.12.0):
+    - SwiftTask (~> 4.0.0)
   - Realm (0.97.0):
     - Realm/Headers (= 0.97.0)
   - Realm/Headers (0.97.0)
   - RealmSwift (0.97.0):
     - Realm (= 0.97.0)
   - STRegex (0.2.6)
+  - SwiftTask (4.0.0)
   - SwiftyJSON (2.3.2)
   - SwiftyUserDefaults (2.0.0)
 
 DEPENDENCIES:
   - pop (~> 1.0)
   - PSOperations (~> 2.0.2)
+  - ReactKit
   - RealmSwift (~> 0.97)
   - STRegex
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
@@ -30,9 +34,11 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   pop: bb773ae2c791ca2629de13b347e7a8b450fa6a57
   PSOperations: a0c641b1f0b0bbbdc8f3cdcca0794e4fd5b13646
+  ReactKit: a2b705e8a8674b9cb38b8112c07891df87e8e62b
   Realm: b498a6fb9d288b171ff98d0e2d4384c295be8990
   RealmSwift: d014810dec75c9a3f1a33926d2dabfed855c582c
   STRegex: 42baaef0406dd90bfa32e19c202a0c89075809b4
+  SwiftTask: 724ff63fc8bd9b366d242696d4aff098f6de3c3a
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   SwiftyUserDefaults: 1266e9734c68bcfbac8294ee84173dc8ba6db312
 

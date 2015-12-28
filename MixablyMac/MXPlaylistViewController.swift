@@ -8,6 +8,7 @@
 
 import Cocoa
 import RealmSwift
+import ReactKit
 
 final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, MXMixablyPresentationController {
     
@@ -21,6 +22,7 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
         return tableView
     }
     
+    var playlist: Playlist!
     dynamic var songs: [Song]!
     
     private var mixablyViewController:MXMixablyViewController?
@@ -106,7 +108,12 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
         if playlist.name == AllSongs {
             loadAllSongs()
         } else {
-            loadSongsOfPlaylist(playlist)
+            self.playlist = playlist
+            songs = playlist.songs.map {$0}
+            
+            KVO.detailedStream(playlist, "songs").ownedBy(self) ~> { [unowned self] _, kind, indexes in
+                self.songs = playlist.songs.map {$0}
+            }
         }
     }
     
