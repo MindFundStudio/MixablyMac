@@ -696,26 +696,17 @@
                                                             <rect key="frame" x="1" y="39" width="165" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCk-YN-c4R">
+                                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wez-6c-2Xu">
                                                                     <rect key="frame" x="3" y="0.0" width="17" height="17"/>
-                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSAddTemplate" id="eZo-BO-Top"/>
-                                                                </imageView>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hHD-7Z-B1r">
-                                                                    <rect key="frame" x="25" y="0.0" width="105" height="17"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="NXV-p0-di3">
+                                                                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="anb-wH-fpU">
+                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                         <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                                    </textFieldCell>
+                                                                    </buttonCell>
                                                                     <connections>
-                                                                        <binding destination="If4-kd-PZS" name="value" keyPath="objectValue.name" id="XX2-Or-cJ4"/>
+                                                                        <action selector="showPopover:" target="gCv-Dc-ubj" id="y8t-ES-ftX"/>
                                                                     </connections>
-                                                                </textField>
+                                                                </button>
                                                             </subviews>
-                                                            <connections>
-                                                                <outlet property="imageView" destination="jCk-YN-c4R" id="pnm-Lf-kvJ"/>
-                                                                <outlet property="textField" destination="hHD-7Z-B1r" id="BRe-Qc-dqP"/>
-                                                            </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                     <connections>
@@ -762,6 +753,40 @@
                 <customObject id="A1x-tk-mgc" userLabel="moods" customClass="NSMutableArray"/>
             </objects>
             <point key="canvasLocation" x="596" y="1431"/>
+        </scene>
+        <!--Popover View Controller-->
+        <scene sceneID="Xr2-oA-P1C">
+            <objects>
+                <viewController storyboardIdentifier="Popover" id="NfK-DF-XAV" customClass="MXPopoverViewController" customModule="MixablyMac" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="c8d-pt-iam">
+                        <rect key="frame" x="0.0" y="0.0" width="168" height="80"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Z8-jU-P5o">
+                                <rect key="frame" x="18" y="50" width="40" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Name" id="Io5-xf-zdp">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rp3-xA-Ast">
+                                <rect key="frame" x="20" y="20" width="128" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="z6I-Em-iAh">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="textField" destination="Rp3-xA-Ast" id="dL9-Qz-w3T"/>
+                    </connections>
+                </viewController>
+                <customObject id="Kpu-cr-fgD" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="596" y="1657"/>
         </scene>
     </scenes>
     <resources>
