@@ -14,15 +14,22 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
     @IBOutlet weak var sourceListView: NSOutlineView!
     
     let realm = try! Realm()
+    
+    let newPlaylist = Playlist.create()
+    
     var topLevelItems = ["Library", "Playlist"]
     var childrenDictionary: [String: [Playlist]]!
-    var playlist: [Playlist] = []
+    var playlist: [Playlist] = [] {
+        didSet {
+            playlist.append(newPlaylist)
+            childrenDictionary["Playlist"] = playlist
+        }
+    }
     var playlistResults: Results<Playlist>? {
         didSet {
             guard playlistResults != nil else { return }
             
             playlist = playlistResults!.map { (x) in return x }
-            childrenDictionary["Playlist"] = playlist
         }
     }
     
@@ -70,6 +77,18 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
             return item == "Library" || item == "Playlist"
         } else {
             return false
+        }
+    }
+    
+    func isNew(item: AnyObject) -> Bool {
+        if let _ = item as? String {
+            return false
+        } else {
+            if let item = item as? Playlist {
+                return item.isNew
+            } else {
+                return false
+            }
         }
     }
     
@@ -206,9 +225,12 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
             let view = outlineView.makeViewWithIdentifier("HeaderCell", owner: self) as! NSTableCellView
             view.textField?.stringValue = item
             return view
-        case let item as Playlist:
+        case let item as Playlist where !item.isNew:
             let view = outlineView.makeViewWithIdentifier("DataCell", owner: self) as! NSTableCellView
             view.textField?.stringValue = item.name
+            return view
+        case let item as Playlist where item.isNew:
+            let view = outlineView.makeViewWithIdentifier("AddCell", owner: self) as! NSTableCellView
             return view
         default:
             return nil
@@ -236,6 +258,23 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
     // MARK: - Notifications
     
     func reloadPlaylist(notification: NSNotification) {
+        reloadOutlineView()
+    }
+    
+    // MARK: - IBAction
+    
+    @IBAction func showPopover(sender: NSButton) {
+        // Popover
+        
+        let vc = MXPopoverViewController.loadFromNib()
+        vc.popover.delegate = self
+        vc.showPopover(sourceListView)
+    }
+    
+}
+
+extension MXSidebarPlaylistViewController: NSPopoverDelegate {
+    func popoverDidClose(notification: NSNotification) {
         reloadOutlineView()
     }
 }

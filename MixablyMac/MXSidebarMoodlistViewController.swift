@@ -20,7 +20,6 @@ final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewData
         didSet {
             moods.append(newMood)
             dict.setObject(moods, forKey: "children")
-//            outlineView.selectRowIndexes(NSIndexSet(index: moods.count - 1), byExtendingSelection: true)
         }
     }
     
@@ -157,6 +156,8 @@ final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewData
         }
 
     }
+    
+    // MARK: - IBAction
     
     @IBAction func showPopover(sender: NSButton) {
         // Popover

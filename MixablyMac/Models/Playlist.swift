@@ -15,5 +15,17 @@ final class Playlist: Object {
     dynamic var order = 0
     
     var songs = List<Song>()
-
+    
+    dynamic var isNew = false
+    
+    static func create() -> Playlist {
+        let playlist = Playlist()
+        playlist.isNew = true
+        return playlist
+    }
+    
+    override static func ignoredProperties() -> [String] {
+        return ["isNew"]
+    }
+    
 }

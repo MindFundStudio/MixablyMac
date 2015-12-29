@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Klj-Ph-Ydz">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Klj-Ph-Ydz">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
@@ -178,6 +178,22 @@
                                                                 <outlet property="imageView" destination="42h-2X-g3V" id="BlY-f3-roM"/>
                                                                 <outlet property="textField" destination="h3t-ev-bIS" id="6aL-qK-RmA"/>
                                                             </connections>
+                                                        </tableCellView>
+                                                        <tableCellView identifier="AddCell" id="dq3-hK-jhh">
+                                                            <rect key="frame" x="1" y="39" width="165" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MGJ-WD-Xv5">
+                                                                    <rect key="frame" x="3" y="0.0" width="17" height="17"/>
+                                                                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="5et-3T-gzf">
+                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="showPopover:" target="Dxh-gi-RQJ" id="WCF-tg-qLq"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>

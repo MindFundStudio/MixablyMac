@@ -36,10 +36,18 @@ class MXPopoverViewController: NSViewController {
     func returnOnNameField(sender: NSTextField) {
         guard sender.stringValue != "" else { return }
         
-        let mood = Mood()
-        mood.name = sender.stringValue
-        try! realm.write {
-            realm.add(mood)
+        if let _ = popover.delegate as? MXSidebarMoodlistViewController {
+            let mood = Mood()
+            mood.name = sender.stringValue
+            try! realm.write {
+                realm.add(mood)
+            }
+        } else if let _ = popover.delegate as? MXSidebarPlaylistViewController {
+            let playlist = Playlist()
+            playlist.name = sender.stringValue
+            try! realm.write {
+                realm.add(playlist)
+            }
         }
 
         popover.close()
