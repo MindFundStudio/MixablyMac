@@ -14,20 +14,31 @@ final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewData
     @IBOutlet var moodlistController: NSTreeController!
     @IBOutlet weak var outlineView: NSOutlineView!
     
+    let newMood = Mood.create()
     let realm = try! Realm()
+    var moods: [Mood]! {
+        didSet {
+            moods.append(newMood)
+            dict.setObject(moods, forKey: "children")
+//            outlineView.selectRowIndexes(NSIndexSet(index: moods.count - 1), byExtendingSelection: true)
+        }
+    }
+    
+    var dict: NSMutableDictionary!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
         let root = [
-            "name": "MOODS",
+            "name": "Moods",
             "isLeaf": false
         ]
         
-        let dict: NSMutableDictionary = NSMutableDictionary(dictionary: root)
-        dict.setObject((realm.objects(Mood).map { (x) in return x }), forKey: "children")
+        dict = NSMutableDictionary(dictionary: root)
         moodlistController.addObject(dict)
+        
+        loadAllMoods()
         
         outlineView.expandItem(nil, expandChildren: true)
         outlineView.deselectRow(0)
@@ -37,11 +48,27 @@ final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewData
     
     // MARK: - Helpers
     
+    func loadAllMoods() {
+        moods = realm.objects(Mood).map { (x) in return x }
+    }
+    
     func isHeader(item: AnyObject) -> Bool {
         if let item = item as? NSTreeNode {
             return !(item.representedObject is Mood)
         } else {
             return !(item is Mood)
+        }
+    }
+    
+    func isNew(item: AnyObject) -> Bool {
+        if let item = item as? NSTreeNode {
+            if let mood = item.representedObject as? Mood {
+                return mood.isNew
+            } else {
+                return false
+            }
+        } else {
+            return (item as! Mood).isNew
         }
     }
     
@@ -101,6 +128,8 @@ final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewData
     func outlineView(outlineView: NSOutlineView, viewForTableColumn tableColumn: NSTableColumn?, item: AnyObject) -> NSView? {
         if isHeader(item) {
             return outlineView.makeViewWithIdentifier("HeaderCell", owner: self)
+        } else if isNew(item) {
+            return outlineView.makeViewWithIdentifier("AddCell", owner: self)
         } else {
             return outlineView.makeViewWithIdentifier("DataCell", owner: self)
         }
@@ -118,10 +147,29 @@ final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewData
         print("moodlist: \(outlineView.selectedRow)")
         let item = outlineView.itemAtRow(outlineView.selectedRow)
         
+        if let item = item where isNew(item) {
+            outlineView.deselectRow(outlineView.selectedRow)
+            return
+        }
+        
         if let mood = ((item as? NSTreeNode)?.representedObject) as? Mood {
             NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.SelectMood.rawValue, object: self, userInfo: [MXNotificationUserInfo.Mood.rawValue: mood])
         }
 
     }
     
+    @IBAction func showPopover(sender: NSButton) {
+        // Popover
+        
+        let vc = MXPopoverViewController.loadFromNib()
+        vc.popover.delegate = self
+        vc.showPopover(outlineView)
+    }
+    
+}
+
+extension MXSidebarMoodlistViewController: NSPopoverDelegate {
+    func popoverDidClose(notification: NSNotification) {
+        loadAllMoods()
+    }
 }

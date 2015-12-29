@@ -7,8 +7,11 @@
 //
 
 import Cocoa
+import RealmSwift
 
 class MXMixablyMoodFilterViewController: NSViewController {
+    
+    let realm = try! Realm()
 
     @IBOutlet weak var tempoMainValue: NSTextField!
     @IBOutlet weak var tempoMainSlider: NSSlider!
@@ -48,24 +51,53 @@ class MXMixablyMoodFilterViewController: NSViewController {
     }
     
     override func viewDidLoad() {
-        updateMood()
+        var mood = MXPlayerManager.sharedManager.selectedMood
+        if mood == nil {
+            mood = realm.objects(Mood).first
+            if let mood = mood {
+                NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.SelectMood.rawValue, object: self, userInfo: [MXNotificationUserInfo.Mood.rawValue: mood])
+            }
+        }
+        
+        loadMood(mood!)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "selectMood:", name: MXNotifications.SelectMood.rawValue, object: nil)
     }
     
     @IBAction func update(sender: NSSlider) {
         print("action: \(sender.doubleValue)")
         
-        mainTempo = tempoMainSlider.doubleValue
-        mainIntensity = intensityMainSlider.doubleValue
-        mainRhythm = rhythmMainSlider.doubleValue
-        mainBass = bassMainSlider.doubleValue
-        
-        updateMood()
+        updateUI()
+        reloadMoodFilter()
     }
     
     // MARK: - Helpers
     
-    func updateMood() {
-        let mood = Mood()
+    func updateUI() {
+        mainTempo = tempoMainSlider.doubleValue
+        mainIntensity = intensityMainSlider.doubleValue
+        mainRhythm = rhythmMainSlider.doubleValue
+        mainBass = bassMainSlider.doubleValue
+    }
+    
+    func loadMood(mood: Mood) {
+        tempoMainSlider.doubleValue = mood.tempoPredict
+        tempoSubSlider.doubleValue = mood.tempoCoeff
+        intensityMainSlider.doubleValue = mood.combinedEnergyIntensityPredict
+        intensitySubSlider.doubleValue = mood.combinedEnergyIntensityCoeff
+        rhythmMainSlider.doubleValue = mood.rhythmStrengthPredict
+        rhythmSubSlider.doubleValue = mood.rhythmStrengthCoeff
+        bassMainSlider.doubleValue = mood.bassPredict
+        bassSubSlider.doubleValue = mood.bassCoeff
+        
+        updateUI()
+        reloadMoodFilter()
+    }
+    
+    func reloadMoodFilter() {
+        guard let mood = MXPlayerManager.sharedManager.selectedMood else { return }
+        
+        realm.beginWrite()
         mood.tempoPredict = tempoMainSlider.doubleValue
         mood.tempoCoeff = tempoSubSlider.doubleValue
         mood.combinedEnergyIntensityPredict = intensityMainSlider.doubleValue
@@ -74,7 +106,18 @@ class MXMixablyMoodFilterViewController: NSViewController {
         mood.rhythmStrengthCoeff = rhythmSubSlider.doubleValue
         mood.bassPredict = bassMainSlider.doubleValue
         mood.bassCoeff = bassSubSlider.doubleValue
+        try! realm.commitWrite()
         
         NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.ReloadMixably.rawValue, object: self, userInfo: [MXNotificationUserInfo.Mood.rawValue: mood])
+    }
+    
+    // MARK: - Notifications
+    
+    func selectMood(notification: NSNotification) {
+        guard let mood = notification.userInfo?[MXNotificationUserInfo.Mood.rawValue] as? Mood else {
+            return
+        }
+        
+        loadMood(mood)
     }
 }
