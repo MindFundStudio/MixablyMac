@@ -50,6 +50,13 @@ final class MXPlayerViewController: NSViewController {
         manager.volume = sender.floatValue
     }
     
+    @IBAction func showMenu(sender: NSButton) {
+        let theMenu = NSMenu()
+        theMenu.addItem(NSMenuItem(title: "Quit", action: Selector("terminate:"), keyEquivalent: "q"))
+        
+        NSMenu.popUpContextMenu(theMenu, withEvent: NSApp.currentEvent!, forView: sender)
+    }
+    
     @IBAction func toogleMixably(sender: NSButton) {
         print("mixably")
         NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.ToggleMixably.rawValue, object: nil, userInfo: nil)
