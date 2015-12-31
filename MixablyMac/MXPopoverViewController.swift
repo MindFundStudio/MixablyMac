@@ -8,6 +8,7 @@
 
 import Cocoa
 import RealmSwift
+import ARAnalytics
 
 class MXPopoverViewController: NSViewController {
 
@@ -48,6 +49,7 @@ class MXPopoverViewController: NSViewController {
             try! realm.write {
                 realm.add(playlist)
             }
+            MXAnalyticsManager.createPlaylist(playlist.name)
         }
 
         popover.close()
