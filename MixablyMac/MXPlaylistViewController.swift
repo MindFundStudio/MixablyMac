@@ -59,11 +59,7 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
     
     func loadAllSongs() {
         // Assume All Songs playlist is selected by default
-        songs = MXPlayerManager.sharedManager.songs
-    }
-    
-    func loadSongsOfPlaylist(playlist: Playlist) {
-        songs = MXPlayerManager.sharedManager.songs
+        songs = realm.objects(Song).map {$0}
     }
     
     // MARK: - Notification Observers
@@ -105,6 +101,8 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
             return
         }
         
+        self.playlist = playlist
+        
         if playlist.name == AllSongs {
             loadAllSongs()
         } else {
@@ -115,6 +113,21 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
                 self.songs = playlist.songs.map {$0}
             }
         }
+        
+        if let currentSong = MXPlayerManager.sharedManager.currentSong where playlist == MXPlayerManager.sharedManager.playingPlaylist {
+            selectSong(currentSong)
+        }
+    }
+    
+    func selectSong(song: Song) {
+        let index = songs.indexOf { (s) -> Bool in
+            return s.location == song.location
+        }
+        
+        if let index = index {
+            tableView.selectRowIndexes(NSIndexSet(index: index), byExtendingSelection: false)
+            tableView.scrollRowToVisible(index)
+        }
     }
     
     func changeSong(notification: NSNotification?) {
@@ -124,16 +137,12 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
             return
         }
         
+        guard playlist == MXPlayerManager.sharedManager.playingPlaylist else {
+            return
+        }
+        
         // select song
-        let index = songs.indexOf { (s) -> Bool in
-            return s.location == song.location
-        }
-        
-        if let index = index {
-            tableView.selectRowIndexes(NSIndexSet(index: index), byExtendingSelection: false)
-            tableView.scrollRowToVisible(index)
-        }
-        
+        selectSong(song)
     }
     
     // MARK: - Double Action
@@ -141,6 +150,7 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
     func doubleClick(sender: NSTableView) {
         let manager = MXPlayerManager.sharedManager
         if tableView.selectedRow != -1 {
+            manager.playingPlaylist = playlist
             manager.currentSong = songs[tableView.selectedRow]
         }
         manager.play()

@@ -16,6 +16,18 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
     let realm = try! Realm()
     
     var selectedPlaylist: Playlist?
+    var playingPlaylist: Playlist? {
+        didSet {
+            if let playingPlaylist = playingPlaylist {
+                if playingPlaylist.name == AllSongs {
+                    loadAllSongs()
+                } else {
+                    loadSongsOfPlaylist(playingPlaylist)
+                }
+            }
+        }
+    }
+    
     var selectedMood: Mood?
     
     var isRepeat = false
@@ -120,6 +132,10 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
     // MARK: - Player Control
     
     func play() {
+        if currentPlayList.isEmpty {
+            playingPlaylist = selectedPlaylist
+        }
+        
         if currentSong == nil {
             currentSong = currentPlayList[0]
         }
@@ -211,12 +227,6 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
         }
         
         selectedPlaylist = playlist
-        
-        if playlist.name == AllSongs {
-            loadAllSongs()
-        } else {
-            loadSongsOfPlaylist(playlist)
-        }
         
         NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.ReloadSongs.rawValue, object: self, userInfo: [MXNotificationUserInfo.Playlist.rawValue: playlist])
     }
