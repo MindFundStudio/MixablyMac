@@ -80,6 +80,7 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
         if let mood = notification?.userInfo?[MXNotificationUserInfo.Mood.rawValue] as? Mood {
             mixablyViewController?.selectedMood = mood
         }
+        tableView.doubleAction = nil
         presentViewController(mixablyViewController!, animator: MXMixablyPresentationAnimator())
     }
     
@@ -89,6 +90,8 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
         
         dismissViewController(vc)
         mixablyViewController = nil
+        
+        tableView.doubleAction = Selector("doubleClick:")
         
         // Reload songs
         if let playlist = MXPlayerManager.sharedManager.selectedPlaylist {
