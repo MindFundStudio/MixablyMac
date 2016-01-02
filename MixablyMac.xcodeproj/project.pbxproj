@@ -42,6 +42,7 @@
 		7CBCEAF41C1FF64E00F3EC5B /* DefaultsKeys+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBCEAF31C1FF64E00F3EC5B /* DefaultsKeys+Extensions.swift */; };
 		D10004011C1855EF00563D6B /* MXSidebarPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10004001C1855EF00563D6B /* MXSidebarPlaylistViewController.swift */; };
 		D10715611C311A6C004A7CD7 /* MXPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10715601C311A6C004A7CD7 /* MXPopoverViewController.swift */; };
+		D113E0201C353361004F3C76 /* MXAnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113E01F1C353361004F3C76 /* MXAnalyticsManager.swift */; };
 		D1159F871C1A942400E43147 /* MXSidebarMoodlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1159F861C1A942400E43147 /* MXSidebarMoodlistViewController.swift */; };
 		D1159F891C1ACEC500E43147 /* MXDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1159F881C1ACEC500E43147 /* MXDataManager.swift */; };
 		D1159F8B1C1AD6DB00E43147 /* MXSongManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1159F8A1C1AD6DB00E43147 /* MXSongManager.swift */; };
@@ -114,6 +115,8 @@
 		AC632175D9C6A5455B2CA21D /* Pods-MixablyMac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixablyMac.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixablyMac/Pods-MixablyMac.release.xcconfig"; sourceTree = "<group>"; };
 		D10004001C1855EF00563D6B /* MXSidebarPlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSidebarPlaylistViewController.swift; sourceTree = "<group>"; };
 		D10715601C311A6C004A7CD7 /* MXPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXPopoverViewController.swift; sourceTree = "<group>"; };
+		D113E01A1C350A5F004F3C76 /* MixablyMac-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MixablyMac-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		D113E01F1C353361004F3C76 /* MXAnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXAnalyticsManager.swift; sourceTree = "<group>"; };
 		D1159F861C1A942400E43147 /* MXSidebarMoodlistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSidebarMoodlistViewController.swift; sourceTree = "<group>"; };
 		D1159F881C1ACEC500E43147 /* MXDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXDataManager.swift; sourceTree = "<group>"; };
 		D1159F8A1C1AD6DB00E43147 /* MXSongManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSongManager.swift; sourceTree = "<group>"; };
@@ -334,6 +337,7 @@
 				7CB1B9B51C1817900056A942 /* MXPlayerManager.swift */,
 				D1159F881C1ACEC500E43147 /* MXDataManager.swift */,
 				D1159F8A1C1AD6DB00E43147 /* MXSongManager.swift */,
+				D113E01F1C353361004F3C76 /* MXAnalyticsManager.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -341,6 +345,7 @@
 		D10003FF1C18441800563D6B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D113E01A1C350A5F004F3C76 /* MixablyMac-Bridging-Header.h */,
 				7C25AF891C17DE52007A0DBA /* MixablyMac.entitlements */,
 			);
 			name = "Supporting Files";
@@ -422,7 +427,7 @@
 		3AAF4D7B1C16AF3D0091C2B3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = MiQ;
 				TargetAttributes = {
@@ -570,6 +575,7 @@
 				D1159F8B1C1AD6DB00E43147 /* MXSongManager.swift in Sources */,
 				D1159F8D1C1B354D00E43147 /* MXMixablySongsViewController.swift in Sources */,
 				7CB1B9BA1C191FD30056A942 /* MutableCollectionType+Extensions.swift in Sources */,
+				D113E0201C353361004F3C76 /* MXAnalyticsManager.swift in Sources */,
 				7CBCEAF41C1FF64E00F3EC5B /* DefaultsKeys+Extensions.swift in Sources */,
 				D1159F891C1ACEC500E43147 /* MXDataManager.swift in Sources */,
 				7C32A3391C214D5200B813E3 /* MXFileSystemWatcher.swift in Sources */,
@@ -720,6 +726,7 @@
 			baseConfigurationReference = DF7961601E0145F14D531120 /* Pods-MixablyMac.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -732,6 +739,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.miq.MixablyMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MixablyMac-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -740,6 +749,7 @@
 			baseConfigurationReference = AC632175D9C6A5455B2CA21D /* Pods-MixablyMac.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -752,6 +762,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.miq.MixablyMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MixablyMac-Bridging-Header.h";
 			};
 			name = Release;
 		};

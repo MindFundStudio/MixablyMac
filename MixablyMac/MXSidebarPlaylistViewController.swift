@@ -258,6 +258,7 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
     // MARK: - Notifications
     
     func reloadPlaylist(notification: NSNotification) {
+        MXAnalyticsManager.reloadPlaylist()
         reloadOutlineView()
     }
     

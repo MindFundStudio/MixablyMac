@@ -21,6 +21,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         print(Realm.Configuration.defaultConfiguration.path)
+        
+        MXAnalyticsManager.setup()
+        MXAnalyticsManager.startApp()
+        
         songManger = MXSongManager()
         songManger?.trackSongDirectory()
         
@@ -56,6 +60,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
+        MXAnalyticsManager.terminateApp()
         songManger = nil
     }
 

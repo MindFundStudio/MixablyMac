@@ -152,6 +152,7 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
         try! realm.write {
             realm.add(newPlaylist)
         }
+        MXAnalyticsManager.createPlaylist(newPlaylist.name)
         
         NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.ReloadSidebarPlaylist.rawValue, object: self, userInfo: [MXNotificationUserInfo.Playlist.rawValue: newPlaylist])
     }
