@@ -18,7 +18,7 @@ struct MXAnalyticsManager {
             ARMixpanelToken: "188e8f644e07082347a1299ca88473ae",
             ARParseApplicationID: "QWQCoOYy8hwZkzuqfOmtrgzX5F51XKYVLW6eCSYZ",
             ARParseClientKey: "Yo5xfpQkbpv5kEIzfBfnpHXzGoRJCb3onuguKngf"
-            ])
+        ])
     }
     
     // MARK: - Usage
@@ -39,7 +39,7 @@ struct MXAnalyticsManager {
         ARAnalytics.event("Playlist", withProperties: [
             "Playlist": "Create",
             "name": name
-            ])
+        ])
     }
     
     static func reloadPlaylist() {
@@ -61,6 +61,23 @@ struct MXAnalyticsManager {
     // MARK: - Song
     
     static func importSongs(count: Int = 0) {
-        
+        ARAnalytics.event("Song", withProperties: [
+            "count": count
+        ])
+    }
+    
+    static func saveSong(statusRaw: Int) {
+        switch statusRaw {
+        case Song.Status.Unanalysed.rawValue:
+            ARAnalytics.event("Song", withProperties: [
+            "Save": "Unanalyzed"
+            ])
+        case Song.Status.Analyzed.rawValue:
+            ARAnalytics.event("Song", withProperties: [
+            "Save": "Analyzed"
+            ])
+        default:
+            break
+        }
     }
 }

@@ -38,6 +38,7 @@ final class MXSongManager {
             })
 
             print("import songs, song count: \(songs.count)")
+            MXAnalyticsManager.importSongs(songs.count)
             try realm.write {
                 realm.add(songs)
             }
@@ -182,6 +183,8 @@ final class MXSongManager {
                     
                     self.updatePlaylist()
                     saveSong(song)
+                    
+                    MXAnalyticsManager.importSongs(1)
                 }
             } catch {
                 print("realm error")
@@ -224,6 +227,7 @@ final class MXSongManager {
                                 }
                             }
                         }
+                        MXAnalyticsManager.saveSong(song.statusRaw)
                     })
                 }
             }
