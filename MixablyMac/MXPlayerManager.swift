@@ -74,13 +74,6 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
         }
     }
     
-    // Current playing song list
-    var songs: [Song] {
-        get {
-            return currentPlayList
-        }
-    }
-    
     var playing: Bool {
         if let player = player {
             return player.playing

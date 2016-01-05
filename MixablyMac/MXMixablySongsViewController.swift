@@ -108,10 +108,8 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
         let player = MXPlayerManager.sharedManager
         
         if playlist!.name != AllSongs {
-            let selectedPlaylistSongs = player.songs
-            
             scoredSongs = scoredSongs.map { song in
-                if selectedPlaylistSongs.filter({(x) in return x.location == song.location}).count > 0 {
+                if player.selectedPlaylist?.songs.filter({(x) in return x.location == song.location}).count > 0 {
                     song.highlighted = true
                     song.selected = true
                 } else {
