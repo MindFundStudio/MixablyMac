@@ -16,7 +16,7 @@ final class MXSongManager {
     private var watcher: MXFileSystemWatcher?
     lazy var operationQueue: OperationQueue = {
         let operationQueue = OperationQueue()
-        operationQueue.maxConcurrentOperationCount = 4
+        operationQueue.maxConcurrentOperationCount = 2
         return operationQueue
     }()
 
