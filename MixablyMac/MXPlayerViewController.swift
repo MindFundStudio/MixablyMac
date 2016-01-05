@@ -23,9 +23,15 @@ final class MXPlayerViewController: NSViewController {
     
     @IBOutlet weak var songNameTextField: NSTextField!
     
+    @IBOutlet weak var songProgressSlider: NSSlider!
+    
     @IBOutlet weak var mixablyButton: NSButton!
     
     var songTimer: NSTimer?
+    
+    // =================
+    // MARK: - Lifecycle
+    // =================
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +49,16 @@ final class MXPlayerViewController: NSViewController {
         backButton.enabled = false
         nextButton.enabled = false
         songNameTextField.stringValue = ""
+        songProgressSlider.hidden = true
     }
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
+    
+    // ================
+    // MARK: - IBAction
+    // ================
     
     @IBAction func slideVolume(sender: NSSlider) {
         manager.volume = sender.floatValue
@@ -101,21 +112,35 @@ final class MXPlayerViewController: NSViewController {
         }
     }
     
-    func updateProgress() {
-        
+    @IBAction func scrollProgress(sender: NSSlider) {
+        manager.seekTo(sender.doubleValue)
     }
     
+    // =============
+    // MARK: - Timer
+    // =============
+    
+    func updateProgress() {
+        // Display current time
+        // Update Progress bar
+        songProgressSlider.doubleValue = songProgressSlider.doubleValue + 0.5
+        print(songProgressSlider.doubleValue)
+    }
+    
+    // =====================
     // MARK: - Notifications
+    // =====================
     
     func startPlaying(notification: NSNotification) {
         playPauseButton.image = NSImage(named: "Pause")
-        songTimer = NSTimer(timeInterval: 1.0, target: self, selector: "updateProgress", userInfo: nil, repeats: true)
+        songTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "updateProgress", userInfo: nil, repeats: true)
         backButton.enabled = true
         nextButton.enabled = true
     }
     
     func pausePlaying(notification: NSNotification) {
         playPauseButton.image = NSImage(named: "Play")
+        songTimer?.invalidate()
     }
     
     func stopPlaying(notification: NSNotification) {
@@ -132,6 +157,10 @@ final class MXPlayerViewController: NSViewController {
         let formatter = NSDateComponentsFormatter()
         songLengthTextField.stringValue = "\(formatter.stringFromTimeInterval(song.duration)!)"
         songNameTextField.stringValue = song.name
+        
+        songProgressSlider.hidden = false
+        songProgressSlider.intValue = 0
+        songProgressSlider.maxValue = song.duration
     }
     
     func showMixably(notification: NSNotification) {

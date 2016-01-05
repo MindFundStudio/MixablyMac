@@ -871,11 +871,21 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
+                                    <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sM5-2m-Lvs">
+                                        <rect key="frame" x="0.0" y="-7" width="735" height="15"/>
+                                        <sliderCell key="cell" controlSize="mini" continuous="YES" state="on" alignment="left" maxValue="100" tickMarkPosition="above" sliderType="linear" id="lyr-dD-shN"/>
+                                        <connections>
+                                            <action selector="scrollProgress:" target="28T-H6-w9b" id="Skq-90-Q58"/>
+                                        </connections>
+                                    </slider>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="50k-d0-NM3" firstAttribute="top" secondItem="fQU-Bp-qp8" secondAttribute="top" constant="10" id="2Ml-b0-tbV"/>
                                     <constraint firstItem="JtB-Ir-b3o" firstAttribute="centerY" secondItem="fQU-Bp-qp8" secondAttribute="centerY" id="3E7-0C-d95"/>
+                                    <constraint firstItem="sM5-2m-Lvs" firstAttribute="leading" secondItem="fQU-Bp-qp8" secondAttribute="leading" id="FSy-U6-fXI"/>
                                     <constraint firstAttribute="trailing" secondItem="JtB-Ir-b3o" secondAttribute="trailing" constant="46" id="Lc6-nQ-PkW"/>
+                                    <constraint firstAttribute="bottom" secondItem="sM5-2m-Lvs" secondAttribute="bottom" constant="-6" id="Zkr-Ly-3n3"/>
+                                    <constraint firstAttribute="trailing" secondItem="sM5-2m-Lvs" secondAttribute="trailing" id="bwf-au-QY6"/>
                                     <constraint firstItem="UBA-Ji-cX5" firstAttribute="leading" secondItem="gqe-YF-fQj" secondAttribute="trailing" constant="16" id="esI-jC-C3I"/>
                                     <constraint firstItem="CyG-St-lAc" firstAttribute="centerX" secondItem="fQU-Bp-qp8" secondAttribute="centerX" id="gHr-Oq-0g0"/>
                                     <constraint firstItem="gqe-YF-fQj" firstAttribute="leading" secondItem="fQU-Bp-qp8" secondAttribute="leading" constant="8" id="kqX-sd-w2M"/>
@@ -901,6 +911,7 @@
                         <outlet property="playPauseButton" destination="BcQ-oI-b89" id="erl-iT-mW6"/>
                         <outlet property="songLengthTextField" destination="iJh-wx-i3p" id="XJK-mE-a4h"/>
                         <outlet property="songNameTextField" destination="CyG-St-lAc" id="puU-Zu-uRm"/>
+                        <outlet property="songProgressSlider" destination="sM5-2m-Lvs" id="y4p-yc-9yJ"/>
                         <outlet property="volumeSlider" destination="6iU-nI-9oP" id="3iD-dV-K9X"/>
                     </connections>
                 </viewController>

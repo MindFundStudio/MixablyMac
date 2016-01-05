@@ -83,7 +83,7 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
     }
     var currentIndex: Int? = nil
 
-    var player: AVAudioPlayer?
+    private var player: AVAudioPlayer?
     private var monitor: AnyObject?
     // Storage of playlist
     private var playList: [Song] = [] {
@@ -196,6 +196,10 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
     func stop() {
         player?.stop()
         NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.StopPlaying.rawValue, object: self)
+    }
+    
+    func seekTo(time: NSTimeInterval) {
+        player?.currentTime = time
     }
     
     private func togglePlayState() {
