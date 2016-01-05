@@ -12,6 +12,9 @@ target 'MixablyMac' do
   pod 'SwiftyUserDefaults'
   pod 'ARAnalytics', :git => 'https://github.com/harryworld/ARAnalytics.git', :subspecs => ['MixpanelOSX', 'ParseAnalyticsOSX']
   pod 'Mixpanel-OSX-Community', :git => 'https://github.com/orta/mixpanel-osx-unofficial.git'
+  
+  pod 'Fabric', '~> 1.6.1'
+  pod 'Crashlytics', '~> 3.4.1'
 end
 
 target 'MixablyMacTests' do

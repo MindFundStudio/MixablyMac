@@ -7,6 +7,9 @@ PODS:
     - ARAnalytics/CoreMac
     - Parse
   - Bolts/Tasks (1.5.1)
+  - Crashlytics (3.4.1):
+    - Fabric (~> 1.6.0)
+  - Fabric (1.6.1)
   - Mixpanel-OSX-Community (2.1.0)
   - Parse (1.11.0):
     - Bolts/Tasks (~> 1.5)
@@ -27,6 +30,8 @@ PODS:
 DEPENDENCIES:
   - ARAnalytics/MixpanelOSX (from `https://github.com/harryworld/ARAnalytics.git`)
   - ARAnalytics/ParseAnalyticsOSX (from `https://github.com/harryworld/ARAnalytics.git`)
+  - Crashlytics (~> 3.4.1)
+  - Fabric (~> 1.6.1)
   - Mixpanel-OSX-Community (from `https://github.com/orta/mixpanel-osx-unofficial.git`)
   - pop (~> 1.0)
   - PSOperations (~> 2.0.2)
@@ -53,6 +58,8 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   ARAnalytics: 127fdf99d9eeed2ce1c006752f705b3ee05f0f42
   Bolts: a12663244b1d3351c738882e71902fc74db54f64
+  Crashlytics: 41574a245bc6ae10c55d57f385ebd2004e5bee05
+  Fabric: bf0ceb04e7c924090efc5f8c55e4fbcca189e0a0
   Mixpanel-OSX-Community: f58bb9cf97ef3b024b6f89d3890668a2c20de5b6
   Parse: 886af46a0a677402f6374bb97ac212e795f70afe
   pop: bb773ae2c791ca2629de13b347e7a8b450fa6a57

@@ -10,6 +10,8 @@ import Cocoa
 import RealmSwift
 import iTunesLibrary
 import SwiftyUserDefaults
+import Fabric
+import Crashlytics
 
 @NSApplicationMain
 final class AppDelegate: NSObject, NSApplicationDelegate {
@@ -21,6 +23,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         print(Realm.Configuration.defaultConfiguration.path)
+        
+        Fabric.with([Crashlytics.self])
         
         MXAnalyticsManager.setup()
         MXAnalyticsManager.startApp()

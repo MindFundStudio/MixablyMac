@@ -375,6 +375,7 @@
 				3AAF4D811C16AF3D0091C2B3 /* Resources */,
 				16BB2225AF1FED8368CDFC20 /* Embed Pods Frameworks */,
 				C541AC8CF773D09BA80A1B88 /* Copy Pods Resources */,
+				D1798BE81C3BADBD00277038 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -547,6 +548,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MixablyMac/Pods-MixablyMac-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D1798BE81C3BADBD00277038 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 67f7249a2b4861c8e1bf96ac74a526a80bac534d 5db34de223d39f4e014cd225d100b3eb9439ff84ea9b80f0dfcef87d8aa4ebfb";
 		};
 /* End PBXShellScriptBuildPhase section */
 
