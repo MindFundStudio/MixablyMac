@@ -17,6 +17,7 @@ enum MXNotifications: String {
     case PausePlaying = "pausePlaying"
     case StopPlaying = "stopPlaying"
     case ChangeSong = "changeSong"
+    case BackSong = "backSong"
     // Playlist
     case SelectPlaylist = "selectPlaylist"
     case ReloadSidebarPlaylist = "reloadSidebarPlaylist"

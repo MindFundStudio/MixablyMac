@@ -125,6 +125,10 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
     // MARK: - Player Control
     
     func play() {
+        if playing {
+            pause()
+        }
+        
         if currentPlayList.isEmpty {
             playingPlaylist = selectedPlaylist
         }
@@ -166,7 +170,9 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
         if player?.currentTime > 3.0 {
             // go back to beginning
             player?.currentTime = 0.0
-            play()
+            if playing {
+                play()
+            }
         } else {
             // go to previous song
             if !isRepeat && currentIndex == 0 {
@@ -185,7 +191,7 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
             play()
         }
         
-        
+        NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.BackSong.rawValue, object: self)
     }
     
     func pause() {

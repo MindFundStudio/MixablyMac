@@ -46,6 +46,8 @@ final class MXPlayerViewController: NSViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "showMixably:", name: MXNotifications.SelectMood.rawValue, object: nil)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "backSong:", name: MXNotifications.BackSong.rawValue, object: nil)
+        
         backButton.enabled = false
         nextButton.enabled = false
         songNameTextField.stringValue = ""
@@ -132,6 +134,7 @@ final class MXPlayerViewController: NSViewController {
     // =====================
     
     func startPlaying(notification: NSNotification) {
+        print("startPlaying")
         playPauseButton.image = NSImage(named: "Pause")
         songTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "updateProgress", userInfo: nil, repeats: true)
         backButton.enabled = true
@@ -140,11 +143,12 @@ final class MXPlayerViewController: NSViewController {
     
     func pausePlaying(notification: NSNotification) {
         playPauseButton.image = NSImage(named: "Play")
-        songTimer?.invalidate()
+        stopTimer()
     }
     
     func stopPlaying(notification: NSNotification) {
         playPauseButton.image = NSImage(named: "Play")
+        stopTimer()
     }
     
     func changeSong(notification: NSNotification) {
@@ -161,6 +165,17 @@ final class MXPlayerViewController: NSViewController {
         songProgressSlider.hidden = false
         songProgressSlider.intValue = 0
         songProgressSlider.maxValue = song.duration
+        
+        stopTimer()
+    }
+    
+    func backSong(notification: NSNotification) {
+        songProgressSlider.intValue = 0
+    }
+    
+    private func stopTimer() {
+        songTimer?.invalidate()
+        songTimer = nil
     }
     
     func showMixably(notification: NSNotification) {
