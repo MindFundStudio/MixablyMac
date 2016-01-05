@@ -795,7 +795,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="26" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UBA-Ji-cX5" userLabel="PlayerControls">
-                                        <rect key="frame" x="298" y="19" width="139" height="31"/>
+                                        <rect key="frame" x="298" y="30" width="139" height="31"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HLi-eE-ZP5">
                                                 <rect key="frame" x="0.0" y="6" width="28" height="20"/>
@@ -840,7 +840,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JtB-Ir-b3o" userLabel="MixiblyButton">
-                                        <rect key="frame" x="650" y="16" width="39" height="39"/>
+                                        <rect key="frame" x="646" y="17" width="43" height="36"/>
                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Mixably" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="QNc-u4-0jA">
                                             <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -863,14 +863,24 @@
                                             <action selector="showMenu:" target="28T-H6-w9b" id="W3t-BN-QKd"/>
                                         </connections>
                                     </button>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CyG-St-lAc">
+                                        <rect key="frame" x="306" y="8" width="124" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Current Song Name" id="Y5Y-2r-8O0">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="50k-d0-NM3" firstAttribute="top" secondItem="fQU-Bp-qp8" secondAttribute="top" constant="10" id="2Ml-b0-tbV"/>
                                     <constraint firstItem="JtB-Ir-b3o" firstAttribute="centerY" secondItem="fQU-Bp-qp8" secondAttribute="centerY" id="3E7-0C-d95"/>
                                     <constraint firstAttribute="trailing" secondItem="JtB-Ir-b3o" secondAttribute="trailing" constant="46" id="Lc6-nQ-PkW"/>
                                     <constraint firstItem="UBA-Ji-cX5" firstAttribute="leading" secondItem="gqe-YF-fQj" secondAttribute="trailing" constant="16" id="esI-jC-C3I"/>
+                                    <constraint firstItem="CyG-St-lAc" firstAttribute="centerX" secondItem="fQU-Bp-qp8" secondAttribute="centerX" id="gHr-Oq-0g0"/>
                                     <constraint firstItem="gqe-YF-fQj" firstAttribute="leading" secondItem="fQU-Bp-qp8" secondAttribute="leading" constant="8" id="kqX-sd-w2M"/>
-                                    <constraint firstItem="UBA-Ji-cX5" firstAttribute="centerY" secondItem="fQU-Bp-qp8" secondAttribute="centerY" id="pC1-EE-H93"/>
+                                    <constraint firstItem="CyG-St-lAc" firstAttribute="top" secondItem="UBA-Ji-cX5" secondAttribute="bottom" constant="5" id="nIy-Xl-XPM"/>
+                                    <constraint firstItem="UBA-Ji-cX5" firstAttribute="centerY" secondItem="fQU-Bp-qp8" secondAttribute="centerY" constant="-10" id="pC1-EE-H93"/>
                                     <constraint firstItem="gqe-YF-fQj" firstAttribute="centerY" secondItem="fQU-Bp-qp8" secondAttribute="centerY" id="qPN-yS-2IJ"/>
                                     <constraint firstItem="UBA-Ji-cX5" firstAttribute="centerX" secondItem="fQU-Bp-qp8" secondAttribute="centerX" id="snD-f4-7Fa"/>
                                     <constraint firstAttribute="trailing" secondItem="50k-d0-NM3" secondAttribute="trailing" constant="10" id="yTR-L8-oeF"/>
@@ -890,6 +900,7 @@
                         <outlet property="nextButton" destination="fQO-WR-CiA" id="ES6-yU-LiQ"/>
                         <outlet property="playPauseButton" destination="BcQ-oI-b89" id="erl-iT-mW6"/>
                         <outlet property="songLengthTextField" destination="iJh-wx-i3p" id="XJK-mE-a4h"/>
+                        <outlet property="songNameTextField" destination="CyG-St-lAc" id="puU-Zu-uRm"/>
                         <outlet property="volumeSlider" destination="6iU-nI-9oP" id="3iD-dV-K9X"/>
                     </connections>
                 </viewController>
@@ -908,7 +919,7 @@
     </scenes>
     <resources>
         <image name="FastForward" width="29" height="20"/>
-        <image name="Mixably" width="39" height="39"/>
+        <image name="Mixably" width="43" height="36"/>
         <image name="NSActionTemplate" width="14" height="14"/>
         <image name="Play" width="30" height="31"/>
         <image name="Repeat" width="18" height="20"/>

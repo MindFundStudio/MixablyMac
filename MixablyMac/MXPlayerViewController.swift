@@ -21,6 +21,8 @@ final class MXPlayerViewController: NSViewController {
     
     @IBOutlet weak var nextButton: NSButton!
     
+    @IBOutlet weak var songNameTextField: NSTextField!
+    
     @IBOutlet weak var mixablyButton: NSButton!
     
     var songTimer: NSTimer?
@@ -40,6 +42,7 @@ final class MXPlayerViewController: NSViewController {
         
         backButton.enabled = false
         nextButton.enabled = false
+        songNameTextField.stringValue = ""
     }
     
     deinit {
@@ -128,6 +131,7 @@ final class MXPlayerViewController: NSViewController {
         
         let formatter = NSDateComponentsFormatter()
         songLengthTextField.stringValue = "\(formatter.stringFromTimeInterval(song.duration)!)"
+        songNameTextField.stringValue = song.name
     }
     
     func showMixably(notification: NSNotification) {
