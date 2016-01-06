@@ -196,6 +196,7 @@ final class MXPlayerViewController: NSViewController {
 extension MXPlayerViewController: NSPopoverDelegate {
     func popoverDidClose(notification: NSNotification) {
         mixablyButton.state = NSOffState
+        MXPlayerManager.sharedManager.selectedMood = nil
         
         let center = NSNotificationCenter.defaultCenter()
         center.postNotificationName(MXNotifications.ToggleMixably.rawValue, object: nil)
