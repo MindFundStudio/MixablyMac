@@ -54,6 +54,10 @@ final class MXSongManager {
         }
     }
     
+    func stopAnalysis() {
+        operationQueue.cancelAllOperations()
+    }
+    
     func processUnanalysedSongs() throws {
         guard Defaults[.appInitLaunch] else { return }
         

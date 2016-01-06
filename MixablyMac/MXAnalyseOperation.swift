@@ -76,6 +76,8 @@ final class MXAnalyseOperation: Operation {
     
     override func execute() {
         
+        if cancelled { return }
+        
         if let resourcePath = NSBundle.mainBundle().resourcePath, path = fileURL.path {
             
             let execPath = NSString(string: resourcePath).stringByAppendingPathComponent("blackbox")
