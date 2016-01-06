@@ -25,6 +25,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let realmPath = Realm.Configuration.defaultConfiguration.path
         print(realmPath)
         
+        NSUserDefaults.standardUserDefaults().registerDefaults(["NSApplicationCrashOnExceptions": true])
         Fabric.with([Crashlytics.self])
         
         // ===============
