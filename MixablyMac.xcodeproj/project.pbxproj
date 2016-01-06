@@ -42,6 +42,7 @@
 		7CB1B9BA1C191FD30056A942 /* MutableCollectionType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1B9B91C191FD30056A942 /* MutableCollectionType+Extensions.swift */; };
 		7CBCEAF41C1FF64E00F3EC5B /* DefaultsKeys+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBCEAF31C1FF64E00F3EC5B /* DefaultsKeys+Extensions.swift */; };
 		D10004011C1855EF00563D6B /* MXSidebarPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10004001C1855EF00563D6B /* MXSidebarPlaylistViewController.swift */; };
+		D1060FAF1C3CB96E0093F70F /* MXRealmMigrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1060FAE1C3CB96E0093F70F /* MXRealmMigrationManager.swift */; };
 		D10715611C311A6C004A7CD7 /* MXPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10715601C311A6C004A7CD7 /* MXPopoverViewController.swift */; };
 		D113E0201C353361004F3C76 /* MXAnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113E01F1C353361004F3C76 /* MXAnalyticsManager.swift */; };
 		D1159F871C1A942400E43147 /* MXSidebarMoodlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1159F861C1A942400E43147 /* MXSidebarMoodlistViewController.swift */; };
@@ -116,6 +117,7 @@
 		7CBCEAF31C1FF64E00F3EC5B /* DefaultsKeys+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DefaultsKeys+Extensions.swift"; sourceTree = "<group>"; };
 		AC632175D9C6A5455B2CA21D /* Pods-MixablyMac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixablyMac.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixablyMac/Pods-MixablyMac.release.xcconfig"; sourceTree = "<group>"; };
 		D10004001C1855EF00563D6B /* MXSidebarPlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSidebarPlaylistViewController.swift; sourceTree = "<group>"; };
+		D1060FAE1C3CB96E0093F70F /* MXRealmMigrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXRealmMigrationManager.swift; sourceTree = "<group>"; };
 		D10715601C311A6C004A7CD7 /* MXPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXPopoverViewController.swift; sourceTree = "<group>"; };
 		D113E01A1C350A5F004F3C76 /* MixablyMac-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MixablyMac-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		D113E01F1C353361004F3C76 /* MXAnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXAnalyticsManager.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 		D10003FE1C1843C300563D6B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D1060FAE1C3CB96E0093F70F /* MXRealmMigrationManager.swift */,
 				7C32A3381C214D5200B813E3 /* MXFileSystemWatcher.swift */,
 				7CB1B9B11C180E960056A942 /* EventMonitor.swift */,
 				7CB1B9B51C1817900056A942 /* MXPlayerManager.swift */,
@@ -608,6 +611,7 @@
 				3AB2AF761C1F515C008F4371 /* MXFeatures.swift in Sources */,
 				3AC3BD381C3BD310000D5959 /* MXVerticalSliderCell.swift in Sources */,
 				3ABAEB4F1C22B2B900BE8F97 /* MXScoreSongsOperation.swift in Sources */,
+				D1060FAF1C3CB96E0093F70F /* MXRealmMigrationManager.swift in Sources */,
 				7CB1B9B21C180E960056A942 /* EventMonitor.swift in Sources */,
 				3AB2AF741C1F5132008F4371 /* MXAnalyseOperation.swift in Sources */,
 				D1159F871C1A942400E43147 /* MXSidebarMoodlistViewController.swift in Sources */,

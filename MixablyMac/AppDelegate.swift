@@ -19,18 +19,26 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     let popover = NSPopover()
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
     var eventMonitor: EventMonitor?
-    var songManger: MXSongManager?
+    var songManager: MXSongManager?
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        print(Realm.Configuration.defaultConfiguration.path)
+        let realmPath = Realm.Configuration.defaultConfiguration.path
+        print(realmPath)
         
+        NSUserDefaults.standardUserDefaults().registerDefaults(["NSApplicationCrashOnExceptions": true])
         Fabric.with([Crashlytics.self])
+        
+        // ===============
+        // Realm Migration
+        // ===============
+        
+        MXRealmMigrationManager.migrate(realmPath)
         
         MXAnalyticsManager.setup()
         MXAnalyticsManager.startApp()
         
-        songManger = MXSongManager()
-        songManger?.trackSongDirectory()
+        songManager = MXSongManager()
+        songManager?.trackSongDirectory()
         
         statusItem.title = ""
 
@@ -53,8 +61,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 //        Defaults[.appInitLaunch] = false
         do {
             MXDataManager.importSeedData()
-            try songManger?.importSongs()
-            try songManger?.processUnanalysedSongs()
+            try songManager?.importSongs()
+            try songManager?.processUnanalysedSongs()
             Defaults[.appInitLaunch] = true
         } catch let error as NSError {
             print("Error: \(error)")
@@ -65,7 +73,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
         MXAnalyticsManager.terminateApp()
-        songManger = nil
+        songManager?.stopAnalysis()
+        songManager = nil
     }
 
     // Helpers

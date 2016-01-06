@@ -30,6 +30,7 @@ final class Song: Object {
     // ==================
     
     dynamic var id:String = NSUUID().UUIDString
+    dynamic var persistentID:NSNumber = 0
     dynamic var name:String = "New Song"
     dynamic var location:String = ""
     dynamic var duration:Double = 0.0
@@ -51,6 +52,7 @@ final class Song: Object {
         }
     }
     
+    dynamic var playing:Bool = false
     dynamic var selected:Bool = false
     dynamic var highlighted:Bool = false
     dynamic var textColor:NSColor {
@@ -59,6 +61,7 @@ final class Song: Object {
     
     convenience init(item: ITLibMediaItem) {
         self.init()
+        self.persistentID = item.persistentID
         self.name = item.title
         if item.location != nil {
             self.location = item.location.path!
@@ -78,7 +81,7 @@ final class Song: Object {
     }
     
     override static func ignoredProperties() -> [String] {
-        return ["selected", "highlighted", "textColor", "status"]
+        return ["playing", "selected", "highlighted", "textColor", "status"]
     }
     
     // =======================
