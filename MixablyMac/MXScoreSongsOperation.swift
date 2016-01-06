@@ -89,7 +89,7 @@ final class MXScoreSongsOperation: Operation {
                     combinedEnergyIntensityPredict: combinedEnergyIntensityPredict,
                     combinedEnergyIntensityCoeff: combinedEnergyIntensityCoeff)
                 
-                let scoredSong = ScoredSong(id: song.id, name: song.name, location: song.location, score: score)
+                let scoredSong = ScoredSong(id: song.id, persistentID: song.persistentID, name: song.name, location: song.location, score: score)
                 scoredSongs.append(scoredSong)
             }
             

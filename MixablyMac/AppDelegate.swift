@@ -22,9 +22,16 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     var songManger: MXSongManager?
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        print(Realm.Configuration.defaultConfiguration.path)
+        let realmPath = Realm.Configuration.defaultConfiguration.path
+        print(realmPath)
         
         Fabric.with([Crashlytics.self])
+        
+        // ===============
+        // Realm Migration
+        // ===============
+        
+        MXRealmMigrationManager.migrate(realmPath)
         
         MXAnalyticsManager.setup()
         MXAnalyticsManager.startApp()

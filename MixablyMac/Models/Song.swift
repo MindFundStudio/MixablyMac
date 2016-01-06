@@ -30,6 +30,7 @@ final class Song: Object {
     // ==================
     
     dynamic var id:String = NSUUID().UUIDString
+    dynamic var persistentID:NSNumber = 0
     dynamic var name:String = "New Song"
     dynamic var location:String = ""
     dynamic var duration:Double = 0.0
@@ -59,6 +60,7 @@ final class Song: Object {
     
     convenience init(item: ITLibMediaItem) {
         self.init()
+        self.persistentID = item.persistentID
         self.name = item.title
         if item.location != nil {
             self.location = item.location.path!
