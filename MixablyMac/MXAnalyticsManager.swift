@@ -51,7 +51,10 @@ struct MXAnalyticsManager {
     // MARK: - Mood
     
     static func createMood(name: String = "") {
-        
+        ARAnalytics.event("Mood", withProperties: [
+            "Mood": "Create",
+            "name": name
+            ])
     }
     
     static func reloadMoodList() {

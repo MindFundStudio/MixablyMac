@@ -804,7 +804,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Z8-jU-P5o">
-                                <rect key="frame" x="18" y="50" width="40" height="17"/>
+                                <rect key="frame" x="18" y="50" width="132" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Name" id="Io5-xf-zdp">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -823,6 +823,7 @@
                     </view>
                     <connections>
                         <outlet property="textField" destination="Rp3-xA-Ast" id="dL9-Qz-w3T"/>
+                        <outlet property="titleLabel" destination="1Z8-jU-P5o" id="Pse-aO-L6y"/>
                     </connections>
                 </viewController>
                 <customObject id="Kpu-cr-fgD" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
