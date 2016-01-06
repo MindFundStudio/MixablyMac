@@ -340,6 +340,9 @@
                             <constraint firstAttribute="trailing" secondItem="6Lx-Vm-XxM" secondAttribute="trailing" id="lsy-1z-NXp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="f2r-N6-IFd" id="b8L-56-jBW"/>
+                    </connections>
                 </viewController>
                 <customObject id="cig-bS-8BK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <arrayController id="1up-Kv-Eej">
