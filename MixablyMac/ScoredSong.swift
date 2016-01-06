@@ -16,6 +16,8 @@ class ScoredSong: NSObject {
     dynamic let name:String
     dynamic let location:String
     dynamic let score:Double
+    
+    dynamic var playing: Bool = false
     dynamic var selected: Bool = false
     dynamic var highlighted: Bool = false
     dynamic var textColor:NSColor {

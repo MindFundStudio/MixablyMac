@@ -16,6 +16,11 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
     let queue = OperationQueue()
     
     dynamic var scoredSongs: [ScoredSong]!
+    weak var playingSong: ScoredSong? {
+        didSet {
+            playingSong?.playing = true
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,6 +132,14 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
         }
     }
     
+    func selectSong(song: ScoredSong) {
+        playingSong?.playing = false
+        
+        // TODO: Implements Player
+        
+        playingSong = song
+    }
+    
     // MARK: - DataSource
     
     func tableView(tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
@@ -182,6 +195,15 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
                 filterSongsBy(mood)
             }
         }
+    }
+    
+    func changeSong(notification: NSNotification) {
+        // TODO: Listen to Player notification
+        
+        guard let song = notification.userInfo?[MXNotificationUserInfo.Song.rawValue] as? Song else { return }
+        
+        let scoredSong = ScoredSong(id: song.id, persistentID: song.persistentID, name: song.name, location: song.location, score: 0)
+        selectSong(scoredSong)
     }
     
 }
