@@ -12,6 +12,7 @@ import Foundation
 class ScoredSong: NSObject {
     
     dynamic let id:String
+    dynamic let persistentID:NSNumber
     dynamic let name:String
     dynamic let location:String
     dynamic let score:Double
@@ -21,8 +22,9 @@ class ScoredSong: NSObject {
         return highlighted ? highlightedTextColor : normalTextColor
     }
     
-    init(id:String, name:String, location:String, score:Double) {
+    init(id:String, persistentID:NSNumber, name:String, location:String, score:Double) {
         self.id = id
+        self.persistentID = persistentID
         self.name = name
         self.location = location
         self.score = score

@@ -169,15 +169,15 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
     
     func outlineView(outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: AnyObject?, childIndex index: Int) -> Bool {
         let pb = info.draggingPasteboard()
-        let name = pb.stringForType(NSPasteboardTypeString)
+        let pbString = pb.stringForType(NSPasteboardTypeString)
         let identifier = pb.stringForType(NSPasteboardTypeRTF)
         var sourceItem: Playlist!
         var sourceIndex: Int!
         
-        if let identifier = identifier where identifier == "MXMixably", let name = name {
+        if let identifier = identifier where identifier == "MXMixably", let pbString = pbString, let persistentID:Int = Int(pbString) {
             if let playlist = item as? Playlist {
                 let realm = try! Realm()
-                let songs = realm.objects(Song).filter("name = %@", name)
+                let songs = realm.objects(Song).filter("persistentID = %@", persistentID)
                 try! realm.write {
                     playlist.songs.appendContentsOf(songs)
                 }
@@ -190,7 +190,7 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
                 var sourceArray = childrenDictionary[item]!
                 
                 for (index, p) in sourceArray.enumerate() {
-                    if p.name == name {
+                    if p.name == pbString {
                         sourceItem = p
                         sourceIndex = index
                         break
