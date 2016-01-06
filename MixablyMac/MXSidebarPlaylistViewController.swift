@@ -246,6 +246,13 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
         return !isHeader(item)
     }
     
+    func outlineView(outlineView: NSOutlineView, heightOfRowByItem item: AnyObject) -> CGFloat {
+        if let item = item as? String where item == "Playlist" {
+            return 30
+        }
+        return 17
+    }
+    
     func outlineViewSelectionDidChange(notification: NSNotification) {
         print("playlist: \(sourceListView.selectedRow)")
         let item = sourceListView.itemAtRow(sourceListView.selectedRow)

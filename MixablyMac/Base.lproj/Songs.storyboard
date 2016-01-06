@@ -144,8 +144,12 @@
                                                             <rect key="frame" x="1" y="1" width="165" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DTD-SY-ago">
+                                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DTD-SY-ago">
                                                                     <rect key="frame" x="0.0" y="1" width="145" height="14"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="141" id="9Z6-xk-3Im"/>
+                                                                        <constraint firstAttribute="height" constant="14" id="VaR-rw-nkK"/>
+                                                                    </constraints>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Library" id="vhk-3x-7Nh">
                                                                         <font key="font" metaFont="smallSystemBold"/>
                                                                         <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -153,6 +157,10 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="DTD-SY-ago" secondAttribute="bottom" constant="1" id="EUl-J1-gmA"/>
+                                                                <constraint firstItem="DTD-SY-ago" firstAttribute="leading" secondItem="BDr-g4-6e1" secondAttribute="leading" constant="2" id="WwF-Om-cax"/>
+                                                            </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="DTD-SY-ago" id="C9P-m3-gzm"/>
                                                             </connections>
@@ -249,7 +257,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="ovi-GI-QyX" viewBased="YES" id="g78-ma-eq2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="611" height="403"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="611" height="0.0"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
