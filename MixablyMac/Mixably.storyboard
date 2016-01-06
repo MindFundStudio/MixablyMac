@@ -142,7 +142,7 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="50.3125" minWidth="40" maxWidth="1000" id="8Nj-iW-CG7">
+                                                <tableColumn width="40" minWidth="40" maxWidth="1000" id="8Nj-iW-CG7">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -156,27 +156,25 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="tHK-4q-r00">
-                                                            <rect key="frame" x="0.0" y="0.0" width="51" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="6a6-4C-muT">
-                                                                    <rect key="frame" x="-2" y="0.0" width="49" height="17"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="1." id="iQz-3f-BWH">
-                                                                        <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                                    </textFieldCell>
-                                                                </textField>
+                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DhB-In-fve">
+                                                                    <rect key="frame" x="12" y="2" width="17" height="14"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSSlideshowTemplate" id="E77-Dn-pIr"/>
+                                                                    <connections>
+                                                                        <binding destination="tHK-4q-r00" name="hidden" keyPath="objectValue.playing" id="8BY-ts-oSk">
+                                                                            <dictionary key="options">
+                                                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                                            </dictionary>
+                                                                        </binding>
+                                                                    </connections>
+                                                                </imageView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="6a6-4C-muT" secondAttribute="trailing" constant="5" id="7G3-9K-GZZ"/>
-                                                                <constraint firstAttribute="bottom" secondItem="6a6-4C-muT" secondAttribute="bottom" id="MAb-hD-Rz3"/>
-                                                                <constraint firstItem="6a6-4C-muT" firstAttribute="leading" secondItem="tHK-4q-r00" secondAttribute="leading" id="aSR-cj-hzP"/>
-                                                                <constraint firstItem="6a6-4C-muT" firstAttribute="top" secondItem="tHK-4q-r00" secondAttribute="top" id="ch5-b9-gfz"/>
+                                                                <constraint firstItem="DhB-In-fve" firstAttribute="centerX" secondItem="tHK-4q-r00" secondAttribute="centerX" id="Mfd-RG-sXZ"/>
+                                                                <constraint firstItem="DhB-In-fve" firstAttribute="centerY" secondItem="tHK-4q-r00" secondAttribute="centerY" id="ltY-tH-DMu"/>
                                                             </constraints>
-                                                            <connections>
-                                                                <outlet property="textField" destination="6a6-4C-muT" id="qtx-HX-WAm"/>
-                                                            </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
@@ -194,7 +192,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="dnH-Ai-1v4">
-                                                            <rect key="frame" x="50" y="0.0" width="243" height="17"/>
+                                                            <rect key="frame" x="40" y="0.0" width="243" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Lon-pU-DgC">
@@ -236,7 +234,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="VO8-FR-5vB">
-                                                            <rect key="frame" x="293" y="0.0" width="65" height="17"/>
+                                                            <rect key="frame" x="283" y="0.0" width="65" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tRh-84-NaF">
@@ -278,7 +276,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="VUz-F6-6eQ">
-                                                            <rect key="frame" x="358" y="0.0" width="64" height="17"/>
+                                                            <rect key="frame" x="348" y="0.0" width="64" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="K1u-uS-32K">
@@ -561,4 +559,7 @@
             <point key="canvasLocation" x="2624" y="3277"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSSlideshowTemplate" width="17" height="14"/>
+    </resources>
 </document>
