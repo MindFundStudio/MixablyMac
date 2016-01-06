@@ -52,6 +52,7 @@ final class Song: Object {
         }
     }
     
+    dynamic var playing:Bool = false
     dynamic var selected:Bool = false
     dynamic var highlighted:Bool = false
     dynamic var textColor:NSColor {
@@ -80,7 +81,7 @@ final class Song: Object {
     }
     
     override static func ignoredProperties() -> [String] {
-        return ["selected", "highlighted", "textColor", "status"]
+        return ["playing", "selected", "highlighted", "textColor", "status"]
     }
     
     // =======================

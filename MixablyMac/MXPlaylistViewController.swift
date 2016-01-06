@@ -24,6 +24,11 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
     
     var playlist: Playlist!
     dynamic var songs: [Song]!
+    weak var playingSong: Song? {
+        didSet {
+            playingSong?.playing = true
+        }
+    }
     
     private var mixablyViewController:MXMixablyViewController?
     
@@ -123,11 +128,14 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
     }
     
     func selectSong(song: Song) {
+        playingSong?.playing = false
+        
         let index = songs.indexOf { (s) -> Bool in
             return s.location == song.location
         }
         
         if let index = index {
+            playingSong = songs[index]
             tableView.selectRowIndexes(NSIndexSet(index: index), byExtendingSelection: false)
             tableView.scrollRowToVisible(index)
         }
