@@ -15,16 +15,32 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
     let realm = try! Realm()
     let queue = OperationQueue()
     
+    @IBOutlet weak var tableView: NSTableView!
+    
     dynamic var scoredSongs: [ScoredSong]!
     weak var playingSong: ScoredSong? {
         didSet {
             playingSong?.playing = true
         }
     }
+    
+    var playlist: Playlist {
+        get {
+            let playlist = Playlist()
+            let ids = scoredSongs.map {$0.id}
+            let result = realm.objects(Song).filter("id IN %@", ids).sort { (a, b) -> Bool in
+                return ids.indexOf(a.id)! < ids.indexOf(b.id)!
+            }
+            playlist.songs.appendContentsOf(result)
+            return playlist
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        tableView.doubleAction = Selector("doubleClick:")
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "saveNewPlaylist:", name: MXNotifications.SaveNewPlaylist.rawValue, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "addToPlaylist:", name: MXNotifications.AddToPlaylist.rawValue, object: nil)
@@ -148,6 +164,17 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
         pbItem.setString("MXMixably", forType: NSPasteboardTypeRTF)
         
         return pbItem
+    }
+    
+    // MARK: - Action
+    
+    func doubleClick(sender: NSTableView) {
+        let manager = MXPlayerManager.sharedManager
+        if tableView.selectedRow != -1 {
+            manager.playingPlaylist = playlist
+            manager.currentSong = playlist.songs[tableView.selectedRow]
+        }
+        manager.play()
     }
 
     // MARK: - Notifications
