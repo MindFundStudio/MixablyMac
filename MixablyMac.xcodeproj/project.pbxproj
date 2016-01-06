@@ -29,6 +29,7 @@
 		3ABAEB561C22FF1200BE8F97 /* sonic_annotator in Resources */ = {isa = PBXBuildFile; fileRef = 3ABAEB521C22FF1200BE8F97 /* sonic_annotator */; };
 		3ABAEB571C22FF1200BE8F97 /* vamp_plugins in Resources */ = {isa = PBXBuildFile; fileRef = 3ABAEB531C22FF1200BE8F97 /* vamp_plugins */; };
 		3ABAEB581C22FF1200BE8F97 /* vamp_transforms in Resources */ = {isa = PBXBuildFile; fileRef = 3ABAEB541C22FF1200BE8F97 /* vamp_transforms */; };
+		3AC3BD381C3BD310000D5959 /* MXVerticalSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3BD371C3BD310000D5959 /* MXVerticalSliderCell.swift */; };
 		3AE4E7CE1C1821D300BC120D /* MXMixablyPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4E7CD1C1821D300BC120D /* MXMixablyPresentationAnimator.swift */; };
 		3AE4E7D11C183BAE00BC120D /* CALayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4E7D01C183BAE00BC120D /* CALayer+Extensions.swift */; };
 		4A34E94E63C98EE6C39AC602 /* Pods_MixablyMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACEA5876B72FE5282B68214 /* Pods_MixablyMac.framework */; };
@@ -100,6 +101,7 @@
 		3ABAEB521C22FF1200BE8F97 /* sonic_annotator */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sonic_annotator; sourceTree = "<group>"; };
 		3ABAEB531C22FF1200BE8F97 /* vamp_plugins */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vamp_plugins; sourceTree = "<group>"; };
 		3ABAEB541C22FF1200BE8F97 /* vamp_transforms */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vamp_transforms; sourceTree = "<group>"; };
+		3AC3BD371C3BD310000D5959 /* MXVerticalSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXVerticalSliderCell.swift; sourceTree = "<group>"; };
 		3ACEA5876B72FE5282B68214 /* Pods_MixablyMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixablyMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE4E7CD1C1821D300BC120D /* MXMixablyPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXMixablyPresentationAnimator.swift; sourceTree = "<group>"; };
 		3AE4E7D01C183BAE00BC120D /* CALayer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Extensions.swift"; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 		3AAF4DBA1C16C2210091C2B3 /* Mixably */ = {
 			isa = PBXGroup;
 			children = (
+				3AC3BD361C3BD2F1000D5959 /* Views */,
 				3A220C821C16DA2A00985BC7 /* Mixably.storyboard */,
 				D1A49F241C1ED67D002540A0 /* MXMixablyActionGroupViewController.swift */,
 				3AAF4DB81C16C21D0091C2B3 /* MXMixablyViewController.swift */,
@@ -298,6 +301,14 @@
 				3ABAEB541C22FF1200BE8F97 /* vamp_transforms */,
 			);
 			name = Vendors;
+			sourceTree = "<group>";
+		};
+		3AC3BD361C3BD2F1000D5959 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3AC3BD371C3BD310000D5959 /* MXVerticalSliderCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		3AE4E7CC1C1821AF00BC120D /* PresentationAnimators */ = {
@@ -595,6 +606,7 @@
 				7C32A3391C214D5200B813E3 /* MXFileSystemWatcher.swift in Sources */,
 				D10715611C311A6C004A7CD7 /* MXPopoverViewController.swift in Sources */,
 				3AB2AF761C1F515C008F4371 /* MXFeatures.swift in Sources */,
+				3AC3BD381C3BD310000D5959 /* MXVerticalSliderCell.swift in Sources */,
 				3ABAEB4F1C22B2B900BE8F97 /* MXScoreSongsOperation.swift in Sources */,
 				7CB1B9B21C180E960056A942 /* EventMonitor.swift in Sources */,
 				3AB2AF741C1F5132008F4371 /* MXAnalyseOperation.swift in Sources */,

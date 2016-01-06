@@ -59,7 +59,7 @@ class MXMixablyMoodFilterViewController: NSViewController {
             }
         }
         
-        loadMood(mood!)
+        //loadMood(mood!) // TODO: Crashes on nil mood
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "selectMood:", name: MXNotifications.SelectMood.rawValue, object: nil)
     }

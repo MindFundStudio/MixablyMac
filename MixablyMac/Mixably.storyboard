@@ -159,7 +159,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="51" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="6a6-4C-muT">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6a6-4C-muT">
                                                                     <rect key="frame" x="-2" y="0.0" width="49" height="17"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="1." id="iQz-3f-BWH">
                                                                         <font key="font" metaFont="system"/>
@@ -371,7 +371,7 @@
                                             </textField>
                                             <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X4V-Lx-K3T">
                                                 <rect key="frame" x="22" y="29" width="21" height="148"/>
-                                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="KZJ-6q-Fur"/>
+                                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="KZJ-6q-Fur" customClass="MXVerticalSliderCell" customModule="MixablyMac" customModuleProvider="target"/>
                                                 <connections>
                                                     <action selector="update:" target="jzG-xF-0py" id="v5d-Bv-GEH"/>
                                                 </connections>
@@ -411,7 +411,7 @@
                                             </textField>
                                             <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TGZ-1j-qUz">
                                                 <rect key="frame" x="22" y="29" width="21" height="148"/>
-                                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="zB7-gn-2A8"/>
+                                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="zB7-gn-2A8" customClass="MXVerticalSliderCell" customModule="MixablyMac" customModuleProvider="target"/>
                                                 <connections>
                                                     <action selector="update:" target="jzG-xF-0py" id="VrU-0r-wMO"/>
                                                 </connections>
@@ -451,7 +451,7 @@
                                             </textField>
                                             <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FOU-PZ-MqC">
                                                 <rect key="frame" x="22" y="29" width="21" height="148"/>
-                                                <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="MS2-XI-NDg"/>
+                                                <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="MS2-XI-NDg" customClass="MXVerticalSliderCell" customModule="MixablyMac" customModuleProvider="target"/>
                                                 <connections>
                                                     <action selector="update:" target="jzG-xF-0py" id="jph-h6-J1M"/>
                                                 </connections>
@@ -491,7 +491,7 @@
                                             </textField>
                                             <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="V3J-Ua-ghw">
                                                 <rect key="frame" x="22" y="29" width="21" height="148"/>
-                                                <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="sob-Qc-d8j"/>
+                                                <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="sob-Qc-d8j" customClass="MXVerticalSliderCell" customModule="MixablyMac" customModuleProvider="target"/>
                                                 <connections>
                                                     <action selector="update:" target="jzG-xF-0py" id="La7-V8-Hja"/>
                                                 </connections>
