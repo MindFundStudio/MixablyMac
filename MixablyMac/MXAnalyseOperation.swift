@@ -60,7 +60,7 @@ final class MXAnalyseOperation: Operation {
     
     let fileURL:NSURL
     let completion:MXAnalyseCompletion?
-    
+    let task: NSTask
     // ============
     // MARK: - Init
     // ============
@@ -68,6 +68,7 @@ final class MXAnalyseOperation: Operation {
     init(fileURL:NSURL, completion:MXAnalyseCompletion?) {
         self.fileURL = fileURL
         self.completion = completion
+        self.task = NSTask()
     }
     
     // ===========================
@@ -76,7 +77,9 @@ final class MXAnalyseOperation: Operation {
     
     override func execute() {
         
-        if cancelled { return }
+        if cancelled {
+            return
+        }
         
         if let resourcePath = NSBundle.mainBundle().resourcePath, path = fileURL.path {
             
@@ -85,7 +88,6 @@ final class MXAnalyseOperation: Operation {
             let pipe = NSPipe()
             let error = NSPipe()
             
-            let task = NSTask()
             task.launchPath = execPath
             task.currentDirectoryPath = resourcePath
             task.arguments = [path, "-s"]
@@ -136,5 +138,13 @@ final class MXAnalyseOperation: Operation {
             // This really should not happen
             assertionFailure("Fatal: MXAnalyzeOperation Error, cannot find bundle resource path")
         }
+    }
+    
+    override func cancel() {
+        if task.running {
+            task.terminate()
+        }
+        
+        super.cancel()
     }
 }
