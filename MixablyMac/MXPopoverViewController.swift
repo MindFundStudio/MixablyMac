@@ -59,8 +59,8 @@ class MXPopoverViewController: NSViewController {
                 try! realm.write {
                     realm.add(mood)
                 }
+                MXAnalyticsManager.createMood(mood.name)
             }
-            MXAnalyticsManager.createMood(mood.name)
         }
 
         popover.close()
