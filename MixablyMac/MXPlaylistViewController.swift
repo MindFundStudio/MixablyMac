@@ -58,6 +58,8 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "selectPlaylist:", name: MXNotifications.ReloadSongs.rawValue, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "showMixably:", name: MXNotifications.SelectMood.rawValue, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeSong:", name: MXNotifications.ChangeSong.rawValue, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "startPlaying:", name: MXNotifications.StartPlaying.rawValue, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pausePlaying:", name: MXNotifications.PausePlaying.rawValue, object: nil)
     }
     
     // MARK: - Song List Helpers
@@ -129,6 +131,7 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
     
     func selectSong(song: Song) {
         playingSong?.playing = false
+        playingSong?.pause = false
         
         let index = songs.indexOf { (s) -> Bool in
             return s.location == song.location
@@ -154,6 +157,16 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
         
         // select song
         selectSong(song)
+    }
+    
+    func startPlaying(notification: NSNotification) {
+        playingSong?.playing = true
+        playingSong?.pause = false
+    }
+    
+    func pausePlaying(notification: NSNotification) {
+        playingSong?.playing = false
+        playingSong?.pause = true
     }
     
     // MARK: - Double Action
