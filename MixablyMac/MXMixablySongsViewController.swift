@@ -46,6 +46,9 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "addToPlaylist:", name: MXNotifications.AddToPlaylist.rawValue, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "selectPlaylist:", name: MXNotifications.SelectPlaylist.rawValue, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadMixably:", name: MXNotifications.ReloadMixably.rawValue, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeSong:", name: MXNotifications.ChangeSong.rawValue, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "startPlaying:", name: MXNotifications.StartPlaying.rawValue, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pausePlaying:", name: MXNotifications.PausePlaying.rawValue, object: nil)
     }
     
     // MARK: - Helpers
@@ -150,10 +153,16 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
     
     func selectSong(song: ScoredSong) {
         playingSong?.playing = false
+        playingSong?.pause = false
         
         // TODO: Implements Player
+        let index = scoredSongs.indexOf { (s) -> Bool in
+            return s.persistentID == song.persistentID
+        }
         
-        playingSong = song
+        if let index = index {
+            playingSong = scoredSongs[index]
+        }
     }
     
     // MARK: - DataSource
@@ -225,12 +234,20 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
     }
     
     func changeSong(notification: NSNotification) {
-        // TODO: Listen to Player notification
-        
         guard let song = notification.userInfo?[MXNotificationUserInfo.Song.rawValue] as? Song else { return }
         
         let scoredSong = ScoredSong(id: song.id, persistentID: song.persistentID, name: song.name, location: song.location, score: 0)
         selectSong(scoredSong)
+    }
+    
+    func startPlaying(notification: NSNotification) {
+        playingSong?.playing = true
+        playingSong?.pause = false
+    }
+    
+    func pausePlaying(notification: NSNotification) {
+        playingSong?.playing = false
+        playingSong?.pause = true
     }
     
 }

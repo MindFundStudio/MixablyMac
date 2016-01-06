@@ -53,13 +53,13 @@ class MXMixablyMoodFilterViewController: NSViewController {
     override func viewDidLoad() {
         var mood = MXPlayerManager.sharedManager.selectedMood
         if mood == nil {
-            mood = realm.objects(Mood).first
+            mood = Mood.create()
             if let mood = mood {
                 NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.SelectMood.rawValue, object: self, userInfo: [MXNotificationUserInfo.Mood.rawValue: mood])
             }
         }
         
-        //loadMood(mood!) // TODO: Crashes on nil mood
+        loadMood(mood!)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "selectMood:", name: MXNotifications.SelectMood.rawValue, object: nil)
     }

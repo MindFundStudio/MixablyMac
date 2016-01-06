@@ -280,11 +280,22 @@
                                                                     <rect key="frame" x="1" y="1" width="30" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0ci-mp-AZZ">
-                                                                            <rect key="frame" x="7" y="2" width="17" height="14"/>
-                                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSSlideshowTemplate" id="rqn-Pu-2oo"/>
+                                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rWP-Kc-2FG" userLabel="Pause">
+                                                                            <rect key="frame" x="8" y="5" width="5" height="8"/>
+                                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="IconPause" id="ewE-rR-9ST"/>
                                                                             <connections>
-                                                                                <binding destination="0so-pY-gHG" name="hidden" keyPath="objectValue.playing" id="N8b-qi-bhl">
+                                                                                <binding destination="0so-pY-gHG" name="hidden" keyPath="objectValue.pause" id="cxy-nr-9Hl">
+                                                                                    <dictionary key="options">
+                                                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                                                    </dictionary>
+                                                                                </binding>
+                                                                            </connections>
+                                                                        </imageView>
+                                                                        <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0ci-mp-AZZ" userLabel="Play">
+                                                                            <rect key="frame" x="8" y="4" width="14" height="10"/>
+                                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="IconPlaying" id="rqn-Pu-2oo"/>
+                                                                            <connections>
+                                                                                <binding destination="0so-pY-gHG" name="hidden" keyPath="objectValue.playing" id="LAe-L3-T2T">
                                                                                     <dictionary key="options">
                                                                                         <string key="NSValueTransformerName">NSNegateBoolean</string>
                                                                                     </dictionary>
@@ -294,6 +305,8 @@
                                                                     </subviews>
                                                                     <constraints>
                                                                         <constraint firstItem="0ci-mp-AZZ" firstAttribute="centerY" secondItem="0so-pY-gHG" secondAttribute="centerY" id="Bpf-i0-LNe"/>
+                                                                        <constraint firstItem="rWP-Kc-2FG" firstAttribute="centerY" secondItem="0so-pY-gHG" secondAttribute="centerY" id="Efh-MM-kjP"/>
+                                                                        <constraint firstItem="rWP-Kc-2FG" firstAttribute="centerX" secondItem="0so-pY-gHG" secondAttribute="centerX" constant="-4.5" id="b17-1f-sA5"/>
                                                                         <constraint firstItem="0ci-mp-AZZ" firstAttribute="centerX" secondItem="0so-pY-gHG" secondAttribute="centerX" id="hTy-0v-cK3"/>
                                                                     </constraints>
                                                                 </tableCellView>
@@ -791,7 +804,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Z8-jU-P5o">
-                                <rect key="frame" x="18" y="50" width="40" height="17"/>
+                                <rect key="frame" x="18" y="50" width="132" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Name" id="Io5-xf-zdp">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -810,6 +823,7 @@
                     </view>
                     <connections>
                         <outlet property="textField" destination="Rp3-xA-Ast" id="dL9-Qz-w3T"/>
+                        <outlet property="titleLabel" destination="1Z8-jU-P5o" id="Pse-aO-L6y"/>
                     </connections>
                 </viewController>
                 <customObject id="Kpu-cr-fgD" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -818,9 +832,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="IconPause" width="5" height="8"/>
+        <image name="IconPlaying" width="14" height="10"/>
         <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSFolder" width="32" height="32"/>
-        <image name="NSSlideshowTemplate" width="17" height="14"/>
     </resources>
 </document>

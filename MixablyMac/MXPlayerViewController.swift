@@ -75,6 +75,16 @@ final class MXPlayerViewController: NSViewController {
     
     @IBAction func toogleMixably(sender: NSButton) {
         print("mixably")
+        // Check Mood isNew
+        if let mood = MXPlayerManager.sharedManager.selectedMood where mood.isNew {
+            mixablyButton.state = NSOnState
+            
+            let vc = MXPopoverViewController.loadFromNib()
+            vc.popover.delegate = self
+            vc.showPopover(mixablyButton, title: "Create New Mood")
+            return
+        }
+        
         NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.ToggleMixably.rawValue, object: nil, userInfo: nil)
     }
     
@@ -180,5 +190,16 @@ final class MXPlayerViewController: NSViewController {
     
     func showMixably(notification: NSNotification) {
         mixablyButton.state = NSOnState
+    }
+}
+
+extension MXPlayerViewController: NSPopoverDelegate {
+    func popoverDidClose(notification: NSNotification) {
+        mixablyButton.state = NSOffState
+        MXPlayerManager.sharedManager.selectedMood = nil
+        
+        let center = NSNotificationCenter.defaultCenter()
+        center.postNotificationName(MXNotifications.ToggleMixably.rawValue, object: nil)
+        center.postNotificationName(MXNotifications.ReloadSidebarMood.rawValue, object: nil)
     }
 }

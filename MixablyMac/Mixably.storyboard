@@ -159,19 +159,30 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6a6-4C-muT">
-                                                                    <rect key="frame" x="-2" y="0.0" width="49" height="17"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="1." id="iQz-3f-BWH">
-                                                                        <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                                    </textFieldCell>
-                                                                </textField>
-                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DhB-In-fve">
-                                                                    <rect key="frame" x="12" y="2" width="17" height="14"/>
-                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSSlideshowTemplate" id="E77-Dn-pIr"/>
+                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xJR-3h-Yww" userLabel="Play">
+                                                                    <rect key="frame" x="13" y="4" width="14" height="10"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="10" id="6No-If-k7J"/>
+                                                                        <constraint firstAttribute="width" constant="14" id="SoN-0T-iiB"/>
+                                                                    </constraints>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="IconPlaying" id="a6l-z7-EQk"/>
                                                                     <connections>
-                                                                        <binding destination="tHK-4q-r00" name="hidden" keyPath="objectValue.playing" id="8BY-ts-oSk">
+                                                                        <binding destination="tHK-4q-r00" name="hidden" keyPath="objectValue.playing" id="JJQ-ml-4JU">
+                                                                            <dictionary key="options">
+                                                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                                            </dictionary>
+                                                                        </binding>
+                                                                    </connections>
+                                                                </imageView>
+                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DhB-In-fve" userLabel="Pause">
+                                                                    <rect key="frame" x="13" y="5" width="5" height="8"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="8" id="fw2-0c-rNs"/>
+                                                                        <constraint firstAttribute="width" constant="5" id="jSR-Xw-qFw"/>
+                                                                    </constraints>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="IconPause" id="E77-Dn-pIr"/>
+                                                                    <connections>
+                                                                        <binding destination="tHK-4q-r00" name="hidden" keyPath="objectValue.pause" id="3NN-x0-jxF">
                                                                             <dictionary key="options">
                                                                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
                                                                             </dictionary>
@@ -180,8 +191,10 @@
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="DhB-In-fve" firstAttribute="centerX" secondItem="tHK-4q-r00" secondAttribute="centerX" id="Mfd-RG-sXZ"/>
-                                                                <constraint firstItem="DhB-In-fve" firstAttribute="centerY" secondItem="tHK-4q-r00" secondAttribute="centerY" id="ltY-tH-DMu"/>
+                                                                <constraint firstItem="xJR-3h-Yww" firstAttribute="leading" secondItem="tHK-4q-r00" secondAttribute="leading" constant="13" id="3XK-cm-R5p"/>
+                                                                <constraint firstItem="DhB-In-fve" firstAttribute="top" secondItem="tHK-4q-r00" secondAttribute="top" constant="4" id="5E9-sK-nbk"/>
+                                                                <constraint firstItem="xJR-3h-Yww" firstAttribute="top" secondItem="tHK-4q-r00" secondAttribute="top" constant="3" id="6rS-v9-8vi"/>
+                                                                <constraint firstItem="DhB-In-fve" firstAttribute="leading" secondItem="tHK-4q-r00" secondAttribute="leading" constant="13" id="bDN-pY-mly"/>
                                                             </constraints>
                                                         </tableCellView>
                                                     </prototypeCellViews>
@@ -571,6 +584,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NSSlideshowTemplate" width="17" height="14"/>
+        <image name="IconPause" width="5" height="8"/>
+        <image name="IconPlaying" width="14" height="10"/>
     </resources>
 </document>

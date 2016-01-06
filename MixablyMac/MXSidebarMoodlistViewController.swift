@@ -43,6 +43,8 @@ final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewData
         outlineView.deselectRow(0)
         
         outlineView.registerForDraggedTypes([NSPasteboardTypeString])
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadAllMoods", name: MXNotifications.ReloadSidebarMood.rawValue, object: nil)
     }
     
     // MARK: - Helpers

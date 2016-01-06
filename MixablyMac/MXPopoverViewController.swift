@@ -8,12 +8,12 @@
 
 import Cocoa
 import RealmSwift
-import ARAnalytics
 
 class MXPopoverViewController: NSViewController {
 
     let popover = NSPopover()
     let realm = try! Realm()
+    @IBOutlet weak var titleLabel: NSTextField!
     @IBOutlet weak var textField: NSTextField!
     
     class func loadFromNib() -> MXPopoverViewController {
@@ -28,10 +28,12 @@ class MXPopoverViewController: NSViewController {
         textField.action = "returnOnNameField:"
     }
     
-    func showPopover(view: NSView) {
+    func showPopover(view: NSView, title: String = "Name") {
         popover.contentViewController = self
         popover.behavior = .Transient
         popover.showRelativeToRect(view.bounds, ofView: view, preferredEdge: .MaxX)
+        
+        titleLabel.stringValue = title
     }
     
     func returnOnNameField(sender: NSTextField) {
@@ -43,6 +45,7 @@ class MXPopoverViewController: NSViewController {
             try! realm.write {
                 realm.add(mood)
             }
+            MXAnalyticsManager.createMood(mood.name)
         } else if let _ = popover.delegate as? MXSidebarPlaylistViewController {
             let playlist = Playlist()
             playlist.name = sender.stringValue
@@ -50,6 +53,14 @@ class MXPopoverViewController: NSViewController {
                 realm.add(playlist)
             }
             MXAnalyticsManager.createPlaylist(playlist.name)
+        } else if let _ = popover.delegate as? MXPlayerViewController {
+            if let mood = MXPlayerManager.sharedManager.selectedMood {
+                mood.name = sender.stringValue
+                try! realm.write {
+                    realm.add(mood)
+                }
+                MXAnalyticsManager.createMood(mood.name)
+            }
         }
 
         popover.close()
