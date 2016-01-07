@@ -8,7 +8,6 @@
 
 import Cocoa
 
-let BG_COLOR = NSColor(deviceWhite: 0.1, alpha: 1.0)
 let SLIDE_COLOR = NSColor(deviceWhite: 0.2, alpha: 1.0)
 
 class MXCustomHeaderCell: NSTableHeaderCell {
@@ -16,16 +15,11 @@ class MXCustomHeaderCell: NSTableHeaderCell {
     var showSlice: Bool = true
     
     func drawWithFrame(cellFrame: NSRect, isHighlighted flag: Bool, inView controlView: NSView) {
-        BG_COLOR.setFill()
-        NSRectFill(cellFrame)
-        
         guard showSlice == true else { return }
         
         let (slice, _) = cellFrame.divide(1.0, fromEdge: .MaxXEdge)
-        print("slide: \(slice)")
         let (vertical, _) = slice.divide(20.0, fromEdge: .MinYEdge)
         let (_, line) = vertical.divide(3.0, fromEdge: .MinYEdge)
-        print("line: \(line)")
         SLIDE_COLOR.setFill()
         NSRectFill(line)
         

@@ -57,6 +57,8 @@
 		D1159F8B1C1AD6DB00E43147 /* MXSongManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1159F8A1C1AD6DB00E43147 /* MXSongManager.swift */; };
 		D1159F8D1C1B354D00E43147 /* MXMixablySongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1159F8C1C1B354D00E43147 /* MXMixablySongsViewController.swift */; };
 		D12D86B81C3E3289000B5685 /* MXCustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12D86B71C3E3289000B5685 /* MXCustomHeaderCell.swift */; };
+		D12D86BA1C3E638C000B5685 /* MXTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12D86B91C3E638B000B5685 /* MXTableRowView.swift */; };
+		D12D86BE1C3E6B94000B5685 /* MXTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12D86BD1C3E6B94000B5685 /* MXTableHeaderView.swift */; };
 		D14803301C27CE0100039DA6 /* MXMixablyMoodFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D148032F1C27CE0100039DA6 /* MXMixablyMoodFilterViewController.swift */; };
 		D169D1051C192692002F62D6 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169D1041C192692002F62D6 /* Playlist.swift */; };
 		D169D1071C1926A4002F62D6 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169D1061C1926A4002F62D6 /* Mood.swift */; };
@@ -141,6 +143,8 @@
 		D1159F8A1C1AD6DB00E43147 /* MXSongManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSongManager.swift; sourceTree = "<group>"; };
 		D1159F8C1C1B354D00E43147 /* MXMixablySongsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXMixablySongsViewController.swift; sourceTree = "<group>"; };
 		D12D86B71C3E3289000B5685 /* MXCustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXCustomHeaderCell.swift; sourceTree = "<group>"; };
+		D12D86B91C3E638B000B5685 /* MXTableRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXTableRowView.swift; sourceTree = "<group>"; };
+		D12D86BD1C3E6B94000B5685 /* MXTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXTableHeaderView.swift; sourceTree = "<group>"; };
 		D148032F1C27CE0100039DA6 /* MXMixablyMoodFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXMixablyMoodFilterViewController.swift; sourceTree = "<group>"; };
 		D169D1041C192692002F62D6 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Playlist.swift; path = Models/Playlist.swift; sourceTree = "<group>"; };
 		D169D1061C1926A4002F62D6 /* Mood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mood.swift; path = Models/Mood.swift; sourceTree = "<group>"; };
@@ -400,7 +404,9 @@
 		D12D86B61C3E326C000B5685 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D12D86BD1C3E6B94000B5685 /* MXTableHeaderView.swift */,
 				D12D86B71C3E3289000B5685 /* MXCustomHeaderCell.swift */,
+				D12D86B91C3E638B000B5685 /* MXTableRowView.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -634,6 +640,7 @@
 				D14803301C27CE0100039DA6 /* MXMixablyMoodFilterViewController.swift in Sources */,
 				3AAF4DB71C16C1E00091C2B3 /* MXPlaylistViewController.swift in Sources */,
 				3AAF4DB91C16C21D0091C2B3 /* MXMixablyViewController.swift in Sources */,
+				D12D86BA1C3E638C000B5685 /* MXTableRowView.swift in Sources */,
 				3AAF4D891C16AF3D0091C2B3 /* ViewController.swift in Sources */,
 				D1DFEECD1C16F243000B9991 /* Song.swift in Sources */,
 				7CB1B9B61C1817900056A942 /* MXPlayerManager.swift in Sources */,
@@ -652,6 +659,7 @@
 				3A37D8B11C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift in Sources */,
 				3A737A3C1C3D08BE0005EC57 /* NSBezierPath+Extensions.swift in Sources */,
 				7CBCEAF41C1FF64E00F3EC5B /* DefaultsKeys+Extensions.swift in Sources */,
+				D12D86BE1C3E6B94000B5685 /* MXTableHeaderView.swift in Sources */,
 				D1159F891C1ACEC500E43147 /* MXDataManager.swift in Sources */,
 				7C32A3391C214D5200B813E3 /* MXFileSystemWatcher.swift in Sources */,
 				D10715611C311A6C004A7CD7 /* MXPopoverViewController.swift in Sources */,

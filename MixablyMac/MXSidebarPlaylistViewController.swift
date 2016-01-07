@@ -52,6 +52,8 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
         // Enable Drag & Drop
         sourceListView.registerForDraggedTypes([NSPasteboardTypeString])
         
+        sourceListView.selectionHighlightStyle = .Regular
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadPlaylist:", name: MXNotifications.ReloadSidebarPlaylist.rawValue, object: nil)
     }
     
@@ -260,6 +262,10 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
         if let item = item as? Playlist {
             NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.SelectPlaylist.rawValue, object: self, userInfo: [MXNotificationUserInfo.Playlist.rawValue: item])
         }
+    }
+    
+    func outlineView(outlineView: NSOutlineView, rowViewForItem item: AnyObject) -> NSTableRowView? {
+        return MXTableRowView()
     }
     
     // MARK: - Notifications
