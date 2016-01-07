@@ -705,7 +705,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="735" height="70"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" state="inactive" translatesAutoresizingMaskIntoConstraints="NO" id="fQU-Bp-qp8">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="GUF-VO-YDz" customClass="NSPlayerBackgroundView" customModule="MixablyMac" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="735" height="70"/>
+                            </customView>
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="withinWindow" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="fQU-Bp-qp8">
                                 <rect key="frame" x="0.0" y="0.0" width="735" height="70"/>
                                 <subviews>
                                     <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqe-YF-fQj" userLabel="LeftControls">
@@ -898,10 +901,14 @@
                             </visualEffectView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="GUF-VO-YDz" secondAttribute="bottom" id="N1i-FK-qYV"/>
                             <constraint firstItem="fQU-Bp-qp8" firstAttribute="top" secondItem="RLX-pl-o68" secondAttribute="top" id="YNo-Fs-4af"/>
+                            <constraint firstItem="GUF-VO-YDz" firstAttribute="leading" secondItem="RLX-pl-o68" secondAttribute="leading" id="Yz8-GW-ytL"/>
+                            <constraint firstItem="GUF-VO-YDz" firstAttribute="top" secondItem="RLX-pl-o68" secondAttribute="top" id="duk-pM-FPo"/>
                             <constraint firstItem="fQU-Bp-qp8" firstAttribute="leading" secondItem="RLX-pl-o68" secondAttribute="leading" id="ga9-Gz-pzK"/>
                             <constraint firstAttribute="trailing" secondItem="fQU-Bp-qp8" secondAttribute="trailing" id="jYf-v1-fxl"/>
                             <constraint firstAttribute="bottom" secondItem="fQU-Bp-qp8" secondAttribute="bottom" id="vTN-oC-LeL"/>
+                            <constraint firstAttribute="trailing" secondItem="GUF-VO-YDz" secondAttribute="trailing" id="xHo-sM-2k7"/>
                         </constraints>
                     </view>
                     <connections>

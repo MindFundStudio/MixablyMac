@@ -14,6 +14,7 @@
 		3A37D8B11C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A37D8B01C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift */; };
 		3A37D8B31C3E312800EDA2CD /* MXVolumeSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A37D8B21C3E312800EDA2CD /* MXVolumeSliderCell.swift */; };
 		3A37D8B51C3E3A7C00EDA2CD /* MXSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A37D8B41C3E3A7C00EDA2CD /* MXSlider.swift */; };
+		3A37D8B91C3E583A00EDA2CD /* NSPlayerBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A37D8B81C3E583A00EDA2CD /* NSPlayerBackgroundView.swift */; };
 		3A737A381C3CEF860005EC57 /* MXCircularSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A737A371C3CEF860005EC57 /* MXCircularSliderCell.swift */; };
 		3A737A3C1C3D08BE0005EC57 /* NSBezierPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A737A3B1C3D08BE0005EC57 /* NSBezierPath+Extensions.swift */; };
 		3A737A3E1C3D0BFB0005EC57 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A737A3D1C3D0BFB0005EC57 /* CGFloat+Extensions.swift */; };
@@ -87,6 +88,7 @@
 		3A37D8B01C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSongProgressSliderCell.swift; sourceTree = "<group>"; };
 		3A37D8B21C3E312800EDA2CD /* MXVolumeSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXVolumeSliderCell.swift; sourceTree = "<group>"; };
 		3A37D8B41C3E3A7C00EDA2CD /* MXSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSlider.swift; sourceTree = "<group>"; };
+		3A37D8B81C3E583A00EDA2CD /* NSPlayerBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPlayerBackgroundView.swift; sourceTree = "<group>"; };
 		3A737A371C3CEF860005EC57 /* MXCircularSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXCircularSliderCell.swift; sourceTree = "<group>"; };
 		3A737A3B1C3D08BE0005EC57 /* NSBezierPath+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBezierPath+Extensions.swift"; sourceTree = "<group>"; };
 		3A737A3D1C3D0BFB0005EC57 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			children = (
 				3A37D8B01C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift */,
 				3A37D8B21C3E312800EDA2CD /* MXVolumeSliderCell.swift */,
+				3A37D8B81C3E583A00EDA2CD /* NSPlayerBackgroundView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				D169D1071C1926A4002F62D6 /* Mood.swift in Sources */,
 				D1159F8B1C1AD6DB00E43147 /* MXSongManager.swift in Sources */,
 				D1159F8D1C1B354D00E43147 /* MXMixablySongsViewController.swift in Sources */,
+				3A37D8B91C3E583A00EDA2CD /* NSPlayerBackgroundView.swift in Sources */,
 				7CB1B9BA1C191FD30056A942 /* MutableCollectionType+Extensions.swift in Sources */,
 				D113E0201C353361004F3C76 /* MXAnalyticsManager.swift in Sources */,
 				3A37D8B11C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift in Sources */,
