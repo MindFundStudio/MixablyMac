@@ -13,6 +13,7 @@
 		3A25F4481C16D868007ED23B /* Songs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A25F4461C16D868007ED23B /* Songs.storyboard */; };
 		3A37D8B11C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A37D8B01C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift */; };
 		3A37D8B31C3E312800EDA2CD /* MXVolumeSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A37D8B21C3E312800EDA2CD /* MXVolumeSliderCell.swift */; };
+		3A37D8B51C3E3A7C00EDA2CD /* MXSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A37D8B41C3E3A7C00EDA2CD /* MXSlider.swift */; };
 		3A737A381C3CEF860005EC57 /* MXCircularSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A737A371C3CEF860005EC57 /* MXCircularSliderCell.swift */; };
 		3A737A3C1C3D08BE0005EC57 /* NSBezierPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A737A3B1C3D08BE0005EC57 /* NSBezierPath+Extensions.swift */; };
 		3A737A3E1C3D0BFB0005EC57 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A737A3D1C3D0BFB0005EC57 /* CGFloat+Extensions.swift */; };
@@ -85,6 +86,7 @@
 		3A25F4471C16D868007ED23B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Songs.storyboard; sourceTree = "<group>"; };
 		3A37D8B01C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSongProgressSliderCell.swift; sourceTree = "<group>"; };
 		3A37D8B21C3E312800EDA2CD /* MXVolumeSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXVolumeSliderCell.swift; sourceTree = "<group>"; };
+		3A37D8B41C3E3A7C00EDA2CD /* MXSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSlider.swift; sourceTree = "<group>"; };
 		3A737A371C3CEF860005EC57 /* MXCircularSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXCircularSliderCell.swift; sourceTree = "<group>"; };
 		3A737A3B1C3D08BE0005EC57 /* NSBezierPath+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBezierPath+Extensions.swift"; sourceTree = "<group>"; };
 		3A737A3D1C3D0BFB0005EC57 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 			children = (
 				3AC3BD371C3BD310000D5959 /* MXVerticalSliderCell.swift */,
 				3A737A371C3CEF860005EC57 /* MXCircularSliderCell.swift */,
+				3A37D8B41C3E3A7C00EDA2CD /* MXSlider.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AAF4DB51C16C0A60091C2B3 /* MXPlayerViewController.swift in Sources */,
+				3A37D8B51C3E3A7C00EDA2CD /* MXSlider.swift in Sources */,
 				D169D1051C192692002F62D6 /* Playlist.swift in Sources */,
 				3A737A3E1C3D0BFB0005EC57 /* CGFloat+Extensions.swift in Sources */,
 				3ABAEB4D1C22B22C00BE8F97 /* ScoredSong.swift in Sources */,
