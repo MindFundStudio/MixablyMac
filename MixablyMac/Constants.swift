@@ -50,5 +50,6 @@ let normalTextColor = NSColor.whiteColor()
 let MX_INITIAL_LAUNCH = "appInitLaunch"
 
 struct MXColor {
-    static let Blue = NSColor(calibratedRed: 19/255, green: 160/255, blue: 216/255, alpha: 1)
+    static let Blue = NSColor(calibratedRed: 19/255.0, green: 160/255.0, blue: 216/255.0, alpha: 1)
+    static let SelectionColor = NSColor(white: 1, alpha: 0.26)
 }
