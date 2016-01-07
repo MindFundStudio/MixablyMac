@@ -58,7 +58,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         })
 
         // Seed Data
-        Defaults[.appInitLaunch] = false
+//        Defaults[.appInitLaunch] = false
         do {
             MXDataManager.importSeedData()
             try songManager?.importSongs()

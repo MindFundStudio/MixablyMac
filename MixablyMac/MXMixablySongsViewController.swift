@@ -17,24 +17,18 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
     
     @IBOutlet weak var tableView: NSTableView!
     
-    dynamic var scoredSongs: [ScoredSong]!
-    weak var playingSong: ScoredSong? {
+    dynamic var scoredSongs: [ScoredSong]! {
         didSet {
-            playingSong?.playing = true
-        }
-    }
-    
-    var playlist: Playlist {
-        get {
-            let playlist = Playlist()
             let ids = scoredSongs.map {$0.id}
             let result = realm.objects(Song).filter("id IN %@", ids).sort { (a, b) -> Bool in
                 return ids.indexOf(a.id)! < ids.indexOf(b.id)!
             }
-            playlist.songs.appendContentsOf(result)
-            return playlist
+            MXPlayerManager.sharedManager.filterList.songs.removeAll()
+            MXPlayerManager.sharedManager.filterList.songs.appendContentsOf(result)
         }
     }
+    
+    weak var playingSong: ScoredSong?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +74,10 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     wself.scoredSongs = scoredSongs
+                    if let song = MXPlayerManager.sharedManager.currentSong {
+                        let scoredSong = ScoredSong(id: song.id, persistentID: song.persistentID, name: song.name, location: song.location, score: 0)
+                        wself.selectSong(scoredSong)
+                    }
                     wself.highlightSongs()
                 })
             }
@@ -160,8 +158,10 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
             return s.persistentID == song.persistentID
         }
         
-        if let index = index {
+        if let index = index where MXPlayerManager.sharedManager.isPlayingFilterList {
             playingSong = scoredSongs[index]
+            playingSong?.playing = MXPlayerManager.sharedManager.playing
+            playingSong?.pause = !MXPlayerManager.sharedManager.playing
         }
     }
     
@@ -180,8 +180,8 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
     func doubleClick(sender: NSTableView) {
         let manager = MXPlayerManager.sharedManager
         if tableView.selectedRow != -1 {
-            manager.playingPlaylist = playlist
-            manager.currentSong = playlist.songs[tableView.selectedRow]
+            manager.playFilterList = true
+            manager.currentSong = manager.filterList.songs[tableView.selectedRow]
         }
         manager.play()
     }

@@ -16,6 +16,7 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
     let realm = try! Realm()
     
     var selectedPlaylist: Playlist?
+    var filterList = Playlist.create()
     var playingPlaylist: Playlist? {
         didSet {
             if let playingPlaylist = playingPlaylist {
@@ -48,6 +49,20 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
             }
         }
     }
+    var playFilterList = false {
+        didSet {
+            if playFilterList {
+                playingPlaylist = filterList
+            }
+        }
+    }
+    
+    var isPlayingFilterList: Bool {
+        get {
+            return playingPlaylist == filterList
+        }
+    }
+    
     var currentSong: Song? = nil {
         didSet {
             if let currentSong = currentSong {
@@ -130,7 +145,12 @@ final class MXPlayerManager: NSObject, AVAudioPlayerDelegate {
         }
         
         if currentPlayList.isEmpty {
-            playingPlaylist = selectedPlaylist
+            if !filterList.songs.isEmpty {
+                playingPlaylist = filterList
+                playFilterList = true
+            } else {
+                playingPlaylist = selectedPlaylist
+            }
         }
         
         if currentSong == nil {
