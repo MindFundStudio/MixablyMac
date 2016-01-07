@@ -247,7 +247,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="426"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <visualEffectView wantsLayer="YES" appearanceType="vibrantDark" blendingMode="behindWindow" state="inactive" translatesAutoresizingMaskIntoConstraints="NO" id="bGs-cH-Tx5">
+                            <visualEffectView wantsLayer="YES" appearanceType="vibrantDark" blendingMode="withinWindow" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="bGs-cH-Tx5">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="426"/>
                                 <subviews>
                                     <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9o-EE-zyQ">
@@ -619,7 +619,7 @@
                                             <rect key="frame" x="224" y="17" width="15" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <tableHeaderView key="headerView" id="ovi-GI-QyX">
+                                        <tableHeaderView key="headerView" id="ovi-GI-QyX" customClass="MXTableHeaderView" customModule="MixablyMac" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="615" height="23"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableHeaderView>
