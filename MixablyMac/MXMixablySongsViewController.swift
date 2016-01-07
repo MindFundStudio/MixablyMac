@@ -51,6 +51,18 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "pausePlaying:", name: MXNotifications.PausePlaying.rawValue, object: nil)
     }
     
+    override func viewDidLayout() {
+        for (index, column) in tableView.tableColumns.enumerate() {
+            column.headerCell = MXCustomHeaderCell(textCell: column.headerCell.stringValue)
+            if index < 1 {
+                (column.headerCell as? MXCustomHeaderCell)?.showSlice = false
+            }
+            if index == 2 {
+                column.headerCell.alignment = .Center
+            }
+        }
+    }
+    
     // MARK: - Helpers
     
     func loadSongsOf(mood: Mood?) {
