@@ -12,6 +12,7 @@
 		3A25F4451C16C85F007ED23B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25F4441C16C85F007ED23B /* Constants.swift */; };
 		3A25F4481C16D868007ED23B /* Songs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A25F4461C16D868007ED23B /* Songs.storyboard */; };
 		3A37D8B11C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A37D8B01C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift */; };
+		3A37D8B31C3E312800EDA2CD /* MXVolumeSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A37D8B21C3E312800EDA2CD /* MXVolumeSliderCell.swift */; };
 		3AAF4D871C16AF3D0091C2B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF4D861C16AF3D0091C2B3 /* AppDelegate.swift */; };
 		3AAF4D891C16AF3D0091C2B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF4D881C16AF3D0091C2B3 /* ViewController.swift */; };
 		3AAF4D8B1C16AF3D0091C2B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AAF4D8A1C16AF3D0091C2B3 /* Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		3A25F4441C16C85F007ED23B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3A25F4471C16D868007ED23B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Songs.storyboard; sourceTree = "<group>"; };
 		3A37D8B01C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSongProgressSliderCell.swift; sourceTree = "<group>"; };
+		3A37D8B21C3E312800EDA2CD /* MXVolumeSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXVolumeSliderCell.swift; sourceTree = "<group>"; };
 		3AAF4D831C16AF3D0091C2B3 /* MixablyMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixablyMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAF4D861C16AF3D0091C2B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AAF4D881C16AF3D0091C2B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				3A37D8B01C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift */,
+				3A37D8B21C3E312800EDA2CD /* MXVolumeSliderCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				3ABAEB4F1C22B2B900BE8F97 /* MXScoreSongsOperation.swift in Sources */,
 				D1060FAF1C3CB96E0093F70F /* MXRealmMigrationManager.swift in Sources */,
 				7CB1B9B21C180E960056A942 /* EventMonitor.swift in Sources */,
+				3A37D8B31C3E312800EDA2CD /* MXVolumeSliderCell.swift in Sources */,
 				3AB2AF741C1F5132008F4371 /* MXAnalyseOperation.swift in Sources */,
 				D1159F871C1A942400E43147 /* MXSidebarMoodlistViewController.swift in Sources */,
 				3AAF4DB21C16B6B20091C2B3 /* MXMainViewController.swift in Sources */,

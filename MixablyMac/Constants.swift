@@ -48,3 +48,7 @@ let normalTextColor = NSColor.whiteColor()
 // MARK: - NSUserDefaults
 
 let MX_INITIAL_LAUNCH = "appInitLaunch"
+
+struct MXColor {
+    static let Blue = NSColor(calibratedRed: 19/255, green: 160/255, blue: 216/255, alpha: 1)
+}

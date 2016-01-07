@@ -720,7 +720,7 @@
                                                     </imageView>
                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6iU-nI-9oP">
                                                         <rect key="frame" x="13" y="-2" width="241" height="21"/>
-                                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="0.55482456140350878" tickMarkPosition="above" sliderType="linear" id="hb8-Fd-aox"/>
+                                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="0.55482456140350878" tickMarkPosition="above" sliderType="linear" id="hb8-Fd-aox" customClass="MXVolumeSliderCell" customModule="MixablyMac" customModuleProvider="target"/>
                                                         <connections>
                                                             <action selector="slideVolume:" target="28T-H6-w9b" id="tLu-iF-j49"/>
                                                         </connections>
