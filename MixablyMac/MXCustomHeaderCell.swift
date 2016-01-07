@@ -44,6 +44,10 @@ class MXCustomHeaderCell: NSTableHeaderCell {
         let titleRect = titleRectForBounds(cellFrame)
         let newTitleRect = NSRect(origin: CGPoint(x: titleRect.origin.x, y: 5.0), size: titleRect.size)
         attributedStringValue.drawInRect(newTitleRect)
+        
+        if let image = image {
+            image.drawInRect(imageRectForBounds(cellFrame))
+        }
     }
 
 }

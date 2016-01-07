@@ -60,6 +60,9 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
             if index == 2 {
                 column.headerCell.alignment = .Center
             }
+            if column.identifier == "selectSong" {
+                column.headerCell.image = NSImage(named: "checkSelect")
+            }
         }
     }
     
