@@ -444,12 +444,12 @@
                                                 </connections>
                                             </slider>
                                             <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ddp-83-9kZ" customClass="MXSlider" customModule="MixablyMac" customModuleProvider="target">
-                                                <rect key="frame" x="6" y="-3" width="54" height="56"/>
+                                                <rect key="frame" x="8" y="0.0" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="1j0-bt-Cwz"/>
                                                     <constraint firstAttribute="width" secondItem="ddp-83-9kZ" secondAttribute="height" multiplier="1:1" id="Y72-n3-ueB"/>
                                                 </constraints>
-                                                <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="1" allowsTickMarkValuesOnly="YES" sliderType="circular" id="W6G-ai-9co" customClass="MXCircularSliderCell" customModule="MixablyMac" customModuleProvider="target"/>
+                                                <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="1" numberOfTickMarks="7" sliderType="circular" id="W6G-ai-9co" customClass="MXCircularSliderCell" customModule="MixablyMac" customModuleProvider="target"/>
                                                 <connections>
                                                     <action selector="update:" target="jzG-xF-0py" id="ZBX-Sw-ApL"/>
                                                 </connections>
@@ -488,12 +488,12 @@
                                                 </connections>
                                             </slider>
                                             <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QVv-98-i6U" customClass="MXSlider" customModule="MixablyMac" customModuleProvider="target">
-                                                <rect key="frame" x="6" y="-3" width="54" height="56"/>
+                                                <rect key="frame" x="8" y="0.0" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="d65-3y-WaR"/>
                                                     <constraint firstAttribute="width" secondItem="QVv-98-i6U" secondAttribute="height" multiplier="1:1" id="uoI-fV-43S"/>
                                                 </constraints>
-                                                <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="1" allowsTickMarkValuesOnly="YES" sliderType="circular" id="B9e-PX-Qls" customClass="MXCircularSliderCell" customModule="MixablyMac" customModuleProvider="target"/>
+                                                <sliderCell key="cell" alignment="left" maxValue="100" numberOfTickMarks="7" sliderType="circular" id="B9e-PX-Qls" customClass="MXCircularSliderCell" customModule="MixablyMac" customModuleProvider="target"/>
                                                 <connections>
                                                     <action selector="update:" target="jzG-xF-0py" id="dPH-os-e6H"/>
                                                 </connections>
@@ -532,12 +532,12 @@
                                                 </connections>
                                             </slider>
                                             <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xgy-8p-ZeK" customClass="MXSlider" customModule="MixablyMac" customModuleProvider="target">
-                                                <rect key="frame" x="6" y="-3" width="54" height="56"/>
+                                                <rect key="frame" x="8" y="0.0" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="k2e-TH-Fyq"/>
                                                     <constraint firstAttribute="width" secondItem="Xgy-8p-ZeK" secondAttribute="height" multiplier="1:1" id="upD-Af-jxy"/>
                                                 </constraints>
-                                                <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="1" allowsTickMarkValuesOnly="YES" sliderType="circular" id="qOy-aT-Mup" customClass="MXCircularSliderCell" customModule="MixablyMac" customModuleProvider="target"/>
+                                                <sliderCell key="cell" alignment="left" maxValue="100" numberOfTickMarks="7" sliderType="circular" id="qOy-aT-Mup" customClass="MXCircularSliderCell" customModule="MixablyMac" customModuleProvider="target"/>
                                                 <connections>
                                                     <action selector="update:" target="jzG-xF-0py" id="ohj-5C-TyQ"/>
                                                 </connections>
