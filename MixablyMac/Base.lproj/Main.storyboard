@@ -873,7 +873,7 @@
                                     </textField>
                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sM5-2m-Lvs">
                                         <rect key="frame" x="0.0" y="-7" width="735" height="15"/>
-                                        <sliderCell key="cell" controlSize="mini" continuous="YES" state="on" alignment="left" maxValue="100" tickMarkPosition="above" sliderType="linear" id="lyr-dD-shN"/>
+                                        <sliderCell key="cell" controlSize="mini" continuous="YES" state="on" alignment="left" maxValue="100" tickMarkPosition="above" sliderType="linear" id="lyr-dD-shN" customClass="MXSongProgressSliderCell" customModule="MixablyMac" customModuleProvider="target"/>
                                         <connections>
                                             <action selector="scrollProgress:" target="28T-H6-w9b" id="Skq-90-Q58"/>
                                         </connections>

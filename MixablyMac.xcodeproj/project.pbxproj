@@ -11,6 +11,7 @@
 		3A220C831C16DA2A00985BC7 /* Mixably.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A220C821C16DA2A00985BC7 /* Mixably.storyboard */; };
 		3A25F4451C16C85F007ED23B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25F4441C16C85F007ED23B /* Constants.swift */; };
 		3A25F4481C16D868007ED23B /* Songs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A25F4461C16D868007ED23B /* Songs.storyboard */; };
+		3A37D8B11C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A37D8B01C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift */; };
 		3AAF4D871C16AF3D0091C2B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF4D861C16AF3D0091C2B3 /* AppDelegate.swift */; };
 		3AAF4D891C16AF3D0091C2B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF4D881C16AF3D0091C2B3 /* ViewController.swift */; };
 		3AAF4D8B1C16AF3D0091C2B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AAF4D8A1C16AF3D0091C2B3 /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		3A220C821C16DA2A00985BC7 /* Mixably.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mixably.storyboard; sourceTree = "<group>"; };
 		3A25F4441C16C85F007ED23B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3A25F4471C16D868007ED23B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Songs.storyboard; sourceTree = "<group>"; };
+		3A37D8B01C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSongProgressSliderCell.swift; sourceTree = "<group>"; };
 		3AAF4D831C16AF3D0091C2B3 /* MixablyMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixablyMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAF4D861C16AF3D0091C2B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AAF4D881C16AF3D0091C2B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +182,14 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		3A37D8AF1C3E1DCD00EDA2CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A37D8B01C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		3AAF4D7A1C16AF3D0091C2B3 = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +287,7 @@
 		3AAF4DBC1C16C22F0091C2B3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3A37D8AF1C3E1DCD00EDA2CD /* Views */,
 				3AAF4D8C1C16AF3D0091C2B3 /* Main.storyboard */,
 				3AAF4DB11C16B6B20091C2B3 /* MXMainViewController.swift */,
 				3AAF4DB41C16C0A60091C2B3 /* MXPlayerViewController.swift */,
@@ -604,6 +615,7 @@
 				D1159F8D1C1B354D00E43147 /* MXMixablySongsViewController.swift in Sources */,
 				7CB1B9BA1C191FD30056A942 /* MutableCollectionType+Extensions.swift in Sources */,
 				D113E0201C353361004F3C76 /* MXAnalyticsManager.swift in Sources */,
+				3A37D8B11C3E1E0900EDA2CD /* MXSongProgressSliderCell.swift in Sources */,
 				7CBCEAF41C1FF64E00F3EC5B /* DefaultsKeys+Extensions.swift in Sources */,
 				D1159F891C1ACEC500E43147 /* MXDataManager.swift in Sources */,
 				7C32A3391C214D5200B813E3 /* MXFileSystemWatcher.swift in Sources */,
