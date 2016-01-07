@@ -22,7 +22,7 @@ class ScoredSong: NSObject {
     dynamic var selected: Bool = false
     dynamic var highlighted: Bool = false
     dynamic var textColor:NSColor {
-        return highlighted ? highlightedTextColor : normalTextColor
+        return highlighted ? MXColor.Blue : NSColor.whiteColor()
     }
     
     init(id:String, persistentID:NSNumber, name:String, location:String, score:Double) {

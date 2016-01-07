@@ -58,7 +58,7 @@ final class Song: Object {
     dynamic var selected:Bool = false
     dynamic var highlighted:Bool = false
     dynamic var textColor:NSColor {
-        return highlighted ? highlightedTextColor : normalTextColor
+        return highlighted ? MXColor.Blue : NSColor.whiteColor()
     }
     
     convenience init(item: ITLibMediaItem) {
