@@ -44,6 +44,8 @@ final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewData
         
         outlineView.registerForDraggedTypes([NSPasteboardTypeString])
         
+        outlineView.selectionHighlightStyle = .Regular
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadAllMoods", name: MXNotifications.ReloadSidebarMood.rawValue, object: nil)
     }
     
@@ -157,6 +159,10 @@ final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewData
             NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.SelectMood.rawValue, object: self, userInfo: [MXNotificationUserInfo.Mood.rawValue: mood])
         }
 
+    }
+    
+    func outlineView(outlineView: NSOutlineView, rowViewForItem item: AnyObject) -> NSTableRowView? {
+        return MXTableRowView()
     }
     
     // MARK: - IBAction

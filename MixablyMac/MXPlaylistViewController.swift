@@ -10,7 +10,7 @@ import Cocoa
 import RealmSwift
 import ReactKit
 
-final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, MXMixablyPresentationController {
+final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, MXMixablyPresentationController {
     
     // ==================
     // MARK: - Properties
@@ -194,6 +194,14 @@ final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, N
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+}
+
+extension MXPlaylistViewController: NSTableViewDelegate {
+    
+    func tableView(tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+        return MXTableRowView()
     }
     
 }

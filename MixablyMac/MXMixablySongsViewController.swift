@@ -266,3 +266,11 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
     }
     
 }
+
+extension MXMixablySongsViewController: NSTableViewDelegate {
+    
+    func tableView(tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+        return MXTableRowView()
+    }
+    
+}
