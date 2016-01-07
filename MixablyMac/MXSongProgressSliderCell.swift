@@ -10,21 +10,22 @@ import Cocoa
 
 final class MXSongProgressSliderCell: NSSliderCell {
     
-    override func drawBarInside(var aRect: NSRect, flipped: Bool) {
+    override func drawBarInside(aRect: NSRect, flipped: Bool) {
         
-        aRect.size.height = 5
+        let height:CGFloat = 3
+        let rect = aRect.insetBy(dx: 0, dy: (aRect.height - height) / 2)
         
         // Final active part Width
         let knobRect = knobRectFlipped(false)
         let finalWidth = knobRect.origin.x + (knobRect.width - 2) / 2
         
         // Draw BG Part
-        let bg = NSBezierPath(rect: aRect)
+        let bg = NSBezierPath(rect: rect)
         NSColor(white: 0.1, alpha: 0.7).setFill()
         bg.fill()
         
         // Draw active Part
-        var activeRect = aRect
+        var activeRect = rect
         activeRect.size.width = finalWidth
         activeRect.origin.x = 0
         
