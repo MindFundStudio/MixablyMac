@@ -394,12 +394,20 @@
                                                 </connections>
                                             </textField>
                                             <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X4V-Lx-K3T">
-                                                <rect key="frame" x="22" y="55" width="21" height="122"/>
+                                                <rect key="frame" x="22" y="80" width="21" height="97"/>
                                                 <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="KZJ-6q-Fur" customClass="MXVerticalSliderCell" customModule="MixablyMac" customModuleProvider="target"/>
                                                 <connections>
                                                     <action selector="update:" target="jzG-xF-0py" id="v5d-Bv-GEH"/>
                                                 </connections>
                                             </slider>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="H48-Ly-Xwu">
+                                                <rect key="frame" x="10" y="58" width="46" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Tempo" id="Rwt-py-efK">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
                                             <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AcG-Qt-Gev" customClass="MXSlider" customModule="MixablyMac" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="0.0" width="50" height="50"/>
                                                 <constraints>
@@ -416,8 +424,10 @@
                                             <integer value="1000"/>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
+                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
@@ -438,12 +448,20 @@
                                                 </connections>
                                             </textField>
                                             <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TGZ-1j-qUz">
-                                                <rect key="frame" x="22" y="55" width="21" height="122"/>
+                                                <rect key="frame" x="22" y="80" width="21" height="97"/>
                                                 <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="zB7-gn-2A8" customClass="MXVerticalSliderCell" customModule="MixablyMac" customModuleProvider="target"/>
                                                 <connections>
                                                     <action selector="update:" target="jzG-xF-0py" id="VrU-0r-wMO"/>
                                                 </connections>
                                             </slider>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f3P-BW-SC3">
+                                                <rect key="frame" x="5" y="58" width="56" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Intensity" id="fWI-NA-3yl">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
                                             <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ddp-83-9kZ" customClass="MXSlider" customModule="MixablyMac" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="0.0" width="50" height="50"/>
                                                 <constraints>
@@ -460,8 +478,10 @@
                                             <integer value="1000"/>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
+                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
@@ -482,12 +502,20 @@
                                                 </connections>
                                             </textField>
                                             <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FOU-PZ-MqC">
-                                                <rect key="frame" x="22" y="55" width="21" height="122"/>
+                                                <rect key="frame" x="22" y="80" width="21" height="97"/>
                                                 <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="MS2-XI-NDg" customClass="MXVerticalSliderCell" customModule="MixablyMac" customModuleProvider="target"/>
                                                 <connections>
                                                     <action selector="update:" target="jzG-xF-0py" id="jph-h6-J1M"/>
                                                 </connections>
                                             </slider>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n4I-WD-n6i">
+                                                <rect key="frame" x="7" y="58" width="51" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Rhythm" id="x2I-U2-84X">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
                                             <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QVv-98-i6U" customClass="MXSlider" customModule="MixablyMac" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="0.0" width="50" height="50"/>
                                                 <constraints>
@@ -504,8 +532,10 @@
                                             <integer value="1000"/>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
+                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
@@ -526,12 +556,20 @@
                                                 </connections>
                                             </textField>
                                             <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="V3J-Ua-ghw">
-                                                <rect key="frame" x="22" y="55" width="21" height="122"/>
+                                                <rect key="frame" x="22" y="80" width="21" height="97"/>
                                                 <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="sob-Qc-d8j" customClass="MXVerticalSliderCell" customModule="MixablyMac" customModuleProvider="target"/>
                                                 <connections>
                                                     <action selector="update:" target="jzG-xF-0py" id="La7-V8-Hja"/>
                                                 </connections>
                                             </slider>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EBm-vW-Kk5">
+                                                <rect key="frame" x="16" y="58" width="33" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Bass" id="sqn-VR-2EA">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
                                             <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xgy-8p-ZeK" customClass="MXSlider" customModule="MixablyMac" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="0.0" width="50" height="50"/>
                                                 <constraints>
@@ -548,8 +586,10 @@
                                             <integer value="1000"/>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
+                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
