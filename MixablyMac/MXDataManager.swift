@@ -23,6 +23,7 @@ final class MXDataManager {
             realm.deleteAll()
         }
         
+        let internalMood = Mood.createInternal()
         let m1 = Mood()
         m1.name = "M1"
         let m2 = Mood()
@@ -34,6 +35,7 @@ final class MXDataManager {
         pl2.name = "P2"
         
         try! realm.write {
+            realm.add(internalMood)
             realm.add(m1)
             realm.add(m2)
             realm.add(pl1)

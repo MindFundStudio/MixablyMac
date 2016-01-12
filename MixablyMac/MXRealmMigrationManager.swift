@@ -14,10 +14,14 @@ class MXRealmMigrationManager {
     class func migrate(path: String?) {
         
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
-            schemaVersion: 1,
+            schemaVersion: 2,
             migrationBlock: { (migration, oldSchemaVersion) -> Void in
                 if (oldSchemaVersion < 1) {
                     // Add persistenceID
+                }
+                
+                if (oldSchemaVersion < 2) {
+                    // Add isInternal to Mood
                 }
         })
         

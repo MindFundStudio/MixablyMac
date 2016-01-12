@@ -52,7 +52,7 @@ final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewData
     // MARK: - Helpers
     
     func loadAllMoods() {
-        moods = realm.objects(Mood).map { (x) in return x }
+        moods = realm.objects(Mood).filter("isInternal == false").map { (x) in return x }
     }
     
     func isHeader(item: AnyObject) -> Bool {

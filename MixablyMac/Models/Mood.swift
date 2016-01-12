@@ -24,6 +24,7 @@ final class Mood: Object {
     dynamic var bassCoeff:Double = 1.0
     
     dynamic var isNew = false
+    dynamic var isInternal = false
     
     var songs = List<Song>()
     
@@ -31,6 +32,12 @@ final class Mood: Object {
         let mood = Mood()
         mood.name = ""
         mood.isNew = true
+        return mood
+    }
+    
+    class func createInternal() -> Mood {
+        let mood = Mood()
+        mood.isInternal = true
         return mood
     }
     

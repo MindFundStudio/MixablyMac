@@ -53,8 +53,9 @@ class MXMixablyMoodFilterViewController: NSViewController {
     override func viewDidLoad() {
         var mood = MXPlayerManager.sharedManager.selectedMood
         if mood == nil {
-            mood = Mood.create()
-            if let mood = mood {
+            mood = realm.objects(Mood).filter("isInternal == true").first
+            MXPlayerManager.sharedManager.selectedMood = mood
+            if let mood = mood where !mood.isInternal {
                 NSNotificationCenter.defaultCenter().postNotificationName(MXNotifications.SelectMood.rawValue, object: self, userInfo: [MXNotificationUserInfo.Mood.rawValue: mood])
             }
         }
