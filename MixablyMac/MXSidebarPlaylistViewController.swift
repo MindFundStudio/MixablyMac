@@ -227,6 +227,10 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
             let view = outlineView.makeViewWithIdentifier("HeaderCell", owner: self) as! NSTableCellView
             view.textField?.stringValue = item
             return view
+        case let item as Playlist where item.name == AllSongs:
+            let view = outlineView.makeViewWithIdentifier("LibraryCell", owner: self) as! NSTableCellView
+            view.textField?.stringValue = AllSongs
+            return view
         case let item as Playlist where !item.isNew:
             let view = outlineView.makeViewWithIdentifier("DataCell", owner: self) as! NSTableCellView
             view.textField?.stringValue = item.name
