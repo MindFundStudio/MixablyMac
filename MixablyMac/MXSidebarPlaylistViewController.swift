@@ -227,6 +227,10 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
             let view = outlineView.makeViewWithIdentifier("HeaderCell", owner: self) as! NSTableCellView
             view.textField?.stringValue = item
             return view
+        case let item as Playlist where item.name == AllSongs:
+            let view = outlineView.makeViewWithIdentifier("LibraryCell", owner: self) as! NSTableCellView
+            view.textField?.stringValue = AllSongs
+            return view
         case let item as Playlist where !item.isNew:
             let view = outlineView.makeViewWithIdentifier("DataCell", owner: self) as! NSTableCellView
             view.textField?.stringValue = item.name
@@ -250,9 +254,9 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
     
     func outlineView(outlineView: NSOutlineView, heightOfRowByItem item: AnyObject) -> CGFloat {
         if let item = item as? String where item == "Playlist" {
-            return 30
+            return 40
         }
-        return 17
+        return 27
     }
     
     func outlineViewSelectionDidChange(notification: NSNotification) {
