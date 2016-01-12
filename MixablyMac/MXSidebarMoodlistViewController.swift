@@ -146,6 +146,10 @@ final class MXSidebarMoodlistViewController: NSViewController, NSOutlineViewData
         return !isHeader(item)
     }
 
+    func outlineView(outlineView: NSOutlineView, heightOfRowByItem item: AnyObject) -> CGFloat {
+        return 27
+    }
+    
     func outlineViewSelectionDidChange(notification: NSNotification) {
         print("moodlist: \(outlineView.selectedRow)")
         let item = outlineView.itemAtRow(outlineView.selectedRow)

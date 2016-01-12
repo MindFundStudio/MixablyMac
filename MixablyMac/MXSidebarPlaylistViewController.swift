@@ -254,9 +254,9 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
     
     func outlineView(outlineView: NSOutlineView, heightOfRowByItem item: AnyObject) -> CGFloat {
         if let item = item as? String where item == "Playlist" {
-            return 30
+            return 40
         }
-        return 17
+        return 27
     }
     
     func outlineViewSelectionDidChange(notification: NSNotification) {
