@@ -34,6 +34,8 @@ final class MXVerticalSliderCell: NSSliderCell {
         bg.fill()
         
         //// Draw active Part
+        guard value > 0 else { return }
+        
         let active = NSBezierPath(roundedRect: activeRect, xRadius: radius, yRadius: radius)
         let dark = NSColor(calibratedRed: 71/255, green: 96/255, blue: 112/255, alpha: 1)
         let light = NSColor(calibratedRed: 190/255, green: 219/255, blue: 229/255, alpha: 1)
