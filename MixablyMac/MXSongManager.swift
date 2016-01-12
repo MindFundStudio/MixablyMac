@@ -80,8 +80,8 @@ final class MXSongManager {
             let library = try ITLibrary(APIVersion: "1.0")
             let location = library.musicFolderLocation
 
-            if let lastEventId = Defaults[.lastEventId] {
-                watcher = MXFileSystemWatcher(pathsToWatch: [location.path!], sinceWhen: FSEventStreamEventId(lastEventId))
+            if let lastEventId = Defaults["lastEventId"].number {
+                watcher = MXFileSystemWatcher(pathsToWatch: [location.path!], sinceWhen: FSEventStreamEventId(lastEventId.unsignedLongLongValue))
             } else {
                 watcher = MXFileSystemWatcher(pathsToWatch: [location.path!])
             }
@@ -164,7 +164,8 @@ final class MXSongManager {
                     }
                 }
 
-                Defaults[.lastEventId] = Int(eventId)
+                let numberOffset = NSNumber(unsignedLongLong: eventId)
+                Defaults["lastEventId"] = numberOffset
             }
             watcher?.start()
         } catch let error as NSError {

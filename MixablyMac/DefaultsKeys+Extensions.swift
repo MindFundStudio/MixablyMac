@@ -11,5 +11,5 @@ import SwiftyUserDefaults
 
 extension DefaultsKeys {
     static let appInitLaunch = DefaultsKey<Bool>("appInitLaunch")
-    static let lastEventId = DefaultsKey<Int?>("lastEventId")
+    static let lastEventId = DefaultsKey<NSNumber>("lastEventId")
 }
