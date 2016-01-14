@@ -13,11 +13,21 @@ import SwiftyUserDefaults
 final class MXDataManager {
     
     class func importSeedData() {
+        
+        // Add isInternal Mood
+        let realm = try! Realm()
+        if realm.objects(Mood).filter("isInternal = true").count > 0 {
+            return
+        } else {
+            let mood = Mood.createInternal()
+            try! realm.write {
+                realm.add(mood)
+            }
+        }
+        
         if Defaults[.appInitLaunch] {
             return
         }
-        
-        let realm = try! Realm()
         
         try! realm.write {
             realm.deleteAll()
