@@ -9,6 +9,12 @@
 import Cocoa
 import Foundation
 
+enum Mixably {
+    struct Constants {
+        static let supportFileTypes = ["mp3", "ogg", "wav", "aiff", "aac", "m4a"]
+    }
+}
+
 // MARK: - Notifications
 
 enum MXNotifications: String {

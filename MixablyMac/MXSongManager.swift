@@ -31,8 +31,15 @@ final class MXSongManager {
 
             let library = try ITLibrary(APIVersion: "1.0")
             let allItems = library.allMediaItems as! [ITLibMediaItem]
-            let songs = allItems.filter({ (item) -> Bool in
+            let stepSongs = allItems.filter({ (item) -> Bool in
                 return item.location != nil && item.mediaKind == UInt(ITLibMediaItemMediaKindSong) && item.locationType == UInt(ITLibMediaItemLocationTypeFile)
+            })
+            let songs = stepSongs.filter({ item -> Bool in
+                if let pathExtension = item.location?.pathExtension {
+                    return Mixably.Constants.supportFileTypes.contains(pathExtension)
+                } else {
+                    return false
+                }
             }).map({ (item) -> Song in
                 return Song(item: item)
             })
@@ -97,7 +104,7 @@ final class MXSongManager {
                         return
                     }
 
-                    guard ["mp3", "ogg", "wav", "aiff", "aac", "m4a"].contains(pathExtension) else {
+                    guard Mixably.Constants.supportFileTypes.contains(pathExtension) else {
                         // file is not song
                         return
                     }
