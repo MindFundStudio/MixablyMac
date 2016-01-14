@@ -16,9 +16,7 @@ final class MXDataManager {
         
         // Add isInternal Mood
         let realm = try! Realm()
-        if realm.objects(Mood).filter("isInternal = true").count > 0 {
-            return
-        } else {
+        if realm.objects(Mood).filter("isInternal = true").count == 0 {
             let mood = Mood.createInternal()
             try! realm.write {
                 realm.add(mood)
@@ -51,6 +49,10 @@ final class MXDataManager {
             realm.add(pl1)
             realm.add(pl2)
         }
+    }
+    
+    class func createDefaultMood() {
+        
     }
     
 }
