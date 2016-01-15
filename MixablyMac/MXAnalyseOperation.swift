@@ -111,9 +111,12 @@ final class MXAnalyseOperation: Operation {
                 let rhythmStrength = json[JSONKey.RhythmStrength.key].doubleValue
                 let rmsEnergy = json[JSONKey.RMSEnergy.key].doubleValue
                 let tempo = json[JSONKey.Tempo.key].doubleValue
-                
-                let binsJson = json[JSONKey.Bins.key].arrayValue
-                let bins = binsJson.map {bin in bin.doubleValue }
+                var bins: [Double] = []
+                if let binsJson = json[JSONKey.Bins.key].array {
+                    bins = binsJson.map {bin in bin.doubleValue }
+                } else {
+                    bins = [0,0,0]
+                }
                 
                 let features = MXFeatures(path: musicPath,
                     tonality: tonality,
