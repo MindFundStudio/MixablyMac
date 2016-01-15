@@ -113,7 +113,7 @@ final class MXAnalyseOperation: Operation {
                 let tempo = json[JSONKey.Tempo.key].doubleValue
                 var bins: [Double] = []
                 if let binsJson = json[JSONKey.Bins.key].array {
-                    bins = binsJson.map {bin in bin.doubleValue }
+                    bins = binsJson.map {bin in bin.double ?? 0 }
                 } else {
                     bins = [0,0,0]
                 }
