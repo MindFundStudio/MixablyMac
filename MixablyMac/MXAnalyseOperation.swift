@@ -90,7 +90,7 @@ final class MXAnalyseOperation: Operation {
             
             task.launchPath = execPath
             task.currentDirectoryPath = resourcePath
-            task.arguments = [path, "-s"]
+            task.arguments = [path, "-s", "-t", "/tmp"]
             task.standardOutput = pipe
             task.standardError = error
             task.launch()
