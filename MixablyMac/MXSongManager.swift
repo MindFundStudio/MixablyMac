@@ -36,10 +36,11 @@ final class MXSongManager {
             })
             let songs = stepSongs.filter({ item -> Bool in
                 if let pathExtension = item.location?.pathExtension {
-                    return Mixably.Constants.supportFileTypes.contains(pathExtension)
-                } else {
-                    return false
+                    if !item.drmProtected {
+                        return Mixably.Constants.supportFileTypes.contains(pathExtension)
+                    }
                 }
+                return false
             }).map({ (item) -> Song in
                 return Song(item: item)
             })
@@ -184,6 +185,8 @@ final class MXSongManager {
         var error: NSError?
         if url.checkResourceIsReachableAndReturnError(&error) {
             let song = Song(url: url)
+            guard !song.hasProtectedContent else { return }
+            
             print("add song: \(song)")
             do {
                 let realm = try Realm()

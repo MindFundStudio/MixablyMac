@@ -61,6 +61,8 @@ final class Song: Object {
         return highlighted ? MXColor.Blue : NSColor.whiteColor()
     }
     
+    dynamic var hasProtectedContent: Bool = false
+    
     convenience init(item: ITLibMediaItem) {
         self.init()
         self.persistentID = item.persistentID
@@ -83,7 +85,7 @@ final class Song: Object {
     }
     
     override static func ignoredProperties() -> [String] {
-        return ["playing", "pause", "selected", "highlighted", "textColor", "status"]
+        return ["playing", "pause", "selected", "highlighted", "textColor", "status", "hasProtectedContent"]
     }
     
     // =======================
@@ -132,6 +134,7 @@ final class Song: Object {
     
     func updateAttributesFromURL(url: NSURL) {
         let asset = AVURLAsset(URL: url)
+        hasProtectedContent = asset.hasProtectedContent
         for metaDataItem in asset.commonMetadata {
             if metaDataItem.commonKey == "title" {
                 self.name = metaDataItem.value as! String
