@@ -176,10 +176,10 @@ final class MXSidebarPlaylistViewController: NSViewController, NSOutlineViewDele
         var sourceItem: Playlist!
         var sourceIndex: Int!
         
-        if let identifier = identifier where identifier == "MXMixably", let pbString = pbString, let persistentID:Int = Int(pbString) {
+        if let identifier = identifier where identifier == "MXMixably", let location = pbString {
             if let playlist = item as? Playlist {
                 let realm = try! Realm()
-                let songs = realm.objects(Song).filter("persistentID = %@", persistentID)
+                let songs = realm.objects(Song).filter("location = %@", location)
                 try! realm.write {
                     playlist.songs.appendContentsOf(songs)
                 }

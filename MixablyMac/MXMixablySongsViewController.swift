@@ -184,7 +184,7 @@ final class MXMixablySongsViewController: NSViewController, NSTableViewDataSourc
     
     func tableView(tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
         let pbItem = NSPasteboardItem()
-        pbItem.setString(String(scoredSongs[row].persistentID), forType: NSPasteboardTypeString)
+        pbItem.setString(String(scoredSongs[row].location), forType: NSPasteboardTypeString)
         pbItem.setString("MXMixably", forType: NSPasteboardTypeRTF)
         
         return pbItem
