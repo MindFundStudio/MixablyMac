@@ -69,6 +69,15 @@ final class MXAnalyseOperation: Operation {
         self.fileURL = fileURL
         self.completion = completion
         self.task = NSTask()
+        
+        if !NSFileManager.defaultManager().fileExistsAtPath(Mixably.Constants.tmpFolder) {
+            do {
+                try NSFileManager.defaultManager().createDirectoryAtPath(Mixably.Constants.tmpFolder, withIntermediateDirectories: false, attributes: nil)
+            } catch {
+                print("Cannot create song processing folder")
+            }
+        }
+
     }
     
     // ===========================
@@ -88,9 +97,21 @@ final class MXAnalyseOperation: Operation {
             let pipe = NSPipe()
             let error = NSPipe()
             
+            let uuid = NSUUID().UUIDString
+            NSTemporaryDirectory()
+            let tmpPath = Mixably.Constants.tmpFolder + "/\(uuid)"
+            if !NSFileManager.defaultManager().fileExistsAtPath(tmpPath) {
+                do {
+                    try NSFileManager.defaultManager().createDirectoryAtPath(tmpPath, withIntermediateDirectories: false, attributes: nil)
+                } catch let error as NSError {
+                    completion?(nil, error)
+                    finishWithError(error)
+                }
+            }
+            
             task.launchPath = execPath
             task.currentDirectoryPath = resourcePath
-            task.arguments = [path, "-s", "-t", "/tmp"]
+            task.arguments = [path, "-s", "-t", tmpPath]
             task.standardOutput = pipe
             task.standardError = error
             task.launch()
@@ -126,8 +147,14 @@ final class MXAnalyseOperation: Operation {
                     tempo: tempo,
                     bins: bins)
                 
-                completion?(features, nil)
-                finish()
+                do {
+                    try NSFileManager.defaultManager().removeItemAtPath(tmpPath)
+                    completion?(features, nil)
+                    finish()
+                } catch let error as NSError {
+                    completion?(nil, error)
+                    finishWithError(error)
+                }
             }
             else {
                 let error = NSError(domain: "MXErrorDomain", code: 1, userInfo: ["location": self.fileURL])
