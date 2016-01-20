@@ -7,6 +7,7 @@
     vamp:step_size "32768"^^xsd:int ;
     vamp:block_size "32768"^^xsd:int ;
     vamp:plugin_version """4""" ;
+    vamp:sample_rate """44100""" ;
     vamp:parameter_binding [
         vamp:parameter [ vamp:identifier "length" ] ;
         vamp:value "400"^^xsd:float ;
