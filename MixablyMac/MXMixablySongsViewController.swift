@@ -10,7 +10,7 @@ import Cocoa
 import RealmSwift
 import PSOperations
 
-final class MXMixablySongsViewController: NSViewController, NSTableViewDataSource {
+final class MXMixablySongsViewController: NSViewController {
     
     let realm = try! Realm()
     let queue = OperationQueue()
@@ -271,6 +271,17 @@ extension MXMixablySongsViewController: NSTableViewDelegate {
     
     func tableView(tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
         return MXTableRowView()
+    }
+    
+}
+
+extension MXMixablySongsViewController: NSTableViewDataSource {
+    
+    func tableView(tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
+        let mutableSongs = NSMutableArray(array: scoredSongs)
+        mutableSongs.sortUsingDescriptors(tableView.sortDescriptors)
+        scoredSongs = mutableSongs as AnyObject as? [ScoredSong]
+        tableView.reloadData()
     }
     
 }

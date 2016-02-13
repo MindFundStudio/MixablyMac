@@ -10,7 +10,7 @@ import Cocoa
 import RealmSwift
 import ReactKit
 
-final class MXPlaylistViewController: NSViewController, NSTableViewDataSource, MXMixablyPresentationController {
+final class MXPlaylistViewController: NSViewController, MXMixablyPresentationController {
     
     // ==================
     // MARK: - Properties
@@ -202,6 +202,17 @@ extension MXPlaylistViewController: NSTableViewDelegate {
     
     func tableView(tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
         return MXTableRowView()
+    }
+    
+}
+
+extension MXPlaylistViewController: NSTableViewDataSource {
+    
+    func tableView(tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
+        let mutableSongs = NSMutableArray(array: songs)
+        mutableSongs.sortUsingDescriptors(tableView.sortDescriptors)
+        songs = mutableSongs as AnyObject as? [Song]
+        tableView.reloadData()
     }
     
 }
