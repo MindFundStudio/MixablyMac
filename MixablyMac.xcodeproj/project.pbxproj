@@ -60,6 +60,7 @@
 		D12D86BA1C3E638C000B5685 /* MXTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12D86B91C3E638B000B5685 /* MXTableRowView.swift */; };
 		D12D86BE1C3E6B94000B5685 /* MXTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12D86BD1C3E6B94000B5685 /* MXTableHeaderView.swift */; };
 		D14803301C27CE0100039DA6 /* MXMixablyMoodFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D148032F1C27CE0100039DA6 /* MXMixablyMoodFilterViewController.swift */; };
+		D1573EFE1C6F3F7700773B8E /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1573EFD1C6F3F7700773B8E /* String+Extensions.swift */; };
 		D169D1051C192692002F62D6 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169D1041C192692002F62D6 /* Playlist.swift */; };
 		D169D1071C1926A4002F62D6 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169D1061C1926A4002F62D6 /* Mood.swift */; };
 		D1A49F251C1ED67D002540A0 /* MXMixablyActionGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A49F241C1ED67D002540A0 /* MXMixablyActionGroupViewController.swift */; };
@@ -146,6 +147,7 @@
 		D12D86B91C3E638B000B5685 /* MXTableRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXTableRowView.swift; sourceTree = "<group>"; };
 		D12D86BD1C3E6B94000B5685 /* MXTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXTableHeaderView.swift; sourceTree = "<group>"; };
 		D148032F1C27CE0100039DA6 /* MXMixablyMoodFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXMixablyMoodFilterViewController.swift; sourceTree = "<group>"; };
+		D1573EFD1C6F3F7700773B8E /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		D169D1041C192692002F62D6 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Playlist.swift; path = Models/Playlist.swift; sourceTree = "<group>"; };
 		D169D1061C1926A4002F62D6 /* Mood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mood.swift; path = Models/Mood.swift; sourceTree = "<group>"; };
 		D1A49F241C1ED67D002540A0 /* MXMixablyActionGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXMixablyActionGroupViewController.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 				7CB1B9B71C191FC30056A942 /* CollectionType+Extensions.swift */,
 				7CB1B9B91C191FD30056A942 /* MutableCollectionType+Extensions.swift */,
 				3A737A3B1C3D08BE0005EC57 /* NSBezierPath+Extensions.swift */,
+				D1573EFD1C6F3F7700773B8E /* String+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				D1060FAF1C3CB96E0093F70F /* MXRealmMigrationManager.swift in Sources */,
 				7CB1B9B21C180E960056A942 /* EventMonitor.swift in Sources */,
 				3A37D8B31C3E312800EDA2CD /* MXVolumeSliderCell.swift in Sources */,
+				D1573EFE1C6F3F7700773B8E /* String+Extensions.swift in Sources */,
 				3AB2AF741C1F5132008F4371 /* MXAnalyseOperation.swift in Sources */,
 				D1159F871C1A942400E43147 /* MXSidebarMoodlistViewController.swift in Sources */,
 				3AAF4DB21C16B6B20091C2B3 /* MXMainViewController.swift in Sources */,

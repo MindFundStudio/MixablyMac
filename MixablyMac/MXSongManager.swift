@@ -190,7 +190,7 @@ final class MXSongManager {
             print("add song: \(song)")
             do {
                 let realm = try Realm()
-                let existingSong = realm.objects(Song).filter("location CONTAINS '\(url.path!)'")
+                let existingSong = realm.objects(Song).filter("location CONTAINS '\(url.path!.toEscapeString())'")
                 if existingSong.isEmpty {
                     try! realm.write {
                         realm.add(song)
@@ -257,7 +257,7 @@ final class MXSongManager {
     func updateSongAtURL(url: NSURL) {
         do {
             let realm = try Realm()
-            let existingSong = realm.objects(Song).filter("location CONTAINS '\(url.path!)'")
+            let existingSong = realm.objects(Song).filter("location CONTAINS '\(url.path!.toEscapeString())'")
             if !existingSong.isEmpty {
                 let song = existingSong[0]
                 try! realm.write {
@@ -274,7 +274,7 @@ final class MXSongManager {
     func removeSong(url: NSURL) {
         do {
             let realm = try Realm()
-            let song = realm.objects(Song).filter("location CONTAINS '\(url.path!)'")
+            let song = realm.objects(Song).filter("location CONTAINS '\(url.path!.toEscapeString())'")
             dispatch_async(dispatch_get_main_queue(), {[unowned self] in
                 try! realm.write {
                     realm.delete(song)
