@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
@@ -654,11 +654,11 @@
             <objects>
                 <viewController storyboardIdentifier="MXMainViewController" id="TDJ-zu-nui" customClass="MXMainViewController" customModule="MixablyMac" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="hkW-Pw-E8O">
-                        <rect key="frame" x="0.0" y="0.0" width="643" height="569"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="aZc-7W-bKC">
-                                <rect key="frame" x="0.0" y="0.0" width="643" height="569"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <connections>
                                     <segue destination="Uun-WO-hGG" kind="embed" id="vGi-cA-BXV"/>
                                 </connections>
@@ -674,7 +674,7 @@
                 </viewController>
                 <customObject id="26l-Rj-Ods" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="736.5" y="388.5"/>
+            <point key="canvasLocation" x="735" y="501"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="14h-dF-vKn">
@@ -695,7 +695,7 @@
                 </splitViewController>
                 <customObject id="70N-aW-L5n" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="736" y="1007"/>
+            <point key="canvasLocation" x="735" y="1240"/>
         </scene>
         <!--PlayerControl-->
         <scene sceneID="T0l-jR-VCq">
@@ -842,8 +842,8 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JtB-Ir-b3o" userLabel="MixiblyButton">
-                                        <rect key="frame" x="646" y="18" width="43" height="36"/>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JtB-Ir-b3o" userLabel="MixiblyButton">
+                                        <rect key="frame" x="646" y="17" width="43" height="36"/>
                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Mixably" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="QNc-u4-0jA">
                                             <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -924,7 +924,7 @@
                 </viewController>
                 <customObject id="uEa-1a-NYA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1623.5" y="856"/>
+            <point key="canvasLocation" x="1625.5" y="1106"/>
         </scene>
         <!--Songs-->
         <scene sceneID="mxE-9D-TvF">
@@ -932,7 +932,7 @@
                 <controllerPlaceholder storyboardName="Songs" id="a4V-2i-FBc" sceneMemberID="viewController"/>
                 <customObject id="g8b-IH-mVQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1623" y="1087"/>
+            <point key="canvasLocation" x="1605" y="1240"/>
         </scene>
     </scenes>
     <resources>
