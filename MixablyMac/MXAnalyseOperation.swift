@@ -90,6 +90,13 @@ final class MXAnalyseOperation: Operation {
             return
         }
         
+        if let ext = fileURL.pathExtension where !Mixably.Constants.supportFileTypes.contains(ext) {
+            let error = NSError(domain: "MXErrorDomain", code: 2, userInfo: ["location": self.fileURL])
+            completion?(nil, error)
+            finishWithError(error)
+            return
+        }
+        
         if let resourcePath = NSBundle.mainBundle().resourcePath, path = fileURL.path {
             
             let execPath = NSString(string: resourcePath).stringByAppendingPathComponent("blackbox")
