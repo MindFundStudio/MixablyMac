@@ -52,6 +52,13 @@ final class MXPlaylistViewController: NSViewController, MXMixablyPresentationCon
         
         tableView.doubleAction = Selector("doubleClick:")
         
+        // Register tableView menu
+        
+        tableView.allowsMultipleSelection = true
+        let menu = NSMenu(title: "Delete")
+        menu.addItem(NSMenuItem(title: "Delete", action: "deleteSongs:", keyEquivalent: ""))
+        tableView.menu = menu
+        
         // Register Notifications
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "toggleMixably:", name: MXNotifications.ToggleMixably.rawValue, object: nil)
@@ -190,6 +197,22 @@ final class MXPlaylistViewController: NSViewController, MXMixablyPresentationCon
             manager.currentSong = songs[tableView.selectedRow]
         }
         manager.play()
+    }
+    
+    // MARK: - MenuItem
+    
+    func deleteSongs(sender: AnyObject) {
+        let mutableSongs = NSMutableArray(array: songs)
+        let toBeDeletedSongs = mutableSongs.objectsAtIndexes(tableView.selectedRowIndexes)
+        mutableSongs.removeObjectsAtIndexes(tableView.selectedRowIndexes)
+        songs = mutableSongs as AnyObject as? [Song]
+        tableView.reloadData()
+        
+        if let songs = toBeDeletedSongs as? [Song] {
+            for song in songs {
+                song.delete()
+            }
+        }
     }
     
     deinit {

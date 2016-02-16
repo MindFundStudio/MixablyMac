@@ -144,4 +144,12 @@ final class Song: Object {
         self.duration = Double(CMTimeGetSeconds(asset.duration))
         self.location = url.path!
     }
+    
+    func delete() {
+        if let realm = realm {
+            try! realm.write {
+                realm.delete(self)
+            }
+        }
+    }
 }
